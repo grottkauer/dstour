@@ -12,6 +12,7 @@ import {CoreModule} from './core/core.module';
 import {AuthService} from './core/auth.service';
 import {AttractionsModule} from './attractions/attractions.module';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {DashboardComponent} from './core/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [

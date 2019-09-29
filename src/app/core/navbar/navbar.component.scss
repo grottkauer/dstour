@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+.logout-icon {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.user-login {
+  font-size: 15px;
+  padding-right: 30px;
+}
+
+.logo {
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 25px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 40px;
+  font-weight: bold;
+  color: ivory;
+}
+
+.tab {
+  padding: 0 15px;
+  margin: 0 5px;
+  //border-left: ivory solid 2px;
+  //border-right: ivory solid 2px;
+  cursor: pointer;
+  color: #fffff0;
+}
+
+.tab:hover {
+  color: #eeeee1;
+}

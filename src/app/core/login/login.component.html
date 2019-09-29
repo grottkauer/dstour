@@ -1,0 +1,37 @@
+<!--<app-navbar></app-navbar>-->
+<div class="row justify-content-center login-container">
+  <button routerLink="/" mat-fab color="accent" id="go-home-btn"><mat-icon>home</mat-icon></button>
+  <div class="col-sm-4 shadow login-content">
+    <h3>Zaloguj się lub zarejestruj</h3>
+    <mat-form-field class="d-block">
+      <input matInput placeholder="Email" [(ngModel)]="credentials.email" required>
+      <mat-error>Email jest wymagany</mat-error>
+    </mat-form-field>
+    <mat-form-field class="d-block">
+<!--      <input matInput placeholder="Hasło" [(ngModel)]="credentials.password" required>-->
+      <input matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error>Hasło jest wymagane</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="btn-login" (click)="login()">ZALOGUJ</button>
+    <p>Nie masz konta?</p>
+    <button routerLink="/registration" mat-raised-button class="btn-register" (click)="register()">ZAREJESTRUJ</button>
+  </div>
+</div>
+
+<div class="row justify-content-center login-container mb-3">
+  <div class="col-sm-4 shadow login-content">
+    <h3>Chcesz otrzymać konto Przewodnika?</h3>
+    <p>Napisz do nas!</p>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-icon>contact_mail</mat-icon>
+      </div>
+      <div class="col-sm-6">
+        <a class="d-block" href="mailto:contact@yourwebsite.com">office@dstour.pl</a>
+      </div>
+    </div>
+  </div>
+</div>

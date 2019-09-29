@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Kreator dodawania atrakcji turystycznej</h2>
+<mat-dialog-content>
+  <app-attraction-form #attractionForm></app-attraction-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button mat-dialog-close>Anuluj</button>
+      <button mat-raised-button color="primary" [disabled]="attractionForm.form.invalid" (click)="createFlight()">Utwórz</button>
+    </div>
+  </div>
+</mat-dialog-actions>

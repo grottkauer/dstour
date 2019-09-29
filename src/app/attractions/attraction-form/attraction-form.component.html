@@ -1,0 +1,93 @@
+<form [formGroup]="form" class="attractions-container">
+  <div class="row w-100">
+    <div class="col-sm-8">
+      <mat-form-field>
+        <input matInput formControlName="name" placeholder="Nazwa">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="coordinateX" placeholder="Współrzędna X">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="coordinateY" placeholder="Współrzedna Y">
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-form-field>
+    <textarea matInput formControlName="shortInformation" placeholder="Krótki opis"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput formControlName="longInformation" placeholder="Długi opis"></textarea>
+  </mat-form-field>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="email" placeholder="Email">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="webpage" placeholder="Strona WWW">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="owner" placeholder="Właściciel">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="additionalInformation" placeholder="Dodatkowe info">
+      </mat-form-field>
+    </div>
+  </div>
+  <div formArrayName="type" class="crew-container shadow" *ngFor="let typeMember of type.controls;index as index">
+    <div class="row crew-header">
+      <div class="col">
+        <span>Rodzaj atrakcji - {{ index + 1 }}</span>
+        <mat-icon class="float-right" (click)="removeType(index)">delete_forever</mat-icon>
+      </div>
+    </div>
+    <div class="row" [formGroupName]="index">
+      <div class="col-sm-4">
+        <mat-form-field>
+          <mat-select formControlName="typeName" placeholder="Rodzaj atrakcji">
+            <mat-option *ngFor="let name of types" [value]="name.value">{{ name.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button color="primary" (click)="addType()">Dodaj rodzaj atrakcji</button>
+    </div>
+  </div>
+  <div formArrayName="phone" class="crew-container shadow" *ngFor="let phoneMember of phone.controls;index as index">
+    <div class="row crew-header">
+      <div class="col">
+        <span>Telefon - {{ index + 1 }}</span>
+        <mat-icon class="float-right" (click)="removePhone(index)">delete_forever</mat-icon>
+      </div>
+    </div>
+    <div class="row" [formGroupName]="index">
+      <div class="col-sm-5">
+        <mat-form-field>
+          <input matInput formControlName="number" placeholder="Numer telefonu">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button color="primary" (click)="addPhone()">Dodaj numer telefonu</button>
+    </div>
+  </div>
+</form>

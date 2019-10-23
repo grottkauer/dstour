@@ -7,11 +7,12 @@ import {NewAttractionComponent} from './new-attraction/new-attraction.component'
 import { AttractionFormComponent } from './attraction-form/attraction-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from '../core/core.module';
+import { AttractionDetailComponent } from './attraction-detail/attraction-detail.component';
 
 
 
 @NgModule({
-  declarations: [AttractionsComponent, AttractionCardComponent, NewAttractionComponent, AttractionFormComponent],
+  declarations: [AttractionsComponent, AttractionCardComponent, NewAttractionComponent, AttractionFormComponent, AttractionDetailComponent],
   imports: [
     CommonModule,
     MaterialModule,

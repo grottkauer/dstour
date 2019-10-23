@@ -6,6 +6,7 @@ import {PageNotFoundComponent} from './core/page-not-found/page-not-found.compon
 import {AttractionsComponent} from './attractions/attractions.component';
 import {ContactComponent} from './core/contact/contact.component';
 import {MainComponent} from './core/main/main.component';
+import {AttractionDetailComponent} from './attractions/attraction-detail/attraction-detail.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', redirectTo: 'attractions', pathMatch: 'full' },
-      { path: 'attractions', component: AttractionsComponent }
+      { path: 'attractions', component: AttractionsComponent },
+      { path: 'attractions/:key', component: AttractionDetailComponent}
     ]
   },
   { path: '**', component: PageNotFoundComponent },

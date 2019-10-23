@@ -1,51 +1,178 @@
-<h2 class="text-center">Poznaj nasze atrakcje</h2>
-
+<div class="container-fluid">
+  <div class="row">
+<!-- Sidebar -->
+    <app-sidebar-attr (test)="getAttrType($event)"></app-sidebar-attr>
+<!---->
+    <div class="col-md-10 offset-md-2">
+      <div class="container">
 <!-- Categories -->
-<div class="attractions-container shadow">
-  <div class="category-header shadow mb-5">
-    <h3 class="pl-3">Zamki i pałace</h3>
-  </div>
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
-      <app-attraction-card [attraction]="attraction"></app-attraction-card>
+        <h2 class="text-center">Poznaj nasze atrakcje</h2>
+        <div class="row">
+
+          <div *ngIf="showAttrType==0" id="castles" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Zamki i pałace</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==1" id="events" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Wydarzenia</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==2" id="historical" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Miejsca historyczne</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==3" id="sacral" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Budynki sakralne</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==4" id="natural" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Przyrodnicze</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==5" id="technical" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Obiekty techniki</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==6" id="court" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Dwory i dworki</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="showAttrType==7" id="other" class="col-md-12">
+
+            <div class="attractions-container shadow">
+              <div class="category-header shadow mb-5">
+                <h3 class="pl-3">Pozostałe</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="show-more mr-3">
+                  Poznaj więcej...
+                </span>
+              </div>
+            </div>
+
+          </div>
+<!---->
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="text-right">
-    <span class="show-more mr-3">
-      Poznaj więcej...
-    </span>
   </div>
 </div>
 
-<div class="attractions-container shadow">
-  <div class="category-header shadow mb-5">
-    <h3 class="pl-3">Zamki i pałace</h3>
-  </div>
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
-      <app-attraction-card [attraction]="attraction"></app-attraction-card>
-    </div>
-  </div>
-  <div class="text-right">
-    <span class="show-more mr-3">
-      Poznaj więcej...
-    </span>
-  </div>
-</div>
-
-<div class="attractions-container shadow">
-  <div class="category-header shadow mb-5">
-    <h3 class="pl-3">Zamki i pałace</h3>
-  </div>
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
-      <app-attraction-card [attraction]="attraction"></app-attraction-card>
-    </div>
-  </div>
-  <div class="text-right">
-    <span class="show-more mr-3">
-      Poznaj więcej...
-    </span>
-  </div>
-</div>
 <button (click)="openNewAttractionModal()" mat-fab color="accent" id="new-attraction-btn">+</button>

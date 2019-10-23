@@ -10,17 +10,18 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import {FormsModule} from '@angular/forms';
+import { SidebarAttrComponent } from './sidebar-attr/sidebar-attr.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, LoginComponent, PageNotFoundComponent, ContactComponent, MainComponent, NavbarComponent, FooterComponent],
+  declarations: [DashboardComponent, LoginComponent, PageNotFoundComponent, ContactComponent, MainComponent, NavbarComponent, FooterComponent, SidebarAttrComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
     FormsModule
   ],
-  exports: [DashboardComponent, LoginComponent, NavbarComponent, FooterComponent]
+  exports: [DashboardComponent, LoginComponent, NavbarComponent, FooterComponent, SidebarAttrComponent]
 })
 export class CoreModule { }

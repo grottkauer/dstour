@@ -6,6 +6,7 @@ import { AttractionCardComponent } from './attraction-card/attraction-card.compo
 import {NewAttractionComponent} from './new-attraction/new-attraction.component';
 import { AttractionFormComponent } from './attraction-form/attraction-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CoreModule} from '../core/core.module';
 
 
 
@@ -14,7 +15,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   entryComponents: [NewAttractionComponent],
   exports: [AttractionsComponent]

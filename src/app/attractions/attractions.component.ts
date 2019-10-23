@@ -13,6 +13,7 @@ import {NewAttractionComponent} from './new-attraction/new-attraction.component'
 export class AttractionsComponent {
 
   attractions$: Observable<Attraction[]> = this.attractionsService.getAttractions();
+  showAttrType = 0;
 
   constructor(
     private dialog: MatDialog,
@@ -20,6 +21,10 @@ export class AttractionsComponent {
 
   openNewAttractionModal() {
     this.dialog.open(NewAttractionComponent);
+  }
+
+  getAttrType(row) {
+    this.showAttrType = row;
   }
 
   // showDetails(flight) {

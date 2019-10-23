@@ -1,0 +1,54 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==0}" (click)="showType(0)">
+          <span data-feather="home"></span>
+          Zamki i pałace <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==1}" (click)="showType(1)">
+          <span data-feather="file"></span>
+          Wydarzenia
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==2}" (click)="showType(2)">
+          <span data-feather="shopping-cart"></span>
+          Miejsca historyczne
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==3}" (click)="showType(3)">
+          <span data-feather="users"></span>
+          Budynki sakralne
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==4}" (click)="showType(4)">
+          <span data-feather="bar-chart-2"></span>
+          Przyrodnicze
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==5}" (click)="showType(5)">
+          <span data-feather="layers"></span>
+          Obiekty techniki
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==6}" (click)="showType(6)">
+          <span data-feather="layers"></span>
+          Dwory i dworki
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{active: showAttrType==7}" (click)="showType(7)">
+          <span data-feather="layers"></span>
+          Pozostałe
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

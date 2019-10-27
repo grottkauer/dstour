@@ -5,11 +5,18 @@ import {MaterialModule} from '../material/material.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from '../core/core.module';
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
+import { ProfileDataComponent } from './profile-data/profile-data.component';
+import { ProfileChangePasswordComponent } from './profile-change-password/profile-change-password.component';
+import { ProfileBecomeGuideComponent } from './profile-become-guide/profile-become-guide.component';
+import { ProfileFavoritesComponent } from './profile-favorites/profile-favorites.component';
+import { ProfileRatedAttrComponent } from './profile-rated-attr/profile-rated-attr.component';
+import { ProfileCheckedAttrComponent } from './profile-checked-attr/profile-checked-attr.component';
+import { ProfileStatsComponent } from './profile-stats/profile-stats.component';
 
 
 
 @NgModule({
-  declarations: [ProfileComponent, ProfileDashboardComponent],
+  declarations: [ProfileComponent, ProfileDashboardComponent, ProfileDataComponent, ProfileChangePasswordComponent, ProfileBecomeGuideComponent, ProfileFavoritesComponent, ProfileRatedAttrComponent, ProfileCheckedAttrComponent, ProfileStatsComponent],
   imports: [
     CommonModule,
     MaterialModule,

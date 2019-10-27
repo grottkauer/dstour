@@ -1,1 +1,37 @@
-<p>profile-become-guide works!</p>
+<div class="card-header text-center">
+  <h1 class="text-uppercase">Zostań Przewodnikiem!</h1>
+  <h4 class="section-subheading text-muted">Chcesz zostać przewodnikiem? Napisz do nas maila lub wykorzystaj jedną z opcji poniżej.</h4>
+</div>
+<form [formGroup]="myForm">
+  <div class="text-center">
+
+  </div>
+  <div class="row text-center">
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Imię" formControlName="firstName">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Nazwisko" formControlName="lastName">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="text-center">
+    <mat-form-field>
+      <input matInput placeholder="Adres email*" formControlName="email">
+      <mat-error *ngIf="myForm.get('email').hasError('required')">Adres email jest wymagany</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="text-center">
+    <mat-form-field>
+      <textarea matInput placeholder="Powód zostania przewodnikiem" formControlName="reason"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="row text-center mt-3 mb-3">
+    <div class="col">
+      <button mat-raised-button color="primary">Potwierdź</button>
+    </div>
+  </div>
+</form>

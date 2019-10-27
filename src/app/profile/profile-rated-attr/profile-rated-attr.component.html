@@ -1,1 +1,37 @@
-<p>profile-rated-attr works!</p>
+<div class="card-header text-center">
+  <h1 class="text-uppercase">Twoje ocenione atrakcje</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-hero w-75">
+      <input class="form-control w-75" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Wyszukaj atrakcję po nazwie">
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Nazwa atrakcji</th>
+        <th>Ocena</th>
+        <th>Data oceny</th>
+        <th>Akcja</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes | filter:searchText">
+        <td>{{hero.name}}</td>
+        <td>{{hero.country}}</td>
+        <td>{{hero.id}}</td>
+        <td>
+          <button mat-button>
+            <mat-icon>delete</mat-icon>
+            Usuń ocenę
+          </button><br>
+          <button mat-button>
+            <mat-icon>edit</mat-icon>
+            Zmień ocenę
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

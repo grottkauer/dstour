@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileDataComponent implements OnInit {
 
+  isEditable = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeEditable() {
+    this.isEditable = (this.isEditable === 0) ? 1 : 0;
   }
 
 }

@@ -15,6 +15,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
 import {DashboardComponent} from './core/dashboard/dashboard.component';
 import {ProfileModule} from './profile/profile.module';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {ProfileModule} from './profile/profile.module';
     AngularFireAuthModule,
     AttractionsModule,
     ChartModule,
-    ProfileModule
+    ProfileModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

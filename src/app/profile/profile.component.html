@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <app-sidebar-profile (test)="getAttrType($event)"></app-sidebar-profile>
+    <!---->
+    <div class="col-md-10 offset-md-2">
+      <div class="container">
+        <!-- Categories -->
+        <div class="row">
+
+          <div *ngIf="showAttrType==0" id="castles">
+            <app-profile-dashboard></app-profile-dashboard>
+          </div>
+
+          <div *ngIf="showAttrType==1" id="events" class="col-md-12">
+
+
+
+          </div>
+
+          <div *ngIf="showAttrType==2" id="historical" class="col-md-12">
+
+
+
+          </div>
+
+          <div *ngIf="showAttrType==3" id="sacral" class="col-md-12">
+
+
+
+          </div>
+
+          <div *ngIf="showAttrType==4" id="natural" class="col-md-12">
+
+
+
+          </div>
+
+          <div *ngIf="showAttrType==5" id="technical" class="col-md-12">
+
+
+
+          </div>
+
+          <div *ngIf="showAttrType==6" id="court" class="col-md-12">
+
+
+
+          </div>
+
+          <div *ngIf="showAttrType==7" id="other" class="col-md-12">
+
+
+
+          </div>
+          <div *ngIf="showAttrType==8" id="trips" class="col-md-12">
+
+
+
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

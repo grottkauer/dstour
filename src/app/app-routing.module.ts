@@ -7,6 +7,7 @@ import {AttractionsComponent} from './attractions/attractions.component';
 import {ContactComponent} from './core/contact/contact.component';
 import {MainComponent} from './core/main/main.component';
 import {AttractionDetailComponent} from './attractions/attraction-detail/attraction-detail.component';
+import {ProfileComponent} from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'attractions', pathMatch: 'full' },
       { path: 'attractions', component: AttractionsComponent },
-      { path: 'attractions/:key', component: AttractionDetailComponent}
+      { path: 'attractions/:key', component: AttractionDetailComponent},
+      { path: 'profile', component: ProfileComponent}
     ]
   },
   { path: '**', component: PageNotFoundComponent },

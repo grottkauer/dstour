@@ -1,0 +1,69 @@
+<nav class="col-lg-1 col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==0}" (click)="showType(0)">
+          <span data-feather="home"></span>
+          <mat-icon>dashboard</mat-icon><br>
+          <p class="undertext">Główna <span class="sr-only">(current)</span></p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==1}" (click)="showType(1)">
+          <span data-feather="home"></span>
+          <mat-icon>person</mat-icon><br>
+          <p class="undertext">Dane osobowe</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==2}" (click)="showType(2)">
+          <span data-feather="file"></span>
+          <mat-icon>edit</mat-icon><br>
+          <p class="undertext">Zmień hasło</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==3}" (click)="showType(3)">
+          <span data-feather="shopping-cart"></span>
+          <mat-icon>person_add</mat-icon><br>
+          <p class="undertext">Zostań Przewodnikiem</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==4}" (click)="showType(4)">
+          <span data-feather="users"></span>
+          <mat-icon>favorite</mat-icon><br>
+          <p class="undertext">Ulubione</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==5}" (click)="showType(5)">
+          <span data-feather="bar-chart-2"></span>
+          <mat-icon>star</mat-icon><br>
+          <p class="undertext">Ocenione atrakcje</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==6}" (click)="showType(6)">
+          <span data-feather="layers"></span>
+          <mat-icon>check</mat-icon><br>
+          <p class="undertext">Zaliczone atrakcje</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==7}" (click)="showType(7)">
+          <span data-feather="layers"></span>
+          <mat-icon>bar_chart</mat-icon><br>
+          <p class="undertext">Moje statystyki</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==8}" (click)="showType(8)">
+          <span data-feather="layers"></span>
+          <mat-icon>landscape</mat-icon><br>
+          <p class="undertext">Moje wycieczki</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -14,6 +14,7 @@ import {AttractionsModule} from './attractions/attractions.module';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
 import {DashboardComponent} from './core/dashboard/dashboard.component';
+import {ProfileModule} from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {DashboardComponent} from './core/dashboard/dashboard.component';
     MaterialModule,
     AngularFireAuthModule,
     AttractionsModule,
-    ChartModule
+    ChartModule,
+    ProfileModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

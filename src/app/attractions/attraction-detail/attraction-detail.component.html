@@ -1,7 +1,7 @@
 <!--================Single Product Area =================-->
 <div class="product_image_area">
   <div class="container">
-    <div class="row s_product_inner">
+    <div class="row s_product_inner text-center">
 <!--      Slider -->
       <div class="col-lg-6">
         <div id="demo" class="carousel slide" data-ride="carousel">
@@ -43,40 +43,42 @@
       </div>
       <div class="col-lg-5 offset-lg-1">
         <div class="s_product_text">
-          <h3>{{attraction.name}}</h3>
-          <h2>$149.99</h2>
-          <ul class="list">
-            <li>
-              <a class="active" href="#">
-                <span>Category</span> : Household</a>
-            </li>
-            <li>
-              <a href="#">
-                <span>Availibility</span> : In Stock</a>
-            </li>
-          </ul>
+          <h2 class="text-center">Zamek Czocha{{attraction.name}}</h2>
+          <div class="row text-center">
+            <div class="col-md-6">
+              <h3>Zamki i pałace</h3>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary">
+                Śr. ocena <span class="badge badge-light">4/5</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="container row align-items-center">
+            <div class="col-md-9">
+              <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 star">5</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 star">4</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 star">3</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 star">2</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">1</label>
+              </div>
+            </div>
+            <div class="col-md-3 text-center">
+              <button mat-raised-button class="btn-rating">OCEŃ</button>
+            </div>
+          </div>
+
           <p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that
             can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.</p>
-          <div class="product_count">
-            <label for="qty">Quantity:</label>
-            <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                    class="increase items-count" type="button">
-              <i class="lnr lnr-chevron-up"></i>
-            </button>
-            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                    class="reduced items-count" type="button">
-              <i class="lnr lnr-chevron-down"></i>
-            </button>
-          </div>
-          <div class="card_area">
-            <a class="main_btn" href="#">Add to Cart</a>
-            <a class="icon_btn" href="#">
-              <i class="lnr lnr lnr-diamond"></i>
-            </a>
-            <a class="icon_btn" href="#">
-              <i class="lnr lnr lnr-heart"></i>
-            </a>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 margin-responsive">
+              <button mat-raised-button class="btn-rating w-100">Dodaj do ulubionych</button>
+            </div>
+            <div class="col-md-6">
+              <button mat-raised-button class="btn-rating w-100">Zalicz Atrakcję</button>
+            </div>
           </div>
         </div>
       </div>
@@ -86,24 +88,24 @@
 <!--================End Single Product Area =================-->
 
 <!--================Product Description Area =================-->
-<section class="product_description_area">
+<section class="product_description_area mt-2 mb-2">
   <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
+        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Opis szczegółowy</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Specification</a>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Dane dodatkowe</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comments</a>
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Statystyki zwiedzania</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews</a>
+        <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Mapa</a>
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="tab-content p-2" id="myTabContent">
+      <div class="tab-pane fade text-justify" id="home" role="tabpanel" aria-labelledby="home-tab">
         <p>Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of all shapes and sizes
           enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick School in Reading at the
           age of 15, where she went to secretarial school and then into an insurance office. After moving to London and then
@@ -125,7 +127,7 @@
             <tbody>
             <tr>
               <td>
-                <h5>Width</h5>
+                <h5>Lokalizacja</h5>
               </td>
               <td>
                 <h5>128mm</h5>
@@ -133,7 +135,7 @@
             </tr>
             <tr>
               <td>
-                <h5>Height</h5>
+                <h5>Email</h5>
               </td>
               <td>
                 <h5>508mm</h5>
@@ -141,7 +143,7 @@
             </tr>
             <tr>
               <td>
-                <h5>Depth</h5>
+                <h5>Strona</h5>
               </td>
               <td>
                 <h5>85mm</h5>
@@ -149,7 +151,7 @@
             </tr>
             <tr>
               <td>
-                <h5>Weight</h5>
+                <h5>Właściciel</h5>
               </td>
               <td>
                 <h5>52gm</h5>
@@ -157,34 +159,10 @@
             </tr>
             <tr>
               <td>
-                <h5>Quality checking</h5>
+                <h5>Telefon</h5>
               </td>
               <td>
                 <h5>yes</h5>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Freshness Duration</h5>
-              </td>
-              <td>
-                <h5>03days</h5>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>When packeting</h5>
-              </td>
-              <td>
-                <h5>Without touch of hand</h5>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Each Box contains</h5>
-              </td>
-              <td>
-                <h5>60pcs</h5>
               </td>
             </tr>
             </tbody>
@@ -192,207 +170,99 @@
         </div>
       </div>
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div class="row">
+        <div class="row text-center">
+          <!-- ranking -->
           <div class="col-lg-6">
-            <div class="comment_list">
-              <div class="review_item">
-                <div class="media">
-                  <div class="d-flex">
-                    <img src="img/product/single-product/review-1.png" alt="">
-                  </div>
-                  <div class="media-body">
-                    <h4>Blake Ruiz</h4>
-                    <h5>12th Feb, 2017 at 05:56 pm</h5>
-                    <a class="reply_btn" href="#">Reply</a>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              </div>
-              <div class="review_item reply">
-                <div class="media">
-                  <div class="d-flex">
-                    <img src="img/product/single-product/review-2.png" alt="">
-                  </div>
-                  <div class="media-body">
-                    <h4>Blake Ruiz</h4>
-                    <h5>12th Feb, 2017 at 05:56 pm</h5>
-                    <a class="reply_btn" href="#">Reply</a>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              </div>
-              <div class="review_item">
-                <div class="media">
-                  <div class="d-flex">
-                    <img src="img/product/single-product/review-3.png" alt="">
-                  </div>
-                  <div class="media-body">
-                    <h4>Blake Ruiz</h4>
-                    <h5>12th Feb, 2017 at 05:56 pm</h5>
-                    <a class="reply_btn" href="#">Reply</a>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              </div>
+            <h4>Ranking podróżników: </h4>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                <tr>
+                  <td>
+                    <h5>1.</h5>
+                  </td>
+                  <td>
+                    <h5>Jan Kowalski</h5>
+                  </td>
+                  <td>
+                    <h5>99%</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>2.</h5>
+                  </td>
+                  <td>
+                    <h5>Jan Kowalski</h5>
+                  </td>
+                  <td>
+                    <h5>99%</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>3.</h5>
+                  </td>
+                  <td>
+                    <h5>Jan Kowalski</h5>
+                  </td>
+                  <td>
+                    <h5>99%</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>4.</h5>
+                  </td>
+                  <td>
+                    <h5>Jan Kowalski</h5>
+                  </td>
+                  <td>
+                    <h5>99%</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>5.</h5>
+                  </td>
+                  <td>
+                    <h5>Jan Kowalski</h5>
+                  </td>
+                  <td>
+                    <h5>99%</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="font-weight-bold">11.</h5>
+                  </td>
+                  <td>
+                    <h5 class="font-weight-bold">Jan Kowalski</h5>
+                  </td>
+                  <td>
+                    <h5 class="font-weight-bold">99%</h5>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+          <!-- staty -->
           <div class="col-lg-6">
-            <div class="review_box">
-              <h4>Post a comment</h4>
-            </div>
+            <h4>Zdobycze punktowe na diagramie:</h4>
+            <canvas id="barChart"></canvas>
           </div>
         </div>
+
       </div>
       <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="row total_rate">
-              <div class="col-6">
-                <div class="box_total">
-                  <h5>Overall</h5>
-                  <h4>4.0</h4>
-                  <h6>(03 Reviews)</h6>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="rating_list">
-                  <h3>Based on 3 Reviews</h3>
-                  <ul class="list">
-                    <li>
-                      <a href="#">5 Star
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> 01</a>
-                    </li>
-                    <li>
-                      <a href="#">4 Star
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> 01</a>
-                    </li>
-                    <li>
-                      <a href="#">3 Star
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> 01</a>
-                    </li>
-                    <li>
-                      <a href="#">2 Star
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> 01</a>
-                    </li>
-                    <li>
-                      <a href="#">1 Star
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> 01</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="review_list">
-              <div class="review_item">
-                <div class="media">
-                  <div class="d-flex">
-                    <img src="img/product/single-product/review-1.png" alt="">
-                  </div>
-                  <div class="media-body">
-                    <h4>Blake Ruiz</h4>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              </div>
-              <div class="review_item">
-                <div class="media">
-                  <div class="d-flex">
-                    <img src="img/product/single-product/review-2.png" alt="">
-                  </div>
-                  <div class="media-body">
-                    <h4>Blake Ruiz</h4>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              </div>
-              <div class="review_item">
-                <div class="media">
-                  <div class="d-flex">
-                    <img src="img/product/single-product/review-3.png" alt="">
-                  </div>
-                  <div class="media-body">
-                    <h4>Blake Ruiz</h4>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="review_box">
-              <h4>Add a Review</h4>
-              <p>Your Rating:</p>
-              <ul class="list">
-                <li>
-                  <a href="#">
-                    <i class="fa fa-star"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-star"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-star"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-star"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-star"></i>
-                  </a>
-                </li>
-              </ul>
-              <p>Outstanding</p>
-            </div>
-          </div>
+        <h3 class="text-center">Położenie atrakcji na mapie</h3>
+        <!--    mapa    -->
+        <div id="map" class="map"></div>
+
+        <div id="popup" class="ol-popup p-2">
+<!--          <button type="button" id="closer" class="ml-2 mb-1 close" data-dismiss="ol-popup">&times;</button>-->
+          <div id="popup-content"></div>
         </div>
       </div>
     </div>

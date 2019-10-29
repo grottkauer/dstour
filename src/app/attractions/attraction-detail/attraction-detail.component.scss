@@ -184,3 +184,21 @@ nav {
   border-radius: 5px;
   width: 175px;
 }
+
+#go-home-btn {
+  position: absolute;
+  top: 12.5%;
+  z-index: 20;
+
+  .mat-icon {
+    //font-size: 35px;
+    vertical-align: middle;
+    horiz-align: center;
+    transform: scale(1.5);
+  }
+
+}
+
+.mat-fab:hover {
+  background-color: #0c5460;
+}

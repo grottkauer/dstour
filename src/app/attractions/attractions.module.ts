@@ -8,6 +8,7 @@ import { AttractionFormComponent } from './attraction-form/attraction-form.compo
 import {ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from '../core/core.module';
 import { AttractionDetailComponent } from './attraction-detail/attraction-detail.component';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -17,7 +18,8 @@ import { AttractionDetailComponent } from './attraction-detail/attraction-detail
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    CoreModule
+    CoreModule,
+    RouterModule
   ],
   entryComponents: [NewAttractionComponent],
   exports: [AttractionsComponent]

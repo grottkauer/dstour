@@ -1,1 +1,224 @@
-<p>profile-stats works!</p>
+<div class="card-header text-center">
+  <h1 class="text-uppercase">Twoje statystyki</h1>
+  <h4 class="section-subheading text-muted">Poniżej zamieszczono statystyki dotyczące Twojego zwiedzania oraz innych rzeczy związanych z korzystaniem z systemu</h4>
+</div>
+<div class="container mt-3">
+  <div class="row text-center">
+<!--  table  -->
+    <div class="col-lg-4">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>
+              <h5>Zdobyte punkty</h5>
+            </td>
+            <td>
+              <h5>99</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Zdobyte punkty w {{actualMonth}}</h5>
+            </td>
+            <td>
+              <h5>99</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Średnia ocenionych atrakcji</h5>
+            </td>
+            <td>
+              <h5>2.5</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Liczba ocenionych atrakcji</h5>
+            </td>
+            <td>
+              <h5>12</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Liczba dodanych do ulubionych</h5>
+            </td>
+            <td>
+              <h5>7</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Liczba zaplanowanych wycieczek</h5>
+            </td>
+            <td>
+              <h5>2</h5>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!-- chart -->
+    <div class="col-lg-8">
+      <h4>Zdobycze punktowe na diagramie:</h4>
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+  <div class="row">
+    <!-- ranking all-time -->
+    <div class="col-lg-6">
+      <h4>Najlepsi podróżnicy wszechczasów: </h4>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>
+              <h5>1.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>2.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>3.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>4.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>5.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5 class="font-weight-bold">11.</h5>
+            </td>
+            <td>
+              <h5 class="font-weight-bold">Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5 class="font-weight-bold">99%</h5>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- ranking actual month -->
+    <div class="col-lg-6">
+      <h4>Najlepsi podróżnicy w {{actualMonth}}: </h4>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>
+              <h5>1.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>2.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>3.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>4.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>5.</h5>
+            </td>
+            <td>
+              <h5>Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5>99%</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5 class="font-weight-bold">11.</h5>
+            </td>
+            <td>
+              <h5 class="font-weight-bold">Jan Kowalski</h5>
+            </td>
+            <td>
+              <h5 class="font-weight-bold">99%</h5>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

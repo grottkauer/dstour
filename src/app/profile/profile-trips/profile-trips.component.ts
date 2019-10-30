@@ -55,7 +55,7 @@ export class ProfileTripsComponent implements OnInit {
 
   buildAttr(attrTrip: Attraction = {} as Attraction) {
     return this.formBuilder.group({
-      name: attrTrip.name || '',
+      name: [attrTrip.name || '', [Validators.required]],
       timeIn: '',
       timeOut: '',
       additionalGuide: ''

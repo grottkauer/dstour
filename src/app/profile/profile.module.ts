@@ -13,11 +13,14 @@ import { ProfileRatedAttrComponent } from './profile-rated-attr/profile-rated-at
 import { ProfileCheckedAttrComponent } from './profile-checked-attr/profile-checked-attr.component';
 import { ProfileStatsComponent } from './profile-stats/profile-stats.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { ProfileTripsComponent } from './profile-trips/profile-trips.component';
+import { ProfileAddTripComponent } from './profile-add-trip/profile-add-trip.component';
+import { ProfileCheckedAttrDetailComponent } from './profile-checked-attr-detail/profile-checked-attr-detail.component';
 
 
 
 @NgModule({
-  declarations: [ProfileComponent, ProfileDashboardComponent, ProfileDataComponent, ProfileChangePasswordComponent, ProfileBecomeGuideComponent, ProfileFavoritesComponent, ProfileRatedAttrComponent, ProfileCheckedAttrComponent, ProfileStatsComponent],
+  declarations: [ProfileComponent, ProfileDashboardComponent, ProfileDataComponent, ProfileChangePasswordComponent, ProfileBecomeGuideComponent, ProfileFavoritesComponent, ProfileRatedAttrComponent, ProfileCheckedAttrComponent, ProfileStatsComponent, ProfileTripsComponent, ProfileAddTripComponent, ProfileCheckedAttrDetailComponent],
   imports: [
     CommonModule,
     MaterialModule,

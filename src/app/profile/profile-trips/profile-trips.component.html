@@ -1,0 +1,130 @@
+<div class="card-header text-center">
+  <h1 class="text-uppercase">Twoje wycieczki</h1>
+  <h4 class="section-subheading text-muted">Wycieczki, które zostały przez Ciebie zaplanowane.</h4>
+</div>
+<div class="container mb-3 mt-3">
+  <div class="row">
+    <div class="search-hero w-100">
+      <input class="form-control w-100" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Wyszukaj wycieczkę po nazwie">
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Nazwa wycieczki</th>
+        <th>Data wycieczki</th>
+        <th>Akcja</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes | filter:searchText">
+        <td>{{hero.name}}</td>
+        <td>{{hero.country}}</td>
+        <td>
+          <button mat-button>
+            <mat-icon>details</mat-icon>
+            Wyświetl
+          </button>
+          <button mat-button>
+            <mat-icon>edit</mat-icon>
+            Edytuj
+          </button>
+          <button mat-button>
+            <mat-icon>delete</mat-icon>
+            Usuń
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card-header text-center">
+  <h1 class="text-uppercase">Chcesz dodać nową wycieczkę?</h1>
+  <button mat-button class="btn-primary">
+    <mat-icon>create</mat-icon>
+    Do kreatora
+  </button>
+  <h4 class="section-subheading text-muted">lub za pomocą szybkiego formularza poniżej:</h4>
+</div>
+<form [formGroup]="myForm" class="bg-white p-3 mt-3 mb-3">
+  <div class="text-center">
+
+  </div>
+  <div class="row text-center">
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Nazwa wycieczki" formControlName="tripName">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Data wycieczki" formControlName="tripDate">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-3">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Biuro podróży" formControlName="tourOperator">
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Typ grupy" formControlName="groupType">
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Zarobek" formControlName="money" type="money">
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Liczba uczestników" formControlName="countGroup">
+      </mat-form-field>
+    </div>
+  </div>
+  <div formArrayName="attr" class="crew-container shadow p-2" *ngFor="let attrName of attr.controls;index as index">
+    <div class="row crew-header">
+      <div class="col">
+        <span>Atrakcja wycieczki - {{ index + 1 }}</span>
+        <mat-icon class="float-right cursor" (click)="removeAttr(index)">delete_forever</mat-icon>
+      </div>
+    </div>
+    <div class="row" [formGroupName]="index">
+      <div class="col-md-3">
+        <mat-form-field>
+          <mat-select formControlName="name" placeholder="Nazwa atrakcji">
+            <mat-option *ngFor="let hero of heroes" [value]="hero.id">{{ hero.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="myForm.get('name').hasError('required')">Nazwa atrakcji jest wymagana</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field class="w-100">
+          <input matInput placeholder="Godzina przybycia" formControlName="timeIn">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field class="w-100">
+          <input matInput placeholder="Godzina zakończenia" formControlName="timeOut">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field class="w-100">
+          <input matInput placeholder="Dodatkowy przewodnik" formControlName="additionalGuide">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button mat-fab color="accent" id="go-home-btn" class="add-attr" (click)="addAttr()">+</button>
+    </div>
+  </div>
+  <div class="row text-center mt-3 mb-3">
+    <div class="col">
+      <button class="button-submit" mat-raised-button>Potwierdź</button>
+    </div>
+  </div>
+</form>

@@ -58,7 +58,8 @@ import { ProfileRatedAttrEditComponent } from './profile-rated-attr-edit/profile
   ],
   entryComponents: [
     ProfileTripEditComponent,
-    ProfileRatedAttrEditComponent
+    ProfileRatedAttrEditComponent,
+    ProfileCheckedAttrDetailComponent
   ],
   exports: [ProfileComponent]
 })

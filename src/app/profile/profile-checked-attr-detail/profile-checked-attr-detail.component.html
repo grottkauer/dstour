@@ -1,1 +1,37 @@
-<p>profile-checked-attr-detail works!</p>
+<mat-dialog-content>
+  <h2 mat-dialog-title>Wyniki quizu</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Lp.</th>
+      <th>Treść pytania</th>
+      <th>Odp. użytkownika</th>
+      <th>Odp. poprawna</th>
+      <th>Punkty</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hero of heroes | filter:searchText">
+      <td>{{hero.name}}</td>
+      <td matTooltip="Info about the action">{{hero.country}}</td>
+      <td [ngClass]="{'text-success': hero.id<=15,
+                      'text-danger': hero.id>15}">{{hero.id}}</td>
+      <td>{{hero.id}}</td>
+      <td>1</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>Suma</th>
+      <th>20 pkt</th>
+    </tr>
+    </tfoot>
+  </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button mat-dialog-close class="button-close">Zamknij</button>
+    </div>
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,12 @@
+<form [formGroup]="myForm" class="bg-white p-3 mb-3">
+  <div class="text-center">
+
+  </div>
+  <h2 class="text-center">Zamek Czocha</h2>
+  <mat-form-field class="w-100">
+    <mat-select formControlName="rate" placeholder="Ocena atrakcji" required>
+      <mat-option *ngFor="let rate of rates" [value]="rate.rate">{{ rate.rate | number: '1.1' }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="myForm.get('rate').hasError('required')">Ocena atrakcji jest wymagana</mat-error>
+  </mat-form-field>
+</form>

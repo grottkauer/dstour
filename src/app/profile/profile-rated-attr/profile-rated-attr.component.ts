@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ProfileTripEditComponent} from '../profile-trip-edit/profile-trip-edit.component';
+import {MatDialog} from '@angular/material';
+import {ProfileRatedAttrEditComponent} from '../profile-rated-attr-edit/profile-rated-attr-edit.component';
 
 @Component({
   selector: 'app-profile-rated-attr',
@@ -21,9 +24,13 @@ export class ProfileRatedAttrComponent implements OnInit {
     { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
   ];
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openEditRateModal() {
+    this.dialog.open(ProfileRatedAttrEditComponent);
   }
 
 }

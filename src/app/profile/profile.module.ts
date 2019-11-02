@@ -21,6 +21,8 @@ import { ProfileTripDetailAttrCardComponent } from './profile-trip-detail-attr-c
 import {RouterModule} from '@angular/router';
 import { ProfileTripQuickFormComponent } from './profile-trip-quick-form/profile-trip-quick-form.component';
 import { ProfileTripEditComponent } from './profile-trip-edit/profile-trip-edit.component';
+import { ProfileRatedAttrFormComponent } from './profile-rated-attr-form/profile-rated-attr-form.component';
+import { ProfileRatedAttrEditComponent } from './profile-rated-attr-edit/profile-rated-attr-edit.component';
 
 
 
@@ -41,7 +43,9 @@ import { ProfileTripEditComponent } from './profile-trip-edit/profile-trip-edit.
     ProfileTripDetailComponent,
     ProfileTripDetailAttrCardComponent,
     ProfileTripQuickFormComponent,
-    ProfileTripEditComponent
+    ProfileTripEditComponent,
+    ProfileRatedAttrFormComponent,
+    ProfileRatedAttrEditComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,10 @@ import { ProfileTripEditComponent } from './profile-trip-edit/profile-trip-edit.
     Ng2SearchPipeModule,
     RouterModule
   ],
-  entryComponents: [ProfileTripEditComponent],
+  entryComponents: [
+    ProfileTripEditComponent,
+    ProfileRatedAttrEditComponent
+  ],
   exports: [ProfileComponent]
 })
 export class ProfileModule { }

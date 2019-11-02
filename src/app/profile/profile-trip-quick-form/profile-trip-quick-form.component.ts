@@ -1,20 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Attraction} from '../../models/attraction';
 import {Router} from '@angular/router';
-import {NewAttractionComponent} from '../../attractions/new-attraction/new-attraction.component';
-import {MatDialog} from '@angular/material';
-import {ProfileTripEditComponent} from '../profile-trip-edit/profile-trip-edit.component';
+import {Attraction} from '../../models/attraction';
 
 @Component({
-  selector: 'app-profile-trips',
-  templateUrl: './profile-trips.component.html',
-  styleUrls: ['./profile-trips.component.scss']
+  selector: 'app-profile-trip-quick-form',
+  templateUrl: './profile-trip-quick-form.component.html',
+  styleUrls: ['./profile-trip-quick-form.component.scss']
 })
-export class ProfileTripsComponent implements OnInit {
+export class ProfileTripQuickFormComponent implements OnInit {
 
   @Input() editMode = false;
-  searchText;
   heroes = [
     { id: 11, name: 'Mr. Nice', country: 'India' },
     { id: 12, name: 'Narco' , country: 'USA'},
@@ -30,9 +26,7 @@ export class ProfileTripsComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private dialog: MatDialog) {
+  constructor(private formBuilder: FormBuilder) {
     this.myForm = this.formBuilder.group({
       tripName: ['', [Validators.required]],
       tripDate: [''],
@@ -68,11 +62,4 @@ export class ProfileTripsComponent implements OnInit {
     });
   }
 
-  goToDetail() {
-    this.router.navigate(['/dashboard/profile/trips', 1]);
-  }
-
-  openEditTripModal() {
-    this.dialog.open(ProfileTripEditComponent);
-  }
 }

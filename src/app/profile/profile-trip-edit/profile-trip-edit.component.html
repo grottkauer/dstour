@@ -1,0 +1,12 @@
+<h2 class="mt-5" mat-dialog-title>Kreator edycji wycieczki</h2>
+<mat-dialog-content>
+  <app-profile-trip-quick-form #tripForm></app-profile-trip-quick-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button mat-dialog-close class="button-close">Anuluj</button>
+      <button mat-raised-button class="button-submit" [disabled]="tripForm.myForm.invalid" (click)="createTrip()">Potwierdź</button>
+    </div>
+  </div>
+</mat-dialog-actions>

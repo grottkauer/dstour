@@ -19,6 +19,8 @@ import { ProfileCheckedAttrDetailComponent } from './profile-checked-attr-detail
 import {ProfileTripDetailComponent} from './profile-trip-detail/profile-trip-detail.component';
 import { ProfileTripDetailAttrCardComponent } from './profile-trip-detail-attr-card/profile-trip-detail-attr-card.component';
 import {RouterModule} from '@angular/router';
+import { ProfileTripQuickFormComponent } from './profile-trip-quick-form/profile-trip-quick-form.component';
+import { ProfileTripEditComponent } from './profile-trip-edit/profile-trip-edit.component';
 
 
 
@@ -37,7 +39,9 @@ import {RouterModule} from '@angular/router';
     ProfileAddTripComponent,
     ProfileCheckedAttrDetailComponent,
     ProfileTripDetailComponent,
-    ProfileTripDetailAttrCardComponent
+    ProfileTripDetailAttrCardComponent,
+    ProfileTripQuickFormComponent,
+    ProfileTripEditComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +52,7 @@ import {RouterModule} from '@angular/router';
     Ng2SearchPipeModule,
     RouterModule
   ],
+  entryComponents: [ProfileTripEditComponent],
   exports: [ProfileComponent]
 })
 export class ProfileModule { }

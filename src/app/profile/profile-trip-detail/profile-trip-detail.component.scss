@@ -1,0 +1,48 @@
+.container {
+  border-radius: 15px;
+  background-color: #fffffd;
+}
+
+.highlight .row div {
+  border-bottom: #000 0.3px solid;
+}
+
+.button-submit {
+  background-color: #0c5460;
+  color: #eee;
+}
+
+.button-submit:hover {
+  background-color: #eee;
+  color: #0c5460;
+}
+
+.button-delete {
+  background-color: #e23d28;
+  color: #eee;
+}
+
+.button-delete:hover {
+  background-color: #eee;
+  color: #e23d28;
+}
+
+.add-attr {
+  font-size: 30px;
+  border-radius: 80px;
+  position: absolute;
+  z-index: 20;
+  bottom: -38px;
+  left: -12px;
+}
+
+.add-attr mat-icon {
+  vertical-align: middle;
+  horiz-align: center;
+  transform: scale(1.5);
+}
+
+.add-attr:hover {
+  color: royalblue;
+  background-color: #fffff0;
+}

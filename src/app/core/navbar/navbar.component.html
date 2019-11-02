@@ -19,7 +19,7 @@
         <li class="nav-item">
           <a *ngIf="isLoggedIn != true" class="nav-link js-scroll-trigger" href="/login">Logowanie</a>
           <mat-icon *ngIf="isLoggedIn == true" class="logout-icon float-right" (click)="logout()">power_settings_new</mat-icon>
-          <a *ngIf="isLoggedIn == true" class="nav-link js-scroll-trigger user-login float-right">Hello, {{ user.email }}</a>
+          <a *ngIf="isLoggedIn == true" class="nav-link js-scroll-trigger user-login float-right">Witaj, {{ user.email }}</a>
         </li>
       </ul>
     </div>

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Attraction} from '../../models/attraction';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile-trips',
@@ -26,7 +27,8 @@ export class ProfileTripsComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private router: Router) {
     this.myForm = this.formBuilder.group({
       tripName: ['', [Validators.required]],
       tripDate: [''],
@@ -60,5 +62,9 @@ export class ProfileTripsComponent implements OnInit {
       timeOut: '',
       additionalGuide: ''
     });
+  }
+
+  goToDetail() {
+    this.router.navigate(['/dashboard/profile/trips', 1]);
   }
 }

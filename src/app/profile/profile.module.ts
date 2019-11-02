@@ -16,18 +16,37 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { ProfileTripsComponent } from './profile-trips/profile-trips.component';
 import { ProfileAddTripComponent } from './profile-add-trip/profile-add-trip.component';
 import { ProfileCheckedAttrDetailComponent } from './profile-checked-attr-detail/profile-checked-attr-detail.component';
+import {ProfileTripDetailComponent} from './profile-trip-detail/profile-trip-detail.component';
+import { ProfileTripDetailAttrCardComponent } from './profile-trip-detail-attr-card/profile-trip-detail-attr-card.component';
+import {RouterModule} from '@angular/router';
 
 
 
 @NgModule({
-  declarations: [ProfileComponent, ProfileDashboardComponent, ProfileDataComponent, ProfileChangePasswordComponent, ProfileBecomeGuideComponent, ProfileFavoritesComponent, ProfileRatedAttrComponent, ProfileCheckedAttrComponent, ProfileStatsComponent, ProfileTripsComponent, ProfileAddTripComponent, ProfileCheckedAttrDetailComponent],
+  declarations: [
+    ProfileComponent,
+    ProfileDashboardComponent,
+    ProfileDataComponent,
+    ProfileChangePasswordComponent,
+    ProfileBecomeGuideComponent,
+    ProfileFavoritesComponent,
+    ProfileRatedAttrComponent,
+    ProfileCheckedAttrComponent,
+    ProfileStatsComponent,
+    ProfileTripsComponent,
+    ProfileAddTripComponent,
+    ProfileCheckedAttrDetailComponent,
+    ProfileTripDetailComponent,
+    ProfileTripDetailAttrCardComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     CoreModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    RouterModule
   ],
   exports: [ProfileComponent]
 })

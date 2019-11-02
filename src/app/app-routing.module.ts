@@ -8,6 +8,7 @@ import {ContactComponent} from './core/contact/contact.component';
 import {MainComponent} from './core/main/main.component';
 import {AttractionDetailComponent} from './attractions/attraction-detail/attraction-detail.component';
 import {ProfileComponent} from './profile/profile.component';
+import {ProfileTripDetailComponent} from './profile/profile-trip-detail/profile-trip-detail.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'attractions', pathMatch: 'full' },
       { path: 'attractions', component: AttractionsComponent },
       { path: 'attractions/:key', component: AttractionDetailComponent},
-      { path: 'profile', component: ProfileComponent}
+      { path: 'profile', component: ProfileComponent},
+      { path: 'profile/trips/1', component: ProfileTripDetailComponent}
     ]
   },
   { path: '**', component: PageNotFoundComponent },

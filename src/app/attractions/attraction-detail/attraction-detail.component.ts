@@ -12,7 +12,7 @@ declare var ol: any;
   templateUrl: './attraction-detail.component.html',
   styleUrls: ['./attraction-detail.component.scss']
 })
-export class AttractionDetailComponent implements OnInit{
+export class AttractionDetailComponent implements OnInit {
 
   BarChart = [];
 
@@ -78,7 +78,7 @@ export class AttractionDetailComponent implements OnInit{
     });
 
 
-    //Open Street Map
+    // Open Street Map
     const mousePositionControl = new ol.control.MousePosition({
       coordinateFormat: ol.coordinate.createStringXY(4),
       projection: 'EPSG:4326',

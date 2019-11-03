@@ -1,0 +1,43 @@
+<form [formGroup]="form" class="attractions-container">
+  <div class="row">
+    <div class="col-12">
+      <mat-form-field class="w-100">
+        <textarea matInput formControlName="question" placeholder="Treść pytania"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="odpA" placeholder="Odpowiedź 1.">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="odpB" placeholder="Odpowiedź 2.">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="odpC" placeholder="Odpowiedź 3.">
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="odpD" placeholder="Odpowiedź 4.">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <mat-form-field class="w-100">
+        <mat-select formControlName="poprawna" placeholder="Poprawna odpowiedź" required>
+          <mat-option *ngFor="let answer of answers" [value]="answer.answer">{{ answer.answer | uppercase }}</mat-option>
+        </mat-select>
+        <!--      <mat-error *ngIf="form.get('rate').hasError('required')">Ocena atrakcji jest wymagana</mat-error>-->
+      </mat-form-field>
+    </div>
+  </div>
+</form>

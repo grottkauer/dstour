@@ -44,7 +44,7 @@
       </div>
       <div class="col-lg-5 offset-lg-1">
         <div class="s_product_text">
-          <h2 class="text-center">Zamek Czocha{{attraction.name}}</h2>
+          <h2 class="text-center">Zamek Czocha</h2>
           <div class="row text-center">
             <div class="col-md-6">
               <h3>Zamki i pałace</h3>
@@ -77,8 +77,17 @@
             <div class="col-md-6 margin-responsive">
               <button mat-raised-button class="btn-rating w-100">Dodaj do ulubionych</button>
             </div>
+<!--            dla podroznika -->
             <div class="col-md-6">
-              <button mat-raised-button class="btn-rating w-100">Zalicz Atrakcję</button>
+              <button mat-raised-button class="btn-rating w-100" (click)="openQuizModal()">Zalicz Atrakcję</button>
+            </div>
+<!--            dla przewodnika -->
+            <div class="col-md-6 margin-responsive">
+              <button mat-raised-button class="btn-rating w-100" (click)="openProposeAQuestionModal()">Zaproponuj zadanie</button>
+            </div>
+<!--            dla admina -->
+            <div class="col-md-6">
+              <button mat-raised-button class="btn-rating w-100" (click)="openNewAQuestionModal()">Dodaj zadanie</button>
             </div>
           </div>
         </div>

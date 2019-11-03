@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Zaproponuj zadanie dotyczące atrakcji turystycznej</h2>
+<h4>Napisz do nas emaila za pomocą przycisku poniżej bądź podanego obok adresu:</h4>
+<div class="row align-items-center mb-2">
+  <div class="col-md-6 mt-2 align-self-center">
+    <button mat-raised-button class="send-email-btn">
+      <mat-icon>
+        email
+      </mat-icon>
+      Wyślij maila
+    </button>
+  </div>
+  <div class="col-md-6 mt-2 align-self-center">
+    <h5>biuro@dstour.pl</h5>
+  </div>
+</div>
+<h4>Istnieje także możliwość wysłania formularza poniżej:</h4>
+<mat-dialog-content>
+  <app-attraction-question-form #questionForm></app-attraction-question-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button mat-dialog-close>Zamknij</button>
+      <button mat-raised-button color="primary" [disabled]="questionForm.form.invalid">Utwórz</button>
+    </div>
+  </div>
+</mat-dialog-actions>

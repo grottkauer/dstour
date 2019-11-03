@@ -5,6 +5,10 @@ import {AttractionsService} from '../../core/services/attractions.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Chart} from 'chart.js';
 import * as CanvasJS from 'canvasjs';
+import {MatDialog} from '@angular/material';
+import {AttractionNewQuestionComponent} from '../attraction-new-question/attraction-new-question.component';
+import {AttractionProposeQuestionComponent} from '../attraction-propose-question/attraction-propose-question.component';
+import {AttractionQuizComponent} from '../attraction-quiz/attraction-quiz.component';
 
 declare var ol: any;
 @Component({
@@ -27,7 +31,8 @@ export class AttractionDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private attractionsService: AttractionsService) {
+              private attractionsService: AttractionsService,
+              private dialog: MatDialog) {
     // this.attraction = data;
   }
 
@@ -145,6 +150,18 @@ export class AttractionDetailComponent implements OnInit {
     const key = this.route.snapshot.params['key'];
     this.attractionsService.getAttraction(key)
       .subscribe(attraction => this.attraction = attraction);
+  }
+
+  openNewAQuestionModal() {
+    this.dialog.open(AttractionNewQuestionComponent);
+  }
+
+  openProposeAQuestionModal() {
+    this.dialog.open(AttractionProposeQuestionComponent);
+  }
+
+  openQuizModal() {
+    this.dialog.open(AttractionQuizComponent);
   }
 
 }

@@ -9,11 +9,27 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from '../core/core.module';
 import { AttractionDetailComponent } from './attraction-detail/attraction-detail.component';
 import {RouterModule} from '@angular/router';
+import { AttractionNewQuestionComponent } from './attraction-new-question/attraction-new-question.component';
+import { AttractionQuestionFormComponent } from './attraction-question-form/attraction-question-form.component';
+import { AttractionProposeQuestionComponent } from './attraction-propose-question/attraction-propose-question.component';
+import { AttractionQuizComponent } from './attraction-quiz/attraction-quiz.component';
+import { AttractionQuizFormComponent } from './attraction-quiz-form/attraction-quiz-form.component';
 
 
 
 @NgModule({
-  declarations: [AttractionsComponent, AttractionCardComponent, NewAttractionComponent, AttractionFormComponent, AttractionDetailComponent],
+  declarations: [
+    AttractionsComponent,
+    AttractionCardComponent,
+    NewAttractionComponent,
+    AttractionFormComponent,
+    AttractionDetailComponent,
+    AttractionNewQuestionComponent,
+    AttractionQuestionFormComponent,
+    AttractionProposeQuestionComponent,
+    AttractionQuizComponent,
+    AttractionQuizFormComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -21,7 +37,12 @@ import {RouterModule} from '@angular/router';
     CoreModule,
     RouterModule
   ],
-  entryComponents: [NewAttractionComponent],
+  entryComponents: [
+    NewAttractionComponent,
+    AttractionNewQuestionComponent,
+    AttractionProposeQuestionComponent,
+    AttractionQuizComponent
+  ],
   exports: [AttractionsComponent]
 })
 export class AttractionsModule { }

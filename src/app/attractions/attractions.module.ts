@@ -13,7 +13,6 @@ import { AttractionNewQuestionComponent } from './attraction-new-question/attrac
 import { AttractionQuestionFormComponent } from './attraction-question-form/attraction-question-form.component';
 import { AttractionProposeQuestionComponent } from './attraction-propose-question/attraction-propose-question.component';
 import { AttractionQuizComponent } from './attraction-quiz/attraction-quiz.component';
-import { AttractionQuizFormComponent } from './attraction-quiz-form/attraction-quiz-form.component';
 
 
 
@@ -27,8 +26,7 @@ import { AttractionQuizFormComponent } from './attraction-quiz-form/attraction-q
     AttractionNewQuestionComponent,
     AttractionQuestionFormComponent,
     AttractionProposeQuestionComponent,
-    AttractionQuizComponent,
-    AttractionQuizFormComponent
+    AttractionQuizComponent
   ],
   imports: [
     CommonModule,

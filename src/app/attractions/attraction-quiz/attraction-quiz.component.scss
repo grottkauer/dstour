@@ -1,0 +1,8 @@
+button:hover {
+  background-color: #0c5460;
+  color: #f8f9fa;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  background: rgba(27, 142, 241, .4) !important;
+}

@@ -1,9 +1,42 @@
-<h2 mat-dialog-title>Zalicz atrakcję turystyczną - Quiz</h2>
-<mat-dialog-actions>
-  <div class="row">
-    <div class="col">
-      <button mat-raised-button mat-dialog-close>Zamknij</button>
-<!--      <button mat-raised-button color="primary" [disabled]="attractionForm.form.invalid" (click)="createFlight()">Utwórz</button>-->
+<h2 class="mt-3" mat-dialog-title>Zalicz atrakcję turystyczną - Quiz</h2>
+<mat-dialog-content>
+  <div class="container" *ngFor="let h of heroes;index as index">
+    <div *ngIf="i==index">
+      <div class="row">
+        <h5 class="text-left col-md-6">
+          {{h.q}}
+        </h5>
+        <h5 class="col-md-6 text-right">Zadanie {{index+1}}/{{quizlength}}</h5>
+      </div>
+      <ul>
+        <label>
+          <mat-checkbox>{{h.o1}}</mat-checkbox>
+          <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+        </label>
+      </ul>
+      <ul>
+        <label>
+          <mat-checkbox>{{h.o2}}</mat-checkbox>
+          <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+        </label>
+      </ul>
     </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row w-100">
+    <div class="col-3">
+      <button mat-raised-button mat-dialog-close>Zamknij</button>
+    </div>
+    <div class="col-3">
+      <button mat-raised-button color="accent" class="btn-info" (click)="generatemark()">Zapisz</button>
+    </div>
+    <div class="col-3">
+      <button mat-raised-button (click)="previous()" *ngIf="i>0" >Poprzedni</button>
+    </div>
+    <div class="col-3">
+      <button mat-raised-button color="primary"  (click)="next()" *ngIf="i<quizlength-1">Następny</button>
+    </div>
+<!--      <button mat-raised-button color="primary" [disabled]="attractionForm.form.invalid" (click)="createFlight()">Utwórz</button>-->
   </div>
 </mat-dialog-actions>

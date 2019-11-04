@@ -18,6 +18,7 @@ export class AttractionQuizComponent implements OnInit {
     { id: 17, q: 'Mr. Nice', o1: 'jf', o2: 'ss'}
   ];
   quizlength = this.heroes.length;
+  isCompleted = 0;
 
   constructor() { }
 
@@ -36,6 +37,7 @@ export class AttractionQuizComponent implements OnInit {
   }
 
   generatemark() {
+    this.isCompleted = 1;
     // for (var i = 0; i < this.answerkey.length; i++) {
     //   if (this.answerkey[i].choosen == this.quizlist[i].answer) this.marks++;
     // }

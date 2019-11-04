@@ -6,7 +6,7 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatSelectModule, MatSnackBarConfig,
+  MatInputModule, MatRadioModule, MatSelectModule, MatSnackBarConfig,
   MatSnackBarModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 
@@ -21,7 +21,8 @@ const MATERIAL_MODULES = [
   MatCheckboxModule,
   MatSelectModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatRadioModule
 ];
 
 const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig = {

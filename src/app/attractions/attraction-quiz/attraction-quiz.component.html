@@ -1,5 +1,5 @@
-<h2 class="mt-3" mat-dialog-title>Zalicz atrakcję turystyczną - Quiz</h2>
-<mat-dialog-content>
+<h2 *ngIf="isCompleted==0" class="mt-3" mat-dialog-title>Zalicz atrakcję turystyczną - Quiz</h2>
+<mat-dialog-content *ngIf="isCompleted==0">
   <div class="container" *ngFor="let h of heroes;index as index">
     <div *ngIf="i==index">
       <div class="row">
@@ -10,17 +10,62 @@
       </div>
       <ul>
         <label>
-          <mat-checkbox>{{h.o1}}</mat-checkbox>
+          <mat-radio-button value="a">{{h.o1}}</mat-radio-button>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
         </label>
       </ul>
       <ul>
         <label>
-          <mat-checkbox>{{h.o2}}</mat-checkbox>
+          <mat-radio-button value="b">{{h.o2}}</mat-radio-button>
+          <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+        </label>
+      </ul>
+      <ul>
+        <label>
+          <mat-radio-button value="c">{{h.o1}}</mat-radio-button>
+          <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+        </label>
+      </ul>
+      <ul>
+        <label>
+          <mat-radio-button value="d">{{h.o2}}</mat-radio-button>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
         </label>
       </ul>
     </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-content *ngIf="isCompleted==1">
+  <div class="container">
+    <h3 class="text-center">Gratulacje!!!</h3>
+    <h5>Quiz zostal przez Ciebie zaliczony! Poniżej zostały podane Twoje wyniki:</h5>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Lp.</th>
+        <th>Treść pytania</th>
+        <th>Odp. użytkownika</th>
+        <th>Odp. poprawna</th>
+        <th>Punkty</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes;index as index">
+        <td>{{index+1}}</td>
+        <td matTooltip="Info about the action">{{hero.q}}</td>
+        <td [ngClass]="{'text-success': hero.id<=15,
+                      'text-danger': hero.id>15}">{{hero.id}}</td>
+        <td>{{hero.id}}</td>
+        <td>1</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>Suma</th>
+        <th>20 pkt</th>
+      </tr>
+      </tfoot>
+    </table>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
@@ -28,13 +73,13 @@
     <div class="col-3">
       <button mat-raised-button mat-dialog-close>Zamknij</button>
     </div>
-    <div class="col-3">
+    <div class="col-3" *ngIf="isCompleted==0">
       <button mat-raised-button color="accent" class="btn-info" (click)="generatemark()">Zapisz</button>
     </div>
-    <div class="col-3">
+    <div class="col-3" *ngIf="isCompleted==0">
       <button mat-raised-button (click)="previous()" *ngIf="i>0" >Poprzedni</button>
     </div>
-    <div class="col-3">
+    <div class="col-3" *ngIf="isCompleted==0">
       <button mat-raised-button color="primary"  (click)="next()" *ngIf="i<quizlength-1">Następny</button>
     </div>
 <!--      <button mat-raised-button color="primary" [disabled]="attractionForm.form.invalid" (click)="createFlight()">Utwórz</button>-->

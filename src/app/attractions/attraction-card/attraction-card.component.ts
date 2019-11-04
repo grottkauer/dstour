@@ -11,7 +11,6 @@ export class AttractionCardComponent {
   @Input() attraction: Attraction;
 
   constructor(private router: Router) {
-
   }
 
   goToDetail() {

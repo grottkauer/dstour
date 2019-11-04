@@ -37,10 +37,11 @@ export class AttractionDetailComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.loadAttraction();
+    // this.loadAttraction();
   }
 
   ngOnInit() {
+    this.loadAttraction();
     // Charts
 // Bar chart:
     this.BarChart = new Chart('barChart', {
@@ -149,7 +150,10 @@ export class AttractionDetailComponent implements OnInit {
   private loadAttraction() {
     const key = this.route.snapshot.params['key'];
     this.attractionsService.getAttraction(key)
-      .subscribe(attraction => this.attraction = attraction);
+      .subscribe(attraction => {
+        this.attraction = attraction;
+      });
+    // console.log('attraction', this.attraction.name);
   }
 
   openNewAQuestionModal() {

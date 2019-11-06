@@ -14,6 +14,8 @@ export class AttractionsComponent {
 
   attractions$: Observable<Attraction[]> = this.attractionsService.getAttractions();
   showAttrType = 0;
+  page = 1;
+  pageSize = 9;
 
   constructor(
     private dialog: MatDialog,

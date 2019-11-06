@@ -13,6 +13,7 @@ import { AttractionNewQuestionComponent } from './attraction-new-question/attrac
 import { AttractionQuestionFormComponent } from './attraction-question-form/attraction-question-form.component';
 import { AttractionProposeQuestionComponent } from './attraction-propose-question/attraction-propose-question.component';
 import { AttractionQuizComponent } from './attraction-quiz/attraction-quiz.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -33,7 +34,8 @@ import { AttractionQuizComponent } from './attraction-quiz/attraction-quiz.compo
     MaterialModule,
     ReactiveFormsModule,
     CoreModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ],
   entryComponents: [
     NewAttractionComponent,

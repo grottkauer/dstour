@@ -2,26 +2,28 @@
   <h1 class="text-uppercase">Dane osobowe</h1>
   <h4 class="section-subheading text-muted">Twoje dane, które zostały przez Ciebie podane podczas rejestracji</h4>
 </div>
-<div class="container mb-4 mt-3" id="edit_data">
-  <div class="card cardRegistry text-center bg-white">
-    <div class="card-body text-center">
+<form [formGroup]="myForm">
+  <div class="container mb-4 mt-3" id="edit_data">
+    <div class="card cardRegistry text-center bg-white">
+      <div class="card-body text-center">
         <div class="row">
           <div class="col-sm-6 form-group text-left">
             <label>Imię</label>
             <input *ngIf="isEditable==0" name="firstName" type="text" class="form-control" disabled value="Jan">
-            <input *ngIf="isEditable==1" name="firstName" type="text" class="form-control" value="Jan">
+            <input *ngIf="isEditable==1" formControlName="firstName" placeholder="Jan" name="firstName" type="text" class="form-control" value="Jan">
           </div>
           <div class="col-sm-6 form-group text-left">
             <label>Nazwisko</label>
             <input *ngIf="isEditable==0" name="lastName" type="text" class="form-control" disabled value="Kowalski">
-            <input *ngIf="isEditable==1" name="lastName" type="text" class="form-control" value="Kowalski">
+            <input *ngIf="isEditable==1" formControlName="lastName" placeholder="Kowalski" name="lastName" type="text" class="form-control" value="Kowalski">
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 form-group text-left">
             <label>Adres email</label>
             <input *ngIf="isEditable==0" name="email" type="email" class="form-control" disabled value="j.kowalski@gmail.com">
-            <input *ngIf="isEditable==1" name="email" type="email" class="form-control" value="j.kowalski@gmail.com">
+            <input matInput *ngIf="isEditable==1" formControlName="email" placeholder="j.kowalski@google.com" name="email" type="email" class="form-control" value="j.kowalski@gmail.com">
+            <mat-error *ngIf="myForm.get('email').hasError('pattern')">Adres email ma zły format</mat-error>
           </div>
         </div>
         <div class="row">
@@ -30,23 +32,25 @@
             <input id="demo" type="text" class="form-control" disabled value="Podróżnik">
           </div>
         </div>
-      <div class="row">
-        <div [ngClass]="{'col-sm-6': isEditable==1, 'col-sm-12': isEditable==0}">
-          <button type="submit" class="btn btn-raised btn-primary mb-1" id="saveData" (click)="changeEditable()">
-            <div *ngIf="isEditable==0">
-              Zmień dane
-            </div>
-            <div *ngIf="isEditable==1">
-              Potwierdź zmianę
-            </div>
-          </button>
-        </div>
-        <div *ngIf="isEditable==1" class="col-sm-6">
-          <button type="submit" class="btn btn-raised btn-primary mb-1" (click)="changeEditable()">
-            Anuluj zmiany
-          </button>
+        <div class="row">
+          <div [ngClass]="{'col-sm-6': isEditable==1, 'col-sm-12': isEditable==0}">
+            <button type="submit" class="btn btn-raised btn-primary mb-1" id="saveData" [disabled]="myForm.invalid" (click)="changeEditable()">
+              <div *ngIf="isEditable==0">
+                Zmień dane
+              </div>
+              <div *ngIf="isEditable==1">
+                Potwierdź zmianę
+              </div>
+            </button>
+          </div>
+          <div *ngIf="isEditable==1" class="col-sm-6">
+            <button type="submit" class="btn btn-raised btn-primary mb-1" (click)="changeEditable()">
+              Anuluj zmiany
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
+

@@ -1,5 +1,10 @@
 @import url('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 
+.short-info {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+}
+
 .starrating > input {display: none;}  /* Remove radio buttons */
 
 .starrating > label:before {

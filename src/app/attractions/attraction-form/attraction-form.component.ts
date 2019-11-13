@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Type} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {Attraction, AttractionType, Phone} from '../../models/attraction';
+import {Attraction, AttractionType} from '../../models/attraction';
 
 @Component({
   selector: 'app-attraction-form',
@@ -54,16 +54,6 @@ export class AttractionFormComponent implements OnInit {
     this.phone.removeAt(i);
   }
 
-  addPhone(phoneMember?: Phone) {
-    this.phone.push(this.buildPhoneMember(phoneMember));
-  }
-
-  buildPhoneMember(phoneMember: Phone = {} as Phone) {
-    return this.formBuilder.group({
-      number: phoneMember.number || ''
-    });
-  }
-
   private buildForm() {
     this.form = this.formBuilder.group({
       additionalInformation: '',
@@ -76,7 +66,7 @@ export class AttractionFormComponent implements OnInit {
       coordinateY: null,
       city: '',
       email: '',
-      phone: this.formBuilder.array(this.editMode ? [] : [this.buildPhoneMember()]),
+      phone: '',
       webpage: '',
       type: this.formBuilder.array(this.editMode ? [] : [this.buildTypeMember()])
     });

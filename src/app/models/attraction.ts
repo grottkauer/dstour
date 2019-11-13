@@ -9,7 +9,7 @@ export interface Attraction {
   coordinateY: number;
   city: string;
   email: string;
-  phone: Phone;
+  phone: string;
   type: AttractionType;
   webpage: string;
 }
@@ -18,6 +18,6 @@ export interface AttractionType {
   typeName: string;
 }
 
-export interface Phone {
-  number: string;
-}
+// export interface Phone {
+//   number: string;
+// }

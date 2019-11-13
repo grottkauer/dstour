@@ -48,6 +48,13 @@
       </mat-form-field>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field>
+        <input matInput formControlName="phone" placeholder="Numer telefonu">
+      </mat-form-field>
+    </div>
+  </div>
   <div formArrayName="type" class="crew-container shadow" *ngFor="let typeMember of type.controls;index as index">
     <div class="row crew-header">
       <div class="col">
@@ -68,26 +75,6 @@
   <div class="row">
     <div class="col">
       <button mat-raised-button color="primary" (click)="addType()">Dodaj rodzaj atrakcji</button>
-    </div>
-  </div>
-  <div formArrayName="phone" class="crew-container shadow" *ngFor="let phoneMember of phone.controls;index as index">
-    <div class="row crew-header">
-      <div class="col">
-        <span>Telefon - {{ index + 1 }}</span>
-        <mat-icon class="float-right" (click)="removePhone(index)">delete_forever</mat-icon>
-      </div>
-    </div>
-    <div class="row" [formGroupName]="index">
-      <div class="col-sm-5">
-        <mat-form-field>
-          <input matInput formControlName="number" placeholder="Numer telefonu">
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <button mat-raised-button color="primary" (click)="addPhone()">Dodaj numer telefonu</button>
     </div>
   </div>
 </form>

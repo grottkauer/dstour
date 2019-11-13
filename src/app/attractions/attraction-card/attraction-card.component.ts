@@ -1,19 +1,38 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Attraction} from '../../models/attraction';
 import {Router} from '@angular/router';
+import {UploadfileService} from '../../core/services/uploadfile.service';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-attraction-card',
   templateUrl: './attraction-card.component.html',
   styleUrls: ['./attraction-card.component.scss', './creative.min.css']
 })
-export class AttractionCardComponent {
+export class AttractionCardComponent implements OnInit {
   @Input() attraction: Attraction;
+  fileUploads: any[];
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private uploadService: UploadfileService) {
+  }
+
+  ngOnInit() {
+    this.loadFiles();
   }
 
   goToDetail() {
     this.router.navigate(['/dashboard/attractions', this.attraction.key]);
+  }
+
+  private loadFiles() {
+    // Use snapshotChanges().pipe(map()) to store the key
+    this.uploadService.getFileUploads(6).snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    ).subscribe(fileUploads => {
+      this.fileUploads = fileUploads;
+    });
   }
 }

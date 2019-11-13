@@ -12,17 +12,20 @@ import { FooterComponent } from './footer/footer.component';
 import {FormsModule} from '@angular/forms';
 import { SidebarAttrComponent } from './sidebar-attr/sidebar-attr.component';
 import { SidebarProfileComponent } from './sidebar-profile/sidebar-profile.component';
+import { FormUploadComponent } from './form-upload/form-upload.component';
+import { ListuploadComponent } from './listupload/listupload.component';
+import { DetailsUploadComponent } from './details-upload/details-upload.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, LoginComponent, PageNotFoundComponent, ContactComponent, MainComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent],
+  declarations: [DashboardComponent, LoginComponent, PageNotFoundComponent, ContactComponent, MainComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent, FormUploadComponent, ListuploadComponent, DetailsUploadComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
     FormsModule
   ],
-  exports: [DashboardComponent, LoginComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent]
+  exports: [DashboardComponent, LoginComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent, FormUploadComponent, ListuploadComponent, DetailsUploadComponent]
 })
 export class CoreModule { }

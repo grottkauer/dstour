@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Attraction} from '../../models/attraction';
-import {tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {AttractionsService} from '../../core/services/attractions.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Chart} from 'chart.js';
@@ -9,6 +9,7 @@ import {MatDialog} from '@angular/material';
 import {AttractionNewQuestionComponent} from '../attraction-new-question/attraction-new-question.component';
 import {AttractionProposeQuestionComponent} from '../attraction-propose-question/attraction-propose-question.component';
 import {AttractionQuizComponent} from '../attraction-quiz/attraction-quiz.component';
+import {UploadfileService} from '../../core/services/uploadfile.service';
 
 declare var ol: any;
 @Component({
@@ -28,11 +29,13 @@ export class AttractionDetailComponent implements OnInit {
   overlay: any;
 
   attraction: Attraction;
+  fileUploads: any[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private attractionsService: AttractionsService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private uploadService: UploadfileService) {
     // this.attraction = data;
   }
 
@@ -42,6 +45,7 @@ export class AttractionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.loadAttraction();
+    this.loadFiles();
     // Charts
 // Bar chart:
     this.BarChart = new Chart('barChart', {
@@ -166,6 +170,17 @@ export class AttractionDetailComponent implements OnInit {
 
   openQuizModal() {
     this.dialog.open(AttractionQuizComponent);
+  }
+
+  private loadFiles() {
+    // Use snapshotChanges().pipe(map()) to store the key
+    this.uploadService.getFileUploads(6).snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    ).subscribe(fileUploads => {
+      this.fileUploads = fileUploads;
+    });
   }
 
 }

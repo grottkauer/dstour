@@ -9,6 +9,7 @@ import {MainComponent} from './core/main/main.component';
 import {AttractionDetailComponent} from './attractions/attraction-detail/attraction-detail.component';
 import {ProfileComponent} from './profile/profile.component';
 import {ProfileTripDetailComponent} from './profile/profile-trip-detail/profile-trip-detail.component';
+import {RoleGuardService} from './core/services/role-guard.service';
 
 
 const routes: Routes = [
@@ -23,7 +24,14 @@ const routes: Routes = [
       { path: '', redirectTo: 'attractions', pathMatch: 'full' },
       { path: 'attractions', component: AttractionsComponent },
       { path: 'attractions/:key', component: AttractionDetailComponent},
-      { path: 'profile', component: ProfileComponent},
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [RoleGuardService],
+        data: {
+          roles: ['Administrator', 'Podróżnik', 'Przewodnik']
+        }
+      },
       { path: 'profile/trips/1', component: ProfileTripDetailComponent}
     ]
   },

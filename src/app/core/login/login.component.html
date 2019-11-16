@@ -4,8 +4,8 @@
   <div class="col-sm-4 shadow login-content">
     <h3>Zaloguj się lub zarejestruj</h3>
     <mat-form-field class="d-block">
-      <input matInput placeholder="Email" [(ngModel)]="credentials.email" required>
-      <mat-error>Email jest wymagany</mat-error>
+      <input matInput placeholder="Login" [(ngModel)]="credentials.login" required>
+      <mat-error>Login jest wymagany</mat-error>
     </mat-form-field>
     <mat-form-field class="d-block">
 <!--      <input matInput placeholder="Hasło" [(ngModel)]="credentials.password" required>-->
@@ -15,6 +15,7 @@
       </button>
       <mat-error>Hasło jest wymagane</mat-error>
     </mat-form-field>
+    <mat-error *ngIf="wrongPassword==='true'">Niepoprawny login lub hasło</mat-error>
     <button mat-raised-button class="btn-login" (click)="login()">ZALOGUJ</button>
     <p>Nie masz konta?</p>
     <button routerLink="/registration" mat-raised-button class="btn-register" (click)="register()">ZAREJESTRUJ</button>

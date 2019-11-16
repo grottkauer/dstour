@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
-import {AuthService} from '../auth.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +12,10 @@ export class LoginComponent {
 
   hide = true;
   @Output() fireIsLoggedIn: EventEmitter<any> = new EventEmitter<any>();
+  wrongPassword: string;
 
   credentials = {
-    email: '',
+    login: '',
     password: ''
   };
 
@@ -25,16 +26,14 @@ export class LoginComponent {
   ) {}
 
   login() {
-    this.authService.login(this.credentials)
-      .then(user => this.router.navigate(['/dashboard']))
-      .catch(error => this.toast.open(error.message));
-    this.fireIsLoggedIn.emit(this.credentials.email);
+    this.authService.login(this.credentials.login, this.credentials.password);
+    this.wrongPassword = sessionStorage.getItem('wrongPassword');
   }
 
   register() {
-    this.authService.register(this.credentials)
-      .then(user => this.toast.open('Konto założone, proszę zaloguj się!', '', {panelClass: 'toast-success'}))
-      .catch(error => this.toast.open(error.message, '', {panelClass: 'toast-error'}));
+    // this.authService.register(this.credentials)
+    //   .then(user => this.toast.open('Konto założone, proszę zaloguj się!', '', {panelClass: 'toast-success'}))
+    //   .catch(error => this.toast.open(error.message, '', {panelClass: 'toast-error'}));
   }
 
 }

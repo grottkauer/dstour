@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
 import {DashboardComponent} from '../dashboard/dashboard.component';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,18 +10,22 @@ import {DashboardComponent} from '../dashboard/dashboard.component';
 })
 export class NavbarComponent {
 
-  user = this.authService.user;
-  isLoggedIn = this.authService.isLoggedIn();
+  user = JSON.parse(sessionStorage.getItem('currentUser'));
+  isLoggedIn = sessionStorage.getItem('currentUser') !== null;
+  // isLoggedIn = this.authService.isLoggedIn();
 
   constructor(
     private router: Router,
     private authService: AuthService
   ) {
+    console.log(this.isLoggedIn);
+    console.log(sessionStorage.getItem('currentUser'));
+    console.log(this.user);
   }
 
   logout() {
-    this.authService.logout()
-      .then(() => this.router.navigate(['/main']));
+    this.authService.logout();
+      // .then(() => this.router.navigate(['/main']));
   }
 
 }

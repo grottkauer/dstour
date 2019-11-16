@@ -10,16 +10,16 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="dashboard/attractions">Atrakcje turystyczne</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link js-scroll-trigger" href="dashboard/profile">Profil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="/contact">Kontakt</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="isLoggedIn != true" class="nav-link js-scroll-trigger" href="/login">Logowanie</a>
-          <mat-icon *ngIf="isLoggedIn == true" class="logout-icon float-right" (click)="logout()">power_settings_new</mat-icon>
-          <a *ngIf="isLoggedIn == true" class="nav-link js-scroll-trigger user-login float-right">Witaj, {{user.login}}</a>
+          <a *ngIf="!isLoggedIn" class="nav-link js-scroll-trigger" href="/login">Logowanie</a>
+          <mat-icon *ngIf="isLoggedIn" class="logout-icon float-right" (click)="logout()">power_settings_new</mat-icon>
+          <a *ngIf="isLoggedIn" class="nav-link js-scroll-trigger user-login float-right">Witaj, {{user.login}}</a>
         </li>
       </ul>
     </div>

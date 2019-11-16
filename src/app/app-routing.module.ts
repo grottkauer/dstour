@@ -10,6 +10,7 @@ import {AttractionDetailComponent} from './attractions/attraction-detail/attract
 import {ProfileComponent} from './profile/profile.component';
 import {ProfileTripDetailComponent} from './profile/profile-trip-detail/profile-trip-detail.component';
 import {RoleGuardService} from './core/services/role-guard.service';
+import {Er404Component} from './core/er404/er404.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'profile/trips/1', component: ProfileTripDetailComponent}
     ]
   },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '404', component: Er404Component},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

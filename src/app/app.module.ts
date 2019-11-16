@@ -9,7 +9,6 @@ import {environment} from '../environments/environment';
 import {MaterialModule} from './material/material.module';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {CoreModule} from './core/core.module';
-import {AuthService} from './core/auth.service';
 import {AttractionsModule} from './attractions/attractions.module';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { ChartModule } from '@syncfusion/ej2-angular-charts';
@@ -39,7 +38,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     Ng2SearchPipeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

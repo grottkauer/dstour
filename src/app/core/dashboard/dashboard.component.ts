@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthService} from '../auth.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
   user = this.authService.user;
   // auth = this.authService.authState$;
   // email: string;
@@ -18,8 +18,7 @@ export class DashboardComponent implements OnInit{
   ) {}
 
   logout() {
-    this.authService.logout()
-      .then(() => this.router.navigate(['/main']));
+    this.authService.logout();
   }
 
   ngOnInit(): void {

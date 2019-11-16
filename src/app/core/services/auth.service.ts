@@ -24,7 +24,7 @@ export class AuthService {
         sessionStorage.setItem('userLastName', this.user.lastName);
         sessionStorage.setItem('userKey', this.user.key);
         sessionStorage.setItem('userRole', this.user.role);
-        sessionStorage.removeItem('wrongPassword', 'false');
+        sessionStorage.setItem('wrongPassword', 'false');
         this.router.navigate(['/dashboard']);
       } else {
         sessionStorage.setItem('wrongPassword', 'true');

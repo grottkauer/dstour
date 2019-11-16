@@ -15,11 +15,12 @@ import { SidebarProfileComponent } from './sidebar-profile/sidebar-profile.compo
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ListuploadComponent } from './listupload/listupload.component';
 import { DetailsUploadComponent } from './details-upload/details-upload.component';
+import { Er404Component } from './er404/er404.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, LoginComponent, PageNotFoundComponent, ContactComponent, MainComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent, FormUploadComponent, ListuploadComponent, DetailsUploadComponent],
+  declarations: [DashboardComponent, LoginComponent, PageNotFoundComponent, ContactComponent, MainComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent, FormUploadComponent, ListuploadComponent, DetailsUploadComponent, Er404Component],
   imports: [
     CommonModule,
     MaterialModule,

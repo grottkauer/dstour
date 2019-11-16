@@ -18,7 +18,7 @@ export class RoleGuardService implements CanActivate {
     console.log('oczekiwana: ' + expectedRole);
     console.log('indexOf: ' + expectedRole.indexOf(sessionStorage.getItem('userRole')));
     if (expectedRole.indexOf(sessionStorage.getItem('userRole')) === -1) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/404']);
       return false;
     }
     return true;

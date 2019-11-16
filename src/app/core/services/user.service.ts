@@ -20,7 +20,7 @@ export class UserService {
   }
 
   getUserByLogin(login): Observable<User[]> {
-    return this.db.list<User>(this.API_URL, ref => ref.limitToFirst(1)).snapshotChanges()
+    return this.db.list<User>(this.API_URL, ref => ref.orderByChild('login').equalTo(login)).snapshotChanges()
       .pipe(map(response => response.map(user => this.assignKey(user))));
   }
 

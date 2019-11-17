@@ -21,6 +21,8 @@ export class AttractionDetailComponent implements OnInit {
 
   BarChart = [];
 
+  role = sessionStorage.getItem('userRole');
+
   latitude = 51.0152;
   longitude = 15.1813;
 

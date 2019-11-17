@@ -22,7 +22,7 @@
           <p class="undertext d-none d-md-block">Zmień hasło</p>
         </a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="role==='Podróżnik'" class="nav-item">
         <a class="nav-link text-center" [ngClass]="{active: showAttrType==3}" (click)="showType(3)">
           <span data-feather="shopping-cart"></span>
           <mat-icon>person_add</mat-icon><br>
@@ -43,7 +43,7 @@
           <p class="undertext d-none d-md-block">Ocenione atrakcje</p>
         </a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="role==='Podróżnik'" class="nav-item">
         <a class="nav-link text-center" [ngClass]="{active: showAttrType==6}" (click)="showType(6)">
           <span data-feather="layers"></span>
           <mat-icon>check</mat-icon><br>
@@ -57,7 +57,7 @@
           <p class="undertext d-none d-md-block">Moje statystyki</p>
         </a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="role==='Przewodnik'" class="nav-item">
         <a class="nav-link text-center" [ngClass]="{active: showAttrType==8}" (click)="showType(8)">
           <span data-feather="layers"></span>
           <mat-icon>landscape</mat-icon><br>

@@ -15,6 +15,8 @@ export class ProfileStatsComponent implements OnInit {
   d = new Date();
   actualMonth;
 
+  role = sessionStorage.getItem('userRole');
+
   constructor() { }
 
   ngOnInit() {

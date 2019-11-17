@@ -3,6 +3,7 @@ import {AngularFireDatabase} from '@angular/fire/database';
 import {UserService} from './user.service';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +16,29 @@ export class AuthService {
               public router: Router) { }
 
   login(username: string, password: string) {
-    this.subscribe(username);
-    if (this.user != null) {
-      if (this.user.password === password) {
-        console.log(this.user);
-        sessionStorage.setItem('currentUser', JSON.stringify(this.user));
-        sessionStorage.setItem('userFirstName', this.user.firstName);
-        sessionStorage.setItem('userLastName', this.user.lastName);
-        sessionStorage.setItem('userKey', this.user.key);
-        sessionStorage.setItem('userRole', this.user.role);
-        sessionStorage.setItem('wrongPassword', 'false');
-        this.router.navigate(['/dashboard']);
+    const user$ = this.userService.getUserByLogin(username);
+    user$.subscribe(val => {
+      this.user = val[0];
+      console.log(this.user);
+      if (this.user != null) {
+        if (this.user.password === password) {
+          console.log(this.user);
+          sessionStorage.setItem('currentUser', JSON.stringify(this.user));
+          sessionStorage.setItem('userFirstName', this.user.firstName);
+          sessionStorage.setItem('userLastName', this.user.lastName);
+          sessionStorage.setItem('userKey', this.user.key);
+          sessionStorage.setItem('userRole', this.user.role);
+          sessionStorage.setItem('wrongPassword', 'false');
+          this.router.navigate(['/dashboard']);
+        } else {
+          sessionStorage.setItem('wrongPassword', 'true');
+          console.log('Niepoprawne haslo');
+        }
       } else {
         sessionStorage.setItem('wrongPassword', 'true');
-        console.log('Niepoprawne haslo');
+        console.log('Niepoprawny login');
       }
-    }
+    });
   }
 
   subscribe(login: string) {

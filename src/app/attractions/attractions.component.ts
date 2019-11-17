@@ -16,6 +16,7 @@ export class AttractionsComponent {
   showAttrType = 0;
   page = 1;
   pageSize = 9;
+  role = sessionStorage.getItem('userRole');
 
   constructor(
     private dialog: MatDialog,

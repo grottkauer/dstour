@@ -167,8 +167,8 @@
         </div>
         <ngb-pagination [collectionSize]="1" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
 
-        <h2 class="text-center">Dodaj zdjęcie do atrakcji</h2>
-        <div class="card">
+        <h2 *ngIf="role==='Administrator'" class="text-center">Dodaj zdjęcie do atrakcji</h2>
+        <div *ngIf="role==='Administrator'" class="card">
           <app-form-upload></app-form-upload>
         </div>
 
@@ -178,4 +178,4 @@
   </div>
 </div>
 
-<button (click)="openNewAttractionModal()" mat-fab color="accent" id="new-attraction-btn">+</button>
+<button *ngIf="role==='Administrator'" (click)="openNewAttractionModal()" mat-fab color="accent" id="new-attraction-btn">+</button>

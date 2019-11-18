@@ -30,8 +30,8 @@ export class AttractionDetailComponent implements OnInit {
 
   role = sessionStorage.getItem('userRole');
 
-  latitude = 51.0152;
-  longitude = 15.1813;
+  latitude = 51.0304;
+  longitude = 15.3033;
 
   layer: any;
   map: any;
@@ -66,34 +66,7 @@ export class AttractionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.loadAttraction();
-    this.loadFiles();
-    this.favoriteService.getFavoritesByUser(this.user.key)
-      .subscribe(val => {
-        for (let i = 0; i < val.length; i++) {
-          this.fav = val[i];
-          console.log(this.fav);
-          console.log(this.attraction.key);
-          if (this.fav.attrRef === this.attraction.key) {
-            i = val.length;
-            this.isFavorite = true;
-            console.log(i);
-          }
-        }
-      });
-
-    this.ratedService.getRatedByUser(this.user.key)
-      .subscribe(val => {
-        for (let i = 0; i < val.length; i++) {
-          this.rate = val[i];
-          console.log(this.rate);
-          console.log(this.attraction.key);
-          if (this.rate.attrRef === this.attraction.key) {
-            i = val.length;
-            this.isRate = true;
-            console.log(i);
-          }
-        }
-      });
+    // this.loadFiles();
     // Charts
 // Bar chart:
     this.BarChart = new Chart('barChart', {
@@ -134,8 +107,40 @@ export class AttractionDetailComponent implements OnInit {
         }
       }
     });
+  }
 
+  private loadAttraction() {
+    const key = this.route.snapshot.params['key'];
+    this.attractionsService.getAttraction(key)
+      .subscribe(attraction => {
+        this.attraction = attraction;
 
+        if (this.attraction.coordinateX != null && this.attraction.coordinateY != null) {
+          this.latitude = this.attraction.coordinateX;
+          this.longitude = this.attraction.coordinateY;
+        }
+
+        this.loadFiles();
+        this.loadFavorites();
+        this.loadRates();
+        this.loadMap();
+      });
+    // console.log('attraction', this.attraction.name);
+  }
+
+  openNewAQuestionModal() {
+    this.dialog.open(AttractionNewQuestionComponent);
+  }
+
+  openProposeAQuestionModal() {
+    this.dialog.open(AttractionProposeQuestionComponent);
+  }
+
+  openQuizModal() {
+    this.dialog.open(AttractionQuizComponent);
+  }
+
+  private loadMap() {
     // Open Street Map
     const mousePositionControl = new ol.control.MousePosition({
       coordinateFormat: ol.coordinate.createStringXY(4),
@@ -160,7 +165,7 @@ export class AttractionDetailComponent implements OnInit {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([15.3033, 51.0304]),
+        center: ol.proj.fromLonLat([this.longitude, this.latitude]),
         zoom: 15
       })
     });
@@ -169,7 +174,7 @@ export class AttractionDetailComponent implements OnInit {
       source: new ol.source.Vector({
         features: [
           new ol.Feature({
-            geometry: new ol.geom.Point(ol.proj.fromLonLat([15.3033, 51.0304]))
+            geometry: new ol.geom.Point(ol.proj.fromLonLat([this.longitude, this.latitude]))
           })
         ]
       })
@@ -189,8 +194,8 @@ export class AttractionDetailComponent implements OnInit {
     });
     this.map.addOverlay(overlay);
 
-    content.innerHTML = '<b>Zamek Czocha</b><br />15.3033 E, 51.0304 N';
-    overlay.setPosition(ol.proj.fromLonLat([15.3033, 51.0304]));
+    content.innerHTML = '<b>' + this.attraction.name + '</b><br />' + this.longitude + ' N, ' + this.latitude + ' E';
+    overlay.setPosition(ol.proj.fromLonLat([this.longitude, this.latitude]));
 
     closer.onclick = function() {
       overlay.setPosition(undefined);
@@ -199,36 +204,48 @@ export class AttractionDetailComponent implements OnInit {
     };
   }
 
-  private loadAttraction() {
-    const key = this.route.snapshot.params['key'];
-    this.attractionsService.getAttraction(key)
-      .subscribe(attraction => {
-        this.attraction = attraction;
-      });
-    // console.log('attraction', this.attraction.name);
-  }
-
-  openNewAQuestionModal() {
-    this.dialog.open(AttractionNewQuestionComponent);
-  }
-
-  openProposeAQuestionModal() {
-    this.dialog.open(AttractionProposeQuestionComponent);
-  }
-
-  openQuizModal() {
-    this.dialog.open(AttractionQuizComponent);
-  }
-
   private loadFiles() {
     // Use snapshotChanges().pipe(map()) to store the key
-    this.uploadService.getFileUploads(6).snapshotChanges().pipe(
+    // console.log('dsa: ', this.attraction.key);
+    this.uploadService.getFileUploadsByAttr(this.attraction.key).snapshotChanges().pipe(
       map(changes =>
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     ).subscribe(fileUploads => {
       this.fileUploads = fileUploads;
     });
+  }
+
+  private loadFavorites() {
+    this.favoriteService.getFavoritesByUser(this.user.key)
+      .subscribe(val => {
+        for (let i = 0; i < val.length; i++) {
+          this.fav = val[i];
+          console.log(this.fav);
+          console.log(this.attraction.key);
+          if (this.fav.attrRef === this.attraction.key) {
+            i = val.length;
+            this.isFavorite = true;
+            console.log(i);
+          }
+        }
+      });
+  }
+
+  private loadRates() {
+    this.ratedService.getRatedByUser(this.user.key)
+      .subscribe(val => {
+        for (let i = 0; i < val.length; i++) {
+          this.rate = val[i];
+          console.log(this.rate);
+          console.log(this.attraction.key);
+          if (this.rate.attrRef === this.attraction.key) {
+            i = val.length;
+            this.isRate = true;
+            console.log(i);
+          }
+        }
+      });
   }
 
   addToFavorites() {

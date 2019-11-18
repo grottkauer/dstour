@@ -16,7 +16,7 @@
                 <h3 class="pl-3">Zamki i pałace</h3>
               </div>
               <div class="row p-3">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -31,7 +31,7 @@
                 <h3 class="pl-3">Wydarzenia</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                 <h3 class="pl-3">Miejsca historyczne</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                 <h3 class="pl-3">Budynki sakralne</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                 <h3 class="pl-3">Przyrodnicze</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -111,7 +111,7 @@
                 <h3 class="pl-3">Obiekty techniki</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -131,7 +131,7 @@
                 <h3 class="pl-3">Dwory i dworki</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -151,7 +151,7 @@
                 <h3 class="pl-3">Pozostałe</h3>
               </div>
               <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attractions$ | async">
+                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>

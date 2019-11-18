@@ -62,7 +62,7 @@ export class ProfileFavoritesComponent implements OnInit {
 
   removeFavorite(favorite: Favorite) {
     this.favoriteService.removeFavorite(favorite.key)
-      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));;
+      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));
   }
 
   private onRemoveSuccess() {

@@ -27,7 +27,7 @@ export class AttractionCardComponent implements OnInit {
 
   private loadFiles() {
     // Use snapshotChanges().pipe(map()) to store the key
-    this.uploadService.getFileUploads(6).snapshotChanges().pipe(
+    this.uploadService.getFileUploadsByAttr(this.attraction.key).snapshotChanges().pipe(
       map(changes =>
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )

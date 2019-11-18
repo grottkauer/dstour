@@ -45,7 +45,7 @@
           <div class="carousel-inner">
             <div *ngFor="let file of fileUploads">
               <div class="carousel-item active">
-                <app-details-upload *ngIf="file.attr === attraction?.key" [fileUpload]='file'></app-details-upload>
+                <app-details-upload [fileUpload]='file'></app-details-upload>
               </div>
             </div>
           </div>

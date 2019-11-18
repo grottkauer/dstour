@@ -50,6 +50,11 @@ export class UploadfileService {
       ref.limitToLast(numberItems));
   }
 
+  getFileUploadsByAttr(attrKey): AngularFireList<FileUpload> {
+    return this.db.list(this.basePath, ref =>
+      ref.orderByChild('attr').equalTo(attrKey));
+  }
+
   getFile(key: string): Observable<FileUpload> {
     return this.db.object<FileUpload>(`${this.basePath}/${key}`).snapshotChanges()
       .pipe(map(fileUpload => this.assignKey(fileUpload)));

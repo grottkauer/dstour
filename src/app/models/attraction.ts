@@ -10,13 +10,13 @@ export interface Attraction {
   city: string;
   email: string;
   phone: string;
-  type: AttractionType;
+  type: string;
   webpage: string;
 }
 
-export interface AttractionType {
-  typeName: string;
-}
+// export interface AttractionType {
+//   typeName: string;
+// }
 
 // export interface Phone {
 //   number: string;

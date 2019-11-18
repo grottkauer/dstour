@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
 
   scrollToElement($element): void {
     console.log($element);
-    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
 }

@@ -5,17 +5,24 @@ import {AttractionsService} from '../../core/services/attractions.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Chart} from 'chart.js';
 import * as CanvasJS from 'canvasjs';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {AttractionNewQuestionComponent} from '../attraction-new-question/attraction-new-question.component';
 import {AttractionProposeQuestionComponent} from '../attraction-propose-question/attraction-propose-question.component';
 import {AttractionQuizComponent} from '../attraction-quiz/attraction-quiz.component';
 import {UploadfileService} from '../../core/services/uploadfile.service';
+import {FavoriteService} from '../../core/services/favorite.service';
+import {Observable} from 'rxjs';
+import {Favorite} from '../../models/favorite';
+import {DatePipe} from '@angular/common';
+import {RatedAttrService} from '../../core/services/rated-attr.service';
+import {Rated} from '../../models/rated';
 
 declare var ol: any;
 @Component({
   selector: 'app-attraction-detail',
   templateUrl: './attraction-detail.component.html',
-  styleUrls: ['./attraction-detail.component.scss']
+  styleUrls: ['./attraction-detail.component.scss'],
+  providers: [DatePipe]
 })
 export class AttractionDetailComponent implements OnInit {
 
@@ -30,14 +37,26 @@ export class AttractionDetailComponent implements OnInit {
   map: any;
   overlay: any;
 
+  user = JSON.parse(sessionStorage.getItem('currentUser'));
   attraction: Attraction;
   fileUploads: any[];
+  fav: Favorite;
+  isFavorite = false;
+  currentDate = new Date();
+  rate: Rated;
+  isRate = false;
+  myDate = this.datePipe.transform(this.currentDate, 'dd.MM.yyyy');
+  rating: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private attractionsService: AttractionsService,
               private dialog: MatDialog,
-              private uploadService: UploadfileService) {
+              private uploadService: UploadfileService,
+              private favoriteService: FavoriteService,
+              private datePipe: DatePipe,
+              private toast: MatSnackBar,
+              private ratedService: RatedAttrService) {
     // this.attraction = data;
   }
 
@@ -48,6 +67,33 @@ export class AttractionDetailComponent implements OnInit {
   ngOnInit() {
     this.loadAttraction();
     this.loadFiles();
+    this.favoriteService.getFavoritesByUser(this.user.key)
+      .subscribe(val => {
+        for (let i = 0; i < val.length; i++) {
+          this.fav = val[i];
+          console.log(this.fav);
+          console.log(this.attraction.key);
+          if (this.fav.attrRef === this.attraction.key) {
+            i = val.length;
+            this.isFavorite = true;
+            console.log(i);
+          }
+        }
+      });
+
+    this.ratedService.getRatedByUser(this.user.key)
+      .subscribe(val => {
+        for (let i = 0; i < val.length; i++) {
+          this.rate = val[i];
+          console.log(this.rate);
+          console.log(this.attraction.key);
+          if (this.rate.attrRef === this.attraction.key) {
+            i = val.length;
+            this.isRate = true;
+            console.log(i);
+          }
+        }
+      });
     // Charts
 // Bar chart:
     this.BarChart = new Chart('barChart', {
@@ -183,6 +229,51 @@ export class AttractionDetailComponent implements OnInit {
     ).subscribe(fileUploads => {
       this.fileUploads = fileUploads;
     });
+  }
+
+  addToFavorites() {
+    const favorite = {
+      addDate: this.myDate,
+      attrCity: this.attraction.city,
+      attrName: this.attraction.name,
+      attrRef: this.attraction.key,
+      userRef: this.user.key
+    };
+
+    console.log(favorite);
+    this.favoriteService.addFavorite(favorite)
+      .then(this.onAddFavoriteSuccess.bind(this), this.onFailure.bind(this));
+  }
+
+  addRate() {
+    console.log(this.rating);
+    const star = {
+      addDate: this.myDate,
+      attrName: this.attraction.name,
+      attrRef: this.attraction.key,
+      userRef: this.user.key,
+      rate: this.rating
+    };
+
+    console.log(star);
+    this.ratedService.addRate(star)
+      .then(this.onAddRateSuccess.bind(this), this.onFailure.bind(this));
+  }
+
+  changeStarValue(event: any) {
+    this.rating = event.target.value;
+  }
+
+  private onAddFavoriteSuccess() {
+    this.toast.open('Dodano do ulubionych pomyślnie', '', {panelClass: 'toast-success'});
+  }
+
+  private onAddRateSuccess() {
+    this.toast.open('Dodano ocenę atrakcji pomyślnie', '', {panelClass: 'toast-success'});
+  }
+
+  private onFailure(error) {
+    this.toast.open(error.message, '', {panelClass: 'toast-error'});
   }
 
 }

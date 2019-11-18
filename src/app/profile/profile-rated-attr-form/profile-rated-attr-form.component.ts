@@ -18,10 +18,11 @@ export class ProfileRatedAttrFormComponent implements OnInit {
   ];
 
   myForm: FormGroup;
+  rate = JSON.parse(sessionStorage.getItem('attrRate'));
 
   constructor(private formBuilder: FormBuilder) {
     this.myForm = this.formBuilder.group({
-      rate: ['', [Validators.required]]
+      rate: [this.rate.rate, [Validators.required]]
     });
   }
 

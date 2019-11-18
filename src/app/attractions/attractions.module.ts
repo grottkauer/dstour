@@ -5,7 +5,7 @@ import {MaterialModule} from '../material/material.module';
 import { AttractionCardComponent } from './attraction-card/attraction-card.component';
 import {NewAttractionComponent} from './new-attraction/new-attraction.component';
 import { AttractionFormComponent } from './attraction-form/attraction-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from '../core/core.module';
 import { AttractionDetailComponent } from './attraction-detail/attraction-detail.component';
 import {RouterModule} from '@angular/router';
@@ -35,7 +35,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     CoreModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   entryComponents: [
     NewAttractionComponent,

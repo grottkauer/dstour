@@ -16,12 +16,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let hero of heroes | filter:searchText">
-        <td>{{hero.name}}</td>
-        <td>{{hero.country}}</td>
-        <td>{{hero.id}}</td>
+      <tr *ngFor="let fav of favs | async | filter:searchText">
+        <td>{{fav?.attrName}}</td>
+        <td>{{fav?.attrCity}}</td>
+        <td>{{fav?.addDate}}</td>
         <td>
-          <button mat-button>
+          <button mat-button (click)="removeFavorite(fav)">
             <mat-icon>delete</mat-icon>
             Usuń z ulubionych
           </button>

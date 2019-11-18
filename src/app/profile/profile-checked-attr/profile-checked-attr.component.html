@@ -17,11 +17,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let hero of heroes | filter:searchText">
-        <td>{{hero.name}}</td>
-        <td>{{hero.country}}</td>
-        <td>{{hero.id}}</td>
-        <td>{{hero.id}}</td>
+      <tr *ngFor="let check of checked | filter:searchText">
+        <td>{{check.attrName}}</td>
+        <td>{{check.checkDate}}</td>
+        <td>{{check.points}}</td>
+        <td>0</td>
         <td>
           <button mat-button (click)="openEditTripModal()">
             <mat-icon>details</mat-icon>

@@ -2,7 +2,7 @@
   <div class="text-center">
 
   </div>
-  <h2 class="text-center">Zamek Czocha</h2>
+  <h2 class="text-center">{{rate.attrName}}</h2>
   <mat-form-field class="w-100">
     <mat-select formControlName="rate" placeholder="Ocena atrakcji" required>
       <mat-option *ngFor="let rate of rates" [value]="rate.rate">{{ rate.rate | number: '1.1' }}</mat-option>

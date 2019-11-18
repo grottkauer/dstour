@@ -14,8 +14,7 @@ export class AttractionsService {
   constructor(private db: AngularFireDatabase) { }
 
   getAttractions(): Observable<Attraction[]> {
-    return this.db.list<Attraction>(this.API_URL, ref =>
-      ref.limitToFirst(1)).snapshotChanges()
+    return this.db.list<Attraction>(this.API_URL).snapshotChanges()
       .pipe(map(response => response.map(attraction => this.assignKey(attraction))));
   }
 

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Type} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
-import {Attraction, AttractionType} from '../../models/attraction';
+import {Attraction} from '../../models/attraction';
 
 @Component({
   selector: 'app-attraction-form',
@@ -13,8 +13,14 @@ export class AttractionFormComponent implements OnInit {
 
   form: FormGroup;
   types = [
-    { label: 'Zamek', value: 'zamek'},
-    { label: 'Pałac', value: 'palac'}
+    { label: 'Zamki i pałace', value: 'Zamki i pałace'},
+    { label: 'Wydarzenia', value: 'Wydarzenia'},
+    { label: 'Miejsca historyczne', value: 'Miejsca historyczne'},
+    { label: 'Budynki sakralne', value: 'Budynki sakralne'},
+    { label: 'Przyrodnicze', value: 'Przyrodnicze'},
+    { label: 'Obiekty techniki', value: 'Obiekty techniki'},
+    { label: 'Dwory i dworki', value: 'Dwory i dworki'},
+    { label: 'Pozostałe', value: 'Pozostałe'}
   ];
   constructor(private formBuilder: FormBuilder) { }
 
@@ -27,7 +33,7 @@ export class AttractionFormComponent implements OnInit {
   //   this.form.patchValue(formData);
   //   formData.crew.forEach(crewMember => this.addCrewMember(crewMember));
   // }
-
+/*
   get type() {
     return this.form.get('type') as FormArray;
   }
@@ -44,7 +50,7 @@ export class AttractionFormComponent implements OnInit {
     return this.formBuilder.group({
       typeName: typeMember.typeName || ''
     });
-  }
+  } */
 
   get phone() {
     return this.form.get('phone') as FormArray;
@@ -68,7 +74,7 @@ export class AttractionFormComponent implements OnInit {
       email: '',
       phone: '',
       webpage: '',
-      type: this.formBuilder.array(this.editMode ? [] : [this.buildTypeMember()])
+      type: ''
     });
   }
 

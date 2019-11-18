@@ -16,16 +16,16 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let hero of heroes | filter:searchText">
-        <td>{{hero.name}}</td>
-        <td>{{hero.country}}</td>
-        <td>{{hero.id}}</td>
+      <tr *ngFor="let rate of rating | async | filter:searchText">
+        <td>{{rate?.attrName}}</td>
+        <td>{{rate?.rate}}</td>
+        <td>{{rate?.addDate}}</td>
         <td>
-          <button mat-button>
+          <button mat-button (click)="removeRate(rate)">
             <mat-icon>delete</mat-icon>
             Usuń ocenę
           </button><br>
-          <button mat-button (click)="openEditRateModal()">
+          <button mat-button (click)="openEditRateModal(rate)">
             <mat-icon>edit</mat-icon>
             Zmień ocenę
           </button>

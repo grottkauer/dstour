@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {ProfileCheckedAttrDetailComponent} from '../profile-checked-attr-detail/profile-checked-attr-detail.component';
+import {CheckedAttr} from '../../models/checkedAttr';
 
 @Component({
   selector: 'app-profile-checked-attr',
@@ -22,10 +23,13 @@ export class ProfileCheckedAttrComponent implements OnInit {
     { id: 19, name: 'Magma' , country: 'South Africa'},
     { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
   ];
+  user = JSON.parse(sessionStorage.getItem('currentUser'));
+  checked: CheckedAttr[];
 
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.checked = this.user.checkedAttr;
   }
 
   openEditTripModal() {

@@ -20,6 +20,8 @@
   color: #222222; /* Start color when not clicked */
 }
 
+.checked {color: #ffca08 ;}
+
 .starrating > input:checked ~ label
 { color: #ffca08 ; } /* Set yellow color when star checked */
 

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Attraction} from '../../models/attraction';
 import {map} from 'rxjs/operators';
 import {User} from '../../models/user';
+import {Rated} from '../../models/rated';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.db.list<User>(this.API_URL).snapshotChanges()
       .pipe(map(response => response.map(user => this.assignKey(user))));
+  }
+
+  getRates(): Observable<Rated[]> {
+    return this.db.list<Rated>(this.API_URL, ref => ref.child('ratedAttr')).snapshotChanges()
+      .pipe(map(response => response.map(item => this.assignKey(item))));
   }
 
   getUserByLogin(login): Observable<User[]> {

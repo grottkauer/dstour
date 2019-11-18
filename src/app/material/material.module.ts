@@ -32,7 +32,7 @@ const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig = {
 };
 
 const MAT_SNACK_BAR_GLOBAL_CONFIG: MatSnackBarConfig = {
-  duration: 2500,
+  duration: 3000,
   verticalPosition: 'bottom',
   horizontalPosition: 'center'
 };

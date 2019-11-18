@@ -9,20 +9,20 @@
         <div class="row">
           <div class="col-sm-6 form-group text-left">
             <label>Imię</label>
-            <input *ngIf="isEditable==0" name="firstName" type="text" class="form-control" disabled value="Jan">
-            <input *ngIf="isEditable==1" formControlName="firstName" placeholder="Jan" name="firstName" type="text" class="form-control" value="Jan">
+            <input *ngIf="isEditable==0" name="firstName" type="text" class="form-control" disabled [value]="user.firstName">
+            <input *ngIf="isEditable==1" [value]="user.firstName" formControlName="firstName" name="firstName" type="text" class="form-control">
           </div>
           <div class="col-sm-6 form-group text-left">
             <label>Nazwisko</label>
-            <input *ngIf="isEditable==0" name="lastName" type="text" class="form-control" disabled value="Kowalski">
-            <input *ngIf="isEditable==1" formControlName="lastName" placeholder="Kowalski" name="lastName" type="text" class="form-control" value="Kowalski">
+            <input *ngIf="isEditable==0" name="lastName" type="text" class="form-control" disabled [value]="user.lastName">
+            <input *ngIf="isEditable==1" [value]="user.lastName" formControlName="lastName" name="lastName" type="text" class="form-control">
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 form-group text-left">
             <label>Adres email</label>
-            <input *ngIf="isEditable==0" name="email" type="email" class="form-control" disabled value="j.kowalski@gmail.com">
-            <input matInput *ngIf="isEditable==1" formControlName="email" placeholder="j.kowalski@google.com" name="email" type="email" class="form-control" value="j.kowalski@gmail.com">
+            <input *ngIf="isEditable==0" name="email" type="email" class="form-control" disabled [value]="user.email">
+            <input matInput *ngIf="isEditable==1" [value]="user.email" formControlName="email" name="email" type="email" class="form-control">
             <mat-error *ngIf="myForm.get('email').hasError('pattern')">Adres email ma zły format</mat-error>
           </div>
         </div>
@@ -38,7 +38,7 @@
               <div *ngIf="isEditable==0">
                 Zmień dane
               </div>
-              <div *ngIf="isEditable==1">
+              <div *ngIf="isEditable==1" (click)="editUser()">
                 Potwierdź zmianę
               </div>
             </button>

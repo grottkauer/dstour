@@ -30,9 +30,18 @@ export class UserService {
       .pipe(map(response => response.map(user => this.assignKey(user))));
   }
 
-  getAttraction(key: string): Observable<User> {
+  getUserByPassword(password): Observable<User[]> {
+    return this.db.list<User>(this.API_URL, ref => ref.orderByChild('password').equalTo(password)).snapshotChanges()
+      .pipe(map(response => response.map(user => this.assignKey(user))));
+  }
+
+  getUser(key: string): Observable<User> {
     return this.db.object<User>(`${this.API_URL}/${key}`).snapshotChanges()
       .pipe(map(user => this.assignKey(user)));
+  }
+
+  editUser(key: string, item: User) {
+    return this.db.object<User>(`${this.API_URL}/${key}`).update(item);
   }
 
   private assignKey(user) {

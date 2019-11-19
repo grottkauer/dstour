@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Attraction} from '../../models/attraction';
+import {AttractionsService} from '../../core/services/attractions.service';
+import {TripAttraction} from '../../models/tripAttraction';
+import {Trip} from '../../models/trip';
 
 @Component({
   selector: 'app-profile-trip-quick-form',
@@ -10,7 +13,7 @@ import {Attraction} from '../../models/attraction';
 })
 export class ProfileTripQuickFormComponent implements OnInit {
 
-  @Input() editMode = false;
+  @Input() editMode = true;
   heroes = [
     { id: 11, name: 'Mr. Nice', country: 'India' },
     { id: 12, name: 'Narco' , country: 'USA'},
@@ -25,16 +28,22 @@ export class ProfileTripQuickFormComponent implements OnInit {
   ];
 
   myForm: FormGroup;
+  user = JSON.parse(sessionStorage.getItem('currentUser'));
+  attrs$: Attraction[];
+  trip = JSON.parse(sessionStorage.getItem('currentTrip'));
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private attrService: AttractionsService) {
+    this.attrService.getAttractions().subscribe(val => this.attrs$ = val);
     this.myForm = this.formBuilder.group({
-      tripName: ['', [Validators.required]],
-      tripDate: [''],
-      tourOperator: [''],
-      groupType: [''],
-      money: [''],
-      countGroup: [''],
-      attr: this.formBuilder.array(this.editMode ? [] : [this.buildAttr()])
+      name: [this.trip.name, [Validators.required]],
+      tripDate: [this.trip.tripDate],
+      travelAgency: [this.trip.travelAgency],
+      groupType: [this.trip.groupType],
+      wage: [this.trip.wage],
+      groupCount: [this.trip.groupCount],
+      tripAttr: this.formBuilder.array(this.editMode ? [] : [this.buildAttr()]),
+      userRef: this.user.key
     });
   }
 
@@ -42,23 +51,29 @@ export class ProfileTripQuickFormComponent implements OnInit {
   }
 
   get attr() {
-    return this.myForm.get('attr') as FormArray;
+    return this.myForm.get('tripAttr') as FormArray;
   }
 
   removeAttr(i: number) {
     this.attr.removeAt(i);
   }
 
-  addAttr(attrTrip?: Attraction) {
+  addAttr(attrTrip?: TripAttraction) {
     this.attr.push(this.buildAttr(attrTrip));
   }
 
-  buildAttr(attrTrip: Attraction = {} as Attraction) {
+  setTrip() {
+    const {key, ...formData} = this.trip;
+    this.myForm.patchValue(formData);
+    formData.tripAttr.forEach(crewMember => this.addAttr(crewMember));
+  }
+
+  buildAttr(attrTrip: TripAttraction = {} as TripAttraction) {
     return this.formBuilder.group({
-      name: [attrTrip.name || '', [Validators.required]],
-      timeIn: '',
-      timeOut: '',
-      additionalGuide: ''
+      attrName: [attrTrip.attrName || '', [Validators.required]],
+      startHour: attrTrip.startHour || '',
+      endHour: attrTrip.endHour || '',
+      additionalGuide: attrTrip.additionalGuide || ''
     });
   }
 

@@ -1,5 +1,5 @@
 <div class="card-header text-center">
-  <h1 class="text-uppercase">Świdnica z Example Tourem</h1>
+  <h1 class="text-uppercase">{{trip?.name}}</h1>
   <h4 class="section-subheading text-white">Zobacz szczegóły zaplanowanej przez Ciebie wycieczki...</h4>
 </div>
 <div class="container shadow-lg mb-3 mt-3 p-3 highlight">
@@ -8,7 +8,7 @@
       <h5>Data wycieczki: </h5>
     </div>
     <div class="col-sm-9 text-right">
-      21.12.2019
+      {{trip?.tripDate}}
     </div>
   </div>
   <div class="row mt-2">
@@ -16,13 +16,13 @@
       <h5>Typ grupy: </h5>
     </div>
     <div class="col-sm-3 text-right">
-      21.12.2019
+      {{trip?.groupType}}
     </div>
     <div class="col-sm-3">
       <h5>Zarobek: </h5>
     </div>
     <div class="col-sm-3 text-right">
-      200 zł
+      {{trip?.wage}}
     </div>
   </div>
   <div class="row mt-2">
@@ -30,13 +30,13 @@
       <h5>Liczba uczestników: </h5>
     </div>
     <div class="col-sm-3 text-right">
-      21.12.2019
+      {{trip?.groupCount}}
     </div>
     <div class="col-sm-3">
       <h5>Biuro podróży: </h5>
     </div>
     <div class="col-sm-3 text-right">
-      200 zł
+      {{trip?.travelAgency}}
     </div>
   </div>
   <div class="row flights-container justify-content-center mt-3 mb-3">
@@ -52,7 +52,7 @@
   </div>
   <div class="d-flex justify-content-center align-items-center">
     <button class="button-submit mr-3" mat-raised-button (click)="openEditTripModal()">Redaguj</button>
-    <button class="button-delete" mat-raised-button>Usuń</button>
+    <button class="button-delete" mat-raised-button (click)="removeTrip()">Usuń</button>
   </div>
   <div class="row">
     <div class="col">

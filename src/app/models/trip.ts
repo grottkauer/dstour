@@ -9,4 +9,5 @@ export interface Trip {
   userRef: string;
   wage: number;
   tripAttr: TripAttraction[];
+  key: string;
 }

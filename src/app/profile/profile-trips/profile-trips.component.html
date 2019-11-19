@@ -20,15 +20,15 @@
       <td>{{trip?.name}}</td>
       <td>{{trip?.tripDate}}</td>
       <td>
-        <button mat-button (click)="goToDetail()">
+        <button mat-button (click)="goToDetail(trip)">
           <mat-icon>details</mat-icon>
           Wyświetl
         </button>
-        <button mat-button (click)="openEditTripModal()">
+        <button mat-button (click)="openEditTripModal(trip)">
           <mat-icon>edit</mat-icon>
           Edytuj
         </button>
-        <button mat-button>
+        <button mat-button (click)="removeTrip(trip)">
           <mat-icon>delete</mat-icon>
           Usuń
         </button>

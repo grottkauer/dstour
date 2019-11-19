@@ -33,7 +33,7 @@ const routes: Routes = [
           roles: ['Administrator', 'Podróżnik', 'Przewodnik']
         }
       },
-      { path: 'profile/trips/1', component: ProfileTripDetailComponent}
+      { path: 'profile/trips/:key', component: ProfileTripDetailComponent}
     ]
   },
   { path: '404', component: Er404Component},

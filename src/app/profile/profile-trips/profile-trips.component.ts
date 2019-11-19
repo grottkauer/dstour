@@ -19,18 +19,6 @@ export class ProfileTripsComponent implements OnInit {
 
   @Input() editMode = false;
   searchText;
-  heroes = [
-    { id: 11, name: 'Mr. Nice', country: 'India' },
-    { id: 12, name: 'Narco' , country: 'USA'},
-    { id: 13, name: 'Bombasto' , country: 'UK'},
-    { id: 14, name: 'Celeritas' , country: 'Canada' },
-    { id: 15, name: 'Magneta' , country: 'Russia'},
-    { id: 16, name: 'RubberMan' , country: 'China'},
-    { id: 17, name: 'Dynama' , country: 'Germany'},
-    { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-    { id: 19, name: 'Magma' , country: 'South Africa'},
-    { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-  ];
   user = JSON.parse(sessionStorage.getItem('currentUser'));
 
   myForm: FormGroup;
@@ -82,11 +70,13 @@ export class ProfileTripsComponent implements OnInit {
     });
   }
 
-  goToDetail() {
-    this.router.navigate(['/dashboard/profile/trips', 1]);
+  goToDetail(trip: Trip) {
+    // this.router.navigate(['/dashboard/attractions', this.attraction.key]);
+    this.router.navigate(['/dashboard/profile/trips', trip.key]);
   }
 
-  openEditTripModal() {
+  openEditTripModal(trip: Trip) {
+    sessionStorage.setItem('currentTrip', JSON.stringify(trip));
     this.dialog.open(ProfileTripEditComponent);
   }
 
@@ -96,8 +86,17 @@ export class ProfileTripsComponent implements OnInit {
       .then(this.onAddTripSuccess.bind(this), this.onFailure.bind(this));
   }
 
+  removeTrip(trip: Trip) {
+    this.tripService.removeTrip(trip.key)
+      .then(this.onRemoveTripSuccess.bind(this), this.onFailure.bind(this));
+  }
+
   private onAddTripSuccess() {
     this.toast.open('Dodano wycieczkę pomyślnie', '', {panelClass: 'toast-success'});
+  }
+
+  private onRemoveTripSuccess() {
+    this.toast.open('Usunięto wycieczkę pomyślnie', '', {panelClass: 'toast-success'});
   }
 
   private onFailure(error) {

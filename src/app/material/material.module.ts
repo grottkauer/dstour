@@ -26,7 +26,7 @@ const MATERIAL_MODULES = [
 ];
 
 const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig = {
-  width: '700px',
+  width: '900px',
   disableClose: true,
   hasBackdrop: true,
 };

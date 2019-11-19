@@ -14,6 +14,7 @@ import { AttractionQuestionFormComponent } from './attraction-question-form/attr
 import { AttractionProposeQuestionComponent } from './attraction-propose-question/attraction-propose-question.component';
 import { AttractionQuizComponent } from './attraction-quiz/attraction-quiz.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 
 
@@ -36,7 +37,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CoreModule,
     RouterModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [
     NewAttractionComponent,

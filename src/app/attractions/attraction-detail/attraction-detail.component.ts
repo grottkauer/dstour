@@ -114,6 +114,7 @@ export class AttractionDetailComponent implements OnInit {
     this.attractionsService.getAttraction(key)
       .subscribe(attraction => {
         this.attraction = attraction;
+        sessionStorage.setItem('currentAttr', JSON.stringify(attraction));
 
         if (this.attraction.coordinateX != null && this.attraction.coordinateY != null) {
           this.latitude = this.attraction.coordinateX;

@@ -4,4 +4,5 @@ export interface Favorite {
   attrName: string;
   attrCity: string;
   userRef: string;
+  key: string;
 }

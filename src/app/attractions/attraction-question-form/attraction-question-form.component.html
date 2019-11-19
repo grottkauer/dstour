@@ -9,32 +9,32 @@
   <div class="row">
     <div class="col-sm-6">
       <mat-form-field class="w-100">
-        <input matInput formControlName="odpA" placeholder="Odpowiedź 1.">
+        <input matInput formControlName="answer1" placeholder="Odpowiedź 1.">
       </mat-form-field>
     </div>
     <div class="col-sm-6">
       <mat-form-field class="w-100">
-        <input matInput formControlName="odpB" placeholder="Odpowiedź 2.">
+        <input matInput formControlName="answer2" placeholder="Odpowiedź 2.">
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
       <mat-form-field class="w-100">
-        <input matInput formControlName="odpC" placeholder="Odpowiedź 3.">
+        <input matInput formControlName="answer3" placeholder="Odpowiedź 3.">
       </mat-form-field>
     </div>
     <div class="col-sm-6">
       <mat-form-field class="w-100">
-        <input matInput formControlName="odpD" placeholder="Odpowiedź 4.">
+        <input matInput formControlName="answer4" placeholder="Odpowiedź 4.">
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
       <mat-form-field class="w-100">
-        <mat-select formControlName="poprawna" placeholder="Poprawna odpowiedź" required>
-          <mat-option *ngFor="let answer of answers" [value]="answer.answer">{{ answer.answer | uppercase }}</mat-option>
+        <mat-select formControlName="answerCorrect" placeholder="Poprawna odpowiedź" required>
+          <mat-option *ngFor="let answer of answers" [value]="answer.value">{{ answer.answer | uppercase }}</mat-option>
         </mat-select>
         <!--      <mat-error *ngIf="form.get('rate').hasError('required')">Ocena atrakcji jest wymagana</mat-error>-->
       </mat-form-field>

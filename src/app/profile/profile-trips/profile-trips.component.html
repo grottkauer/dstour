@@ -16,9 +16,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let hero of heroes | filter:searchText">
-      <td>{{hero.name}}</td>
-      <td>{{hero.country}}</td>
+    <tr *ngFor="let trip of trips | async | filter:searchText">
+      <td>{{trip?.name}}</td>
+      <td>{{trip?.tripDate}}</td>
       <td>
         <button mat-button (click)="goToDetail()">
           <mat-icon>details</mat-icon>
@@ -53,8 +53,8 @@
   <div class="row text-center">
     <div class="col-md-6">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Nazwa wycieczki" formControlName="tripName">
-        <mat-error *ngIf="myForm.get('tripName').hasError('required')">Nazwa wycieczki jest wymagana</mat-error>
+        <input matInput placeholder="Nazwa wycieczki" formControlName="name">
+        <mat-error *ngIf="myForm.get('name').hasError('required')">Nazwa wycieczki jest wymagana</mat-error>
       </mat-form-field>
     </div>
     <div class="col-md-6">
@@ -66,7 +66,7 @@
   <div class="row text-center">
     <div class="col-md-3">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Biuro podróży" formControlName="tourOperator">
+        <input matInput placeholder="Biuro podróży" formControlName="travelAgency">
       </mat-form-field>
     </div>
     <div class="col-md-3">
@@ -76,16 +76,16 @@
     </div>
     <div class="col-md-3">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Zarobek" formControlName="money" type="money">
+        <input matInput placeholder="Zarobek" formControlName="wage" type="money">
       </mat-form-field>
     </div>
     <div class="col-md-3">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Liczba uczestników" formControlName="countGroup">
+        <input matInput placeholder="Liczba uczestników" formControlName="groupCount">
       </mat-form-field>
     </div>
   </div>
-  <div formArrayName="attr" class="crew-container shadow p-2" *ngFor="let attrName of attr.controls;index as index">
+  <div formArrayName="tripAttr" class="crew-container shadow p-2" *ngFor="let attrName of attr.controls;index as index">
     <div class="row crew-header">
       <div class="col">
         <span>Atrakcja wycieczki - {{ index + 1 }}</span>
@@ -95,19 +95,19 @@
     <div class="row" [formGroupName]="index">
       <div class="col-md-3">
         <mat-form-field>
-          <mat-select formControlName="name" placeholder="Nazwa atrakcji" required>
-            <mat-option *ngFor="let hero of heroes" [value]="hero.id">{{ hero.name }}</mat-option>
+          <mat-select formControlName="attrName" placeholder="Nazwa atrakcji" required>
+            <mat-option *ngFor="let attr of attrs$" [value]="attr.name">{{ attr.name }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="col-md-3">
         <mat-form-field class="w-100">
-          <input matInput placeholder="Godzina przybycia" formControlName="timeIn" required>
+          <input matInput placeholder="Godzina przybycia" formControlName="startHour" required>
         </mat-form-field>
       </div>
       <div class="col-md-3">
         <mat-form-field class="w-100">
-          <input matInput placeholder="Godzina zakończenia" formControlName="timeOut" required>
+          <input matInput placeholder="Godzina zakończenia" formControlName="endHour" required>
         </mat-form-field>
       </div>
       <div class="col-md-3">
@@ -124,7 +124,7 @@
   </div>
   <div class="row text-center mt-3 mb-3">
     <div class="col">
-      <button class="button-submit" mat-raised-button [disabled]="myForm.invalid">Potwierdź</button>
+      <button class="button-submit" mat-raised-button [disabled]="myForm.invalid" (click)="createTrip()">Potwierdź</button>
     </div>
   </div>
 </form>

@@ -16,18 +16,6 @@ import {Favorite} from '../../models/favorite';
 export class ProfileRatedAttrComponent implements OnInit {
 
   searchText;
-  heroes = [
-    { id: 11, name: 'Mr. Nice', country: 'India' },
-    { id: 12, name: 'Narco' , country: 'USA'},
-    { id: 13, name: 'Bombasto' , country: 'UK'},
-    { id: 14, name: 'Celeritas' , country: 'Canada' },
-    { id: 15, name: 'Magneta' , country: 'Russia'},
-    { id: 16, name: 'RubberMan' , country: 'China'},
-    { id: 17, name: 'Dynama' , country: 'Germany'},
-    { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-    { id: 19, name: 'Magma' , country: 'South Africa'},
-    { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-  ];
   user = JSON.parse(sessionStorage.getItem('currentUser'));
   rated: Rated[];
   rate: Rated;
@@ -49,7 +37,7 @@ export class ProfileRatedAttrComponent implements OnInit {
 
   removeRate(rat: Rated) {
     this.ratedService.removeRate(rat.key)
-      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));;
+      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));
   }
 
   private onRemoveSuccess() {

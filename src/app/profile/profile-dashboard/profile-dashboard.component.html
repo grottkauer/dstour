@@ -239,7 +239,7 @@
         </div>
       </div>
       <div *ngIf="role==='Administrator'" class="d-flex flex-wrap flex-fill">
-        <div class="p-2 col-lg-6 pointer-cell" (click)="showType(5)">
+        <div class="p-2 col-lg-4 pointer-cell" (click)="showType(5)">
           <div class="card text-white bg-danger o-hidden h-100 pt-md-3">
             <div class="card-body">
               <div class="card-body-icon">
@@ -255,7 +255,7 @@
             </a>
           </div>
         </div>
-        <div class="p-2 col-lg-6 pointer-cell" (click)="showType(7)">
+        <div class="p-2 col-lg-4 pointer-cell" (click)="showType(7)">
           <div class="card text-white bg-magenta o-hidden h-100 pt-md-3">
             <div class="card-body">
               <div class="card-body-icon">
@@ -264,6 +264,22 @@
               <div class="mr-5">Moje statystyki</div>
             </div>
             <a class="card-footer text-white clearfix small z-1" (click)="showType(7)">
+              <span class="float-left">Zobacz więcej</span>
+              <span class="float-right">
+                              <i class="fas fa-angle-right"></i>
+                            </span>
+            </a>
+          </div>
+        </div>
+        <div class="p-2 col-lg-4 pointer-cell" (click)="showType(9)">
+          <div class="card text-white bg-dark o-hidden h-100 pt-md-3">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fas fa-fw fa-bell"></i>
+              </div>
+              <div class="mr-5">Nowi przewodnicy</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" (click)="showType(9)">
               <span class="float-left">Zobacz więcej</span>
               <span class="float-right">
                               <i class="fas fa-angle-right"></i>

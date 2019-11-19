@@ -1,0 +1,35 @@
+<div class="card-header text-center">
+  <h1 class="text-uppercase">Zarządzanie rolami użytkowników - podróżnicy kandydujący do roli przewodników</h1>
+</div>
+<div class="container bg-white">
+  <div class="row">
+    <div class="search-hero w-100">
+      <input class="form-control w-100" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Wyszukaj atrakcję po nazwie">
+    </div>
+    <table class="table table-striped table-responsive-sm">
+      <thead>
+      <tr>
+        <th>Nazwa użytkownika</th>
+        <th>Powód zostania</th>
+        <th>Akcja</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pr of props | async | filter:searchText">
+        <td>{{pr?.firstName}} {{pr?.lastName}}</td>
+        <td>{{pr?.reason}}</td>
+        <td>
+          <button mat-button (click)="setPropGuide(pr)">
+            <mat-icon>check</mat-icon>
+            Potwierdź wniosek
+          </button>
+          <button mat-button (click)="removePropGuide(pr)">
+            <mat-icon>delete</mat-icon>
+            Odrzuć wniosek
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

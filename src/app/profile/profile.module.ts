@@ -23,6 +23,7 @@ import { ProfileTripQuickFormComponent } from './profile-trip-quick-form/profile
 import { ProfileTripEditComponent } from './profile-trip-edit/profile-trip-edit.component';
 import { ProfileRatedAttrFormComponent } from './profile-rated-attr-form/profile-rated-attr-form.component';
 import { ProfileRatedAttrEditComponent } from './profile-rated-attr-edit/profile-rated-attr-edit.component';
+import { ProfileNewGuidesComponent } from './profile-new-guides/profile-new-guides.component';
 
 
 
@@ -45,7 +46,8 @@ import { ProfileRatedAttrEditComponent } from './profile-rated-attr-edit/profile
     ProfileTripQuickFormComponent,
     ProfileTripEditComponent,
     ProfileRatedAttrFormComponent,
-    ProfileRatedAttrEditComponent
+    ProfileRatedAttrEditComponent,
+    ProfileNewGuidesComponent
   ],
   imports: [
     CommonModule,

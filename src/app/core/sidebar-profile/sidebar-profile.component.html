@@ -64,6 +64,13 @@
           <p class="undertext d-none d-md-block">Moje wycieczki</p>
         </a>
       </li>
+      <li *ngIf="role==='Administrator'" class="nav-item">
+        <a class="nav-link text-center" [ngClass]="{active: showAttrType==9}" (click)="showType(9)">
+          <span data-feather="layers"></span>
+          <mat-icon>landscape</mat-icon><br>
+          <p class="undertext d-none d-md-block">Nowi przewodnicy</p>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>

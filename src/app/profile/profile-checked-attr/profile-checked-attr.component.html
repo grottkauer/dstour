@@ -17,11 +17,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let check of checked | filter:searchText">
-        <td>{{check.attrName}}</td>
-        <td>{{check.checkDate}}</td>
-        <td>{{check.points}}</td>
-        <td>0</td>
+      <tr *ngFor="let check of checked | async | filter:searchText">
+        <td>{{check?.attrName}}</td>
+        <td>{{check?.checkDate}}</td>
+        <td>{{check?.points}}</td>
+        <td>{{check?.tasksCount}}</td>
         <td>
           <button mat-button (click)="openEditTripModal()">
             <mat-icon>details</mat-icon>

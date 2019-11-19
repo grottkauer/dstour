@@ -5,4 +5,5 @@ export interface CheckedAttr {
   points: number;
   key: string;
   userRef: string;
+  tasksCount: number;
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {ProfileCheckedAttrDetailComponent} from '../profile-checked-attr-detail/profile-checked-attr-detail.component';
 import {CheckedAttr} from '../../models/checkedAttr';
+import {CheckedAttrService} from '../../core/services/checked-attr.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-profile-checked-attr',
@@ -11,25 +13,15 @@ import {CheckedAttr} from '../../models/checkedAttr';
 export class ProfileCheckedAttrComponent implements OnInit {
 
   searchText;
-  heroes = [
-    { id: 11, name: 'Mr. Nice', country: 'India' },
-    { id: 12, name: 'Narco' , country: 'USA'},
-    { id: 13, name: 'Bombasto' , country: 'UK'},
-    { id: 14, name: 'Celeritas' , country: 'Canada' },
-    { id: 15, name: 'Magneta' , country: 'Russia'},
-    { id: 16, name: 'RubberMan' , country: 'China'},
-    { id: 17, name: 'Dynama' , country: 'Germany'},
-    { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-    { id: 19, name: 'Magma' , country: 'South Africa'},
-    { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-  ];
   user = JSON.parse(sessionStorage.getItem('currentUser'));
-  checked: CheckedAttr[];
+  checked: Observable<CheckedAttr[]>;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,
+              private checkedAttrService: CheckedAttrService) { }
 
   ngOnInit() {
-    this.checked = this.user.checkedAttr;
+    // this.checked = this.user.checkedAttr;
+    this.checked = this.checkedAttrService.getCheckedAttrByUser(this.user.key);
   }
 
   openEditTripModal() {

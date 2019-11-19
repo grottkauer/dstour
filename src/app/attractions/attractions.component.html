@@ -15,6 +15,9 @@
               <div class="category-header shadow pb-2">
                 <h3 class="pl-3">Zamki i pałace</h3>
               </div>
+<!--              <div class="search-hero w-100">-->
+<!--                <input class="form-control w-100" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Wyszukaj atrakcję po nazwie">-->
+<!--              </div>-->
               <div class="row p-3">
                 <div class="col-sm-4" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>

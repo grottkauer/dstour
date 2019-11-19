@@ -16,6 +16,7 @@ export class FormUploadComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
   attractions$: Observable<Attraction[]> = this.attractionsService.getAttractions();
+  selectedAttr: string;
 
   constructor(private uploadService: UploadfileService,
               private attractionsService: AttractionsService) { }
@@ -37,7 +38,7 @@ export class FormUploadComponent implements OnInit {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
 
-    this.currentFileUpload = new FileUpload(file, '-LEpfF8ZPUvJwtBYFkBA');
+    this.currentFileUpload = new FileUpload(file, this.selectedAttr);
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress);
   }
 

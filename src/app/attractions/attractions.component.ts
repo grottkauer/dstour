@@ -28,6 +28,7 @@ export class AttractionsComponent implements OnInit {
     'Pozostałe'
   ];
   attrs$: Observable<Attraction[]>;
+  searchText;
 
   constructor(
     private dialog: MatDialog,

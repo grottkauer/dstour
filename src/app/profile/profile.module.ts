@@ -24,6 +24,8 @@ import { ProfileTripEditComponent } from './profile-trip-edit/profile-trip-edit.
 import { ProfileRatedAttrFormComponent } from './profile-rated-attr-form/profile-rated-attr-form.component';
 import { ProfileRatedAttrEditComponent } from './profile-rated-attr-edit/profile-rated-attr-edit.component';
 import { ProfileNewGuidesComponent } from './profile-new-guides/profile-new-guides.component';
+import {NgbDatepickerModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 
 
@@ -56,13 +58,19 @@ import { ProfileNewGuidesComponent } from './profile-new-guides/profile-new-guid
     CoreModule,
     FormsModule,
     Ng2SearchPipeModule,
-    RouterModule
+    RouterModule,
+    NgbDatepickerModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   entryComponents: [
     ProfileTripEditComponent,
     ProfileRatedAttrEditComponent,
     ProfileCheckedAttrDetailComponent
   ],
-  exports: [ProfileComponent]
+  exports: [ProfileComponent],
+  providers: [
+    MatDatepickerModule,
+  ]
 })
 export class ProfileModule { }

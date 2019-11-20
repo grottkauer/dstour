@@ -5,27 +5,34 @@ import {Attraction} from '../../models/attraction';
 import {AttractionsService} from '../../core/services/attractions.service';
 import {TripAttraction} from '../../models/tripAttraction';
 import {Trip} from '../../models/trip';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
+import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-profile-trip-quick-form',
   templateUrl: './profile-trip-quick-form.component.html',
-  styleUrls: ['./profile-trip-quick-form.component.scss']
+  styleUrls: ['./profile-trip-quick-form.component.scss'],
+  providers: [
+    // The locale would typically be provided on the root module of your application. We do it at
+    // the component level here, due to limitations of our example generation script.
+   /* {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'},
+
+    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
+    // `MatMomentDateModule` in your applications root module. We provide it at the component level
+    // here, due to limitations of our example generation script.
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}, */
+    DatePipe
+  ]
 })
 export class ProfileTripQuickFormComponent implements OnInit {
 
   @Input() editMode = true;
-  heroes = [
-    { id: 11, name: 'Mr. Nice', country: 'India' },
-    { id: 12, name: 'Narco' , country: 'USA'},
-    { id: 13, name: 'Bombasto' , country: 'UK'},
-    { id: 14, name: 'Celeritas' , country: 'Canada' },
-    { id: 15, name: 'Magneta' , country: 'Russia'},
-    { id: 16, name: 'RubberMan' , country: 'China'},
-    { id: 17, name: 'Dynama' , country: 'Germany'},
-    { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-    { id: 19, name: 'Magma' , country: 'South Africa'},
-    { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-  ];
 
   myForm: FormGroup;
   user = JSON.parse(sessionStorage.getItem('currentUser'));
@@ -33,7 +40,8 @@ export class ProfileTripQuickFormComponent implements OnInit {
   trip = JSON.parse(sessionStorage.getItem('currentTrip'));
 
   constructor(private formBuilder: FormBuilder,
-              private attrService: AttractionsService) {
+              private attrService: AttractionsService,
+              private datePipe: DatePipe) {
     this.attrService.getAttractions().subscribe(val => this.attrs$ = val);
     this.myForm = this.formBuilder.group({
       name: [this.trip.name, [Validators.required]],

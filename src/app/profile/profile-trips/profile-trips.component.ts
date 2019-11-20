@@ -3,17 +3,37 @@ import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Attraction} from '../../models/attraction';
 import {Router} from '@angular/router';
 import {NewAttractionComponent} from '../../attractions/new-attraction/new-attraction.component';
-import {MatDialog, MatSnackBar} from '@angular/material';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatDialog, MatSnackBar} from '@angular/material';
 import {ProfileTripEditComponent} from '../profile-trip-edit/profile-trip-edit.component';
 import {TripService} from '../../core/services/trip.service';
 import {Observable} from 'rxjs';
 import {Trip} from '../../models/trip';
 import {AttractionsService} from '../../core/services/attractions.service';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
 
 @Component({
   selector: 'app-profile-trips',
   templateUrl: './profile-trips.component.html',
-  styleUrls: ['./profile-trips.component.scss']
+  styleUrls: ['./profile-trips.component.scss'],
+  providers: [
+    // The locale would typically be provided on the root module of your application. We do it at
+    // the component level here, due to limitations of our example generation script.
+   /* {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'},
+
+    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
+    // `MatMomentDateModule` in your applications root module. We provide it at the component level
+    // here, due to limitations of our example generation script.
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},*/
+  ]
 })
 export class ProfileTripsComponent implements OnInit {
 

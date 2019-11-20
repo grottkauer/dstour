@@ -8,7 +8,7 @@
       <h5>Data wycieczki: </h5>
     </div>
     <div class="col-sm-9 text-right">
-      {{trip?.tripDate}}
+      {{trip?.tripDate.substring(0,10)}}
     </div>
   </div>
   <div class="row mt-2">
@@ -39,15 +39,10 @@
       {{trip?.travelAgency}}
     </div>
   </div>
+  <h3 class="text-center mt-3">Atrakcje wycieczki:</h3>
   <div class="row flights-container justify-content-center mt-3 mb-3">
-    <div class="col-sm-4 align-self-center">
-      <app-profile-trip-detail-attr-card></app-profile-trip-detail-attr-card>
-    </div>
-    <div class="col-sm-4">
-      <app-profile-trip-detail-attr-card></app-profile-trip-detail-attr-card>
-    </div>
-    <div class="col-sm-4">
-      <app-profile-trip-detail-attr-card></app-profile-trip-detail-attr-card>
+    <div *ngFor="let tripAttr of trip?.tripAttr" class="col-sm-4">
+      <app-profile-trip-detail-attr-card [tripAttr]="tripAttr"></app-profile-trip-detail-attr-card>
     </div>
   </div>
   <div class="d-flex justify-content-center align-items-center">

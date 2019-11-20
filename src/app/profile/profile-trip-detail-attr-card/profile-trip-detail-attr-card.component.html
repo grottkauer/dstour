@@ -5,7 +5,7 @@
         Czas przybycia:
       </div>
       <div class="col-lg-5 text-right">
-        13:00
+        {{tripAttr?.startHour}}
       </div>
     </div>
     <div class="row">
@@ -13,15 +13,15 @@
         Czas zakończenia:
       </div>
       <div class="col-lg-5 text-right">
-        13:00
+        {{tripAttr?.endHour}}
       </div>
     </div>
   </div>
   <div class="card-body text-success">
-    <h4 class="card-title">Kościół Pokoju w Świdnicy</h4>
+    <h4 class="card-title">{{tripAttr?.attrName}}</h4>
   </div>
   <div class="card-footer bg-transparent border-success text-center">
-    <h5>Z przewodnikiem:</h5>
-    Janusz Rakoczy
+    <h5 *ngIf="tripAttr?.additionalGuide">Z przewodnikiem:</h5>
+    {{tripAttr?.additionalGuide}}
   </div>
 </div>

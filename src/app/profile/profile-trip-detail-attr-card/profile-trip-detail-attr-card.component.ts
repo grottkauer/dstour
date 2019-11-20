@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TripAttraction} from '../../models/tripAttraction';
 
 @Component({
   selector: 'app-profile-trip-detail-attr-card',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileTripDetailAttrCardComponent implements OnInit {
 
+  @Input() tripAttr: TripAttraction;
   constructor() { }
 
   ngOnInit() {

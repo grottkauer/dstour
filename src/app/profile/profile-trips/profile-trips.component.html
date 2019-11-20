@@ -18,7 +18,7 @@
     <tbody>
     <tr *ngFor="let trip of trips | async | filter:searchText">
       <td>{{trip?.name}}</td>
-      <td>{{trip?.tripDate}}</td>
+      <td>{{trip?.tripDate.substring(0,10)}}</td>
       <td>
         <button mat-button (click)="goToDetail(trip)">
           <mat-icon>details</mat-icon>
@@ -59,7 +59,9 @@
     </div>
     <div class="col-md-6">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Data wycieczki" formControlName="tripDate">
+        <input matInput [matDatepicker]="picker" placeholder="Data wycieczki" formControlName="tripDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
   </div>

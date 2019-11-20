@@ -14,7 +14,7 @@
               <h5>Zdobyte punkty</h5>
             </td>
             <td>
-              <h5>99</h5>
+              <h5>{{sumPoints}}</h5>
             </td>
           </tr>
           <tr>
@@ -22,7 +22,7 @@
               <h5>Zdobyte punkty w {{actualMonth}}</h5>
             </td>
             <td>
-              <h5>99</h5>
+              <h5>{{sumPointsByMonth}}</h5>
             </td>
           </tr>
           <tr>
@@ -30,7 +30,7 @@
               <h5>Średnia ocenionych atrakcji</h5>
             </td>
             <td>
-              <h5>2.5</h5>
+              <h5>{{avgRatedAttrs}}</h5>
             </td>
           </tr>
           <tr>
@@ -38,7 +38,7 @@
               <h5>Liczba ocenionych atrakcji</h5>
             </td>
             <td>
-              <h5>12</h5>
+              <h5>{{countRatedAttrs}}</h5>
             </td>
           </tr>
           <tr>
@@ -46,15 +46,15 @@
               <h5>Liczba dodanych do ulubionych</h5>
             </td>
             <td>
-              <h5>7</h5>
+              <h5>{{countFavorites}}</h5>
             </td>
           </tr>
-          <tr>
+          <tr *ngIf="role=='Administrator'">
             <td>
               <h5>Liczba zaplanowanych wycieczek</h5>
             </td>
             <td>
-              <h5>2</h5>
+              <h5>{{countTrips}}</h5>
             </td>
           </tr>
           </tbody>

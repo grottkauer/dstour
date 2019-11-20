@@ -26,6 +26,11 @@ export class RatedAttrService {
       .pipe(map(response => response.map(item => this.assignKey(item))));
   }
 
+  getRatedByAttraction(attrRef): Observable<Rated[]> {
+    return this.db.list<Rated>(this.API_URL, ref => ref.orderByChild('attrRef').equalTo(attrRef)).snapshotChanges()
+      .pipe(map(response => response.map(item => this.assignKey(item))));
+  }
+
   getRated(key: string): Observable<Rated> {
     return this.db.object<Rated>(`${this.API_URL}/${key}`).snapshotChanges()
       .pipe(map(item => this.assignKey(item)));

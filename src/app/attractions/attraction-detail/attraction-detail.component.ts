@@ -52,6 +52,8 @@ export class AttractionDetailComponent implements OnInit {
   checked: CheckedAttr;
   isChecked = false;
   currentChecked: CheckedAttr;
+  averageRate = 0;
+  checkedGroups: number[] = new Array(5).fill(0);
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -73,46 +75,7 @@ export class AttractionDetailComponent implements OnInit {
   ngOnInit() {
     this.loadAttraction();
     // this.loadFiles();
-    // Charts
-// Bar chart:
-    this.BarChart = new Chart('barChart', {
-      type: 'bar',
-      data: {
-        labels: ['80-100%', '60-80%', '40-60%', '20-40%', '0-20%'],
-        datasets: [{
-          label: 'Liczba podróżników',
-          data: [9, 7 , 3, 5, 2],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        title: {
-          text: 'Procent punktów w quizie',
-          display: true
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
+
   }
 
   private loadAttraction() {
@@ -131,6 +94,9 @@ export class AttractionDetailComponent implements OnInit {
         this.loadFavorites();
         this.loadRates();
         this.loadCheckedAttrs();
+        this.getAverageRating();
+        this.loadCheckedGroups();
+        this.loadChart();
         this.loadMap();
       });
     // console.log('attraction', this.attraction.name);
@@ -224,6 +190,49 @@ export class AttractionDetailComponent implements OnInit {
     });
   }
 
+  private loadChart() {
+    // Charts
+// Bar chart:
+    this.BarChart = new Chart('barChart', {
+      type: 'bar',
+      data: {
+        labels: ['80-100%', '60-80%', '40-60%', '20-40%', '0-20%'],
+        datasets: [{
+          label: 'Liczba podróżników',
+          data: this.checkedGroups,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          text: 'Procent punktów w quizie',
+          display: true
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  }
+
   private loadFavorites() {
     this.favoriteService.getFavoritesByUser(this.user.key)
       .subscribe(val => {
@@ -271,6 +280,49 @@ export class AttractionDetailComponent implements OnInit {
             console.log(i);
           }
         }
+      });
+  }
+
+  private loadCheckedGroups() {
+    let checkedAttraction: CheckedAttr;
+    let index: number;
+    this.checkedAttrService.getCheckedAttrByAttr(this.attraction.key)
+      .subscribe(val => {
+        for (let i = 0; i < val.length; i++) {
+          checkedAttraction = val[i];
+          index = this.getGroupByValue(checkedAttraction.points);
+          console.log('index: ', index);
+          this.checkedGroups[index]++;
+          console.log('checkedGroups: ', this.checkedGroups);
+        }
+      });
+  }
+
+  private getGroupByValue(value: number) {
+    if (value >= 80) {
+      return 0;
+    } else if (value >= 60 && value < 80) {
+      return 1;
+    } else if (value >= 40 && value < 60) {
+      return 2;
+    } else if (value >= 20 && value < 40) {
+      return 3;
+    } else {
+      return 4;
+    }
+  }
+
+  private getAverageRating() {
+    let ratedAttraction: Rated;
+    let sumRates = 0;
+    this.ratedService.getRatedByAttraction(this.attraction.key)
+      .subscribe( val => {
+        for (let i = 0; i < val.length; i++) {
+          ratedAttraction = val[i];
+          sumRates += +ratedAttraction.rate;
+        }
+        console.log(sumRates);
+        this.averageRate = Math.round((sumRates / val.length) * 100) / 100;
       });
   }
 

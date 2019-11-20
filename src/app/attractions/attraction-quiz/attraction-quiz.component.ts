@@ -3,11 +3,14 @@ import {TaskService} from '../../core/services/task.service';
 import {Task} from '../../models/task';
 import {UserAnswerService} from '../../core/services/user-answer.service';
 import {CheckedAttrService} from '../../core/services/checked-attr.service';
+import {DatePipe} from '@angular/common';
+import {FavoriteService} from '../../core/services/favorite.service';
 
 @Component({
   selector: 'app-attraction-quiz',
   templateUrl: './attraction-quiz.component.html',
-  styleUrls: ['./attraction-quiz.component.scss']
+  styleUrls: ['./attraction-quiz.component.scss'],
+  providers: [DatePipe]
 })
 export class AttractionQuizComponent implements OnInit {
 
@@ -31,10 +34,13 @@ export class AttractionQuizComponent implements OnInit {
   task: Task;
   checkedAttr;
   testResult: any[] = [];
+  currentDate = new Date();
+  myDate = this.datePipe.transform(this.currentDate, 'dd.MM.yyyy');
 
   constructor(private taskSevice: TaskService,
               private answersService: UserAnswerService,
-              private checkedAttrService: CheckedAttrService) { }
+              private checkedAttrService: CheckedAttrService,
+              private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.taskSevice.getTasksByAttr(this.attraction.key)
@@ -128,7 +134,7 @@ export class AttractionQuizComponent implements OnInit {
     this.checkedAttr = {
       attrName: this.attraction.name,
       attrRef: this.attraction.key,
-      checkDate: '20.11.2019',
+      checkDate: this.myDate,
       points: (correctAnswers / this.selectedAnswers.length) * 100,
       tasksCount: this.selectedAnswers.length,
       userRef: this.user.key

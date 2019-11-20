@@ -25,6 +25,11 @@ export class CheckedAttrService {
       .pipe(map(response => response.map(item => this.assignKey(item))));
   }
 
+  getCheckedAttrByAttr(attrRef): Observable<CheckedAttr[]> {
+    return this.db.list<CheckedAttr>(this.API_URL, ref => ref.orderByChild('attrRef').equalTo(attrRef)).snapshotChanges()
+      .pipe(map(response => response.map(item => this.assignKey(item))));
+  }
+
   getCheckedAttr(key: string): Observable<CheckedAttr> {
     return this.db.object<CheckedAttr>(`${this.API_URL}/${key}`).snapshotChanges()
       .pipe(map(item => this.assignKey(item)));

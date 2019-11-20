@@ -35,7 +35,7 @@ export class RatedAttrService {
     return this.db.object<Rated>(`${this.API_URL}/${key}`).update(item);
   }
 
-  addRate(item: Rated) {
+  addRate(item) {
     return this.db.list<Rated>(this.API_URL).push(item);
   }
 

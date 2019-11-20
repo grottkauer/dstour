@@ -7,4 +7,5 @@ export interface Task {
   answerCorrect: number;
   attrRef: string;
   question: string;
+  key: string;
 }

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Rated} from '../../models/rated';
 import {map} from 'rxjs/operators';
 import {CheckedAttr} from '../../models/checkedAttr';
+import {ProposedTask} from '../../models/proposed-task';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,10 @@ export class CheckedAttrService {
   getCheckedAttr(key: string): Observable<CheckedAttr> {
     return this.db.object<CheckedAttr>(`${this.API_URL}/${key}`).snapshotChanges()
       .pipe(map(item => this.assignKey(item)));
+  }
+
+  addCheckedAttr(item) {
+    return this.db.list<CheckedAttr>(this.API_URL).push(item);
   }
 
   private assignKey(item) {

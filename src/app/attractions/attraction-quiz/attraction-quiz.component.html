@@ -1,6 +1,6 @@
 <h2 *ngIf="isCompleted==0" class="mt-3" mat-dialog-title>Zalicz atrakcję turystyczną - Quiz</h2>
 <mat-dialog-content *ngIf="isCompleted==0">
-  <div class="container" *ngFor="let h of heroes;index as index">
+  <div class="container" *ngFor="let task of tasks;index as index">
     <div *ngIf="i==index">
       <p>
         <ngb-progressbar *ngIf="((index+1)/quizlength)*100 < 25"
@@ -14,31 +14,31 @@
       </p>
       <div class="row">
         <h5 class="text-left col-md-6">
-          {{h.q}}
+          {{task.question}}
         </h5>
         <h5 class="col-md-6 text-right">Zadanie {{index+1}}/{{quizlength}}</h5>
       </div>
       <ul>
         <label>
-          <mat-radio-button value="a">{{h.o1}}</mat-radio-button>
+          <mat-radio-button ngDefaultControl [(ngModel)]="selectedAnswer" name="selectedAnswer" value=1 (change)="radioChangeHandler($event, task)">{{task.answer1}}</mat-radio-button>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
         </label>
       </ul>
       <ul>
         <label>
-          <mat-radio-button value="b">{{h.o2}}</mat-radio-button>
+          <mat-radio-button ngDefaultControl [(ngModel)]="selectedAnswer" name="selectedAnswer" value=2 (change)="radioChangeHandler($event, task)">{{task.answer2}}</mat-radio-button>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
         </label>
       </ul>
       <ul>
         <label>
-          <mat-radio-button value="c">{{h.o1}}</mat-radio-button>
+          <mat-radio-button ngDefaultControl [(ngModel)]="selectedAnswer" name="selectedAnswer" value=3 (change)="radioChangeHandler($event, task)">{{task.answer3}}</mat-radio-button>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
         </label>
       </ul>
       <ul>
         <label>
-          <mat-radio-button value="d">{{h.o2}}</mat-radio-button>
+          <mat-radio-button ngDefaultControl [(ngModel)]="selectedAnswer" name="selectedAnswer" value=4 (change)="radioChangeHandler($event, task)">{{task.answer4}}</mat-radio-button>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
         </label>
       </ul>
@@ -48,7 +48,7 @@
 <mat-dialog-content *ngIf="isCompleted==1">
   <div class="container">
     <h3 class="text-center">Gratulacje!!!</h3>
-    <h5>Quiz zostal przez Ciebie zaliczony! Poniżej zostały podane Twoje wyniki:</h5>
+    <h5>Quiz został przez Ciebie zaliczony! Poniżej zostały podane Twoje wyniki:</h5>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -56,23 +56,21 @@
         <th>Treść pytania</th>
         <th>Odp. użytkownika</th>
         <th>Odp. poprawna</th>
-        <th>Punkty</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let hero of heroes;index as index">
+      <tr *ngFor="let tr of testResult;index as index">
         <td>{{index+1}}</td>
-        <td matTooltip="Info about the action">{{hero.q}}</td>
-        <td [ngClass]="{'text-success': hero.id<=15,
-                      'text-danger': hero.id>15}">{{hero.id}}</td>
-        <td>{{hero.id}}</td>
-        <td>1</td>
+        <td [matTooltip]="tr.question">{{tr.question.substring(0, 30)}}</td>
+        <td [matTooltip]="tr.answerUserText" [ngClass]="{'text-success': tr.answer==tr.correctAnswer,
+                      'text-danger':tr.answer!=tr.correctAnswer}">{{tr.answerUserText}}</td>
+        <td [matTooltip]="tr.correctText">{{tr.correctText}}</td>
       </tr>
       </tbody>
       <tfoot>
       <tr>
         <th>Suma</th>
-        <th>20 pkt</th>
+        <th>{{checkedAttr.points}} pkt</th>
       </tr>
       </tfoot>
     </table>

@@ -16,6 +16,8 @@ import {Favorite} from '../../models/favorite';
 import {DatePipe} from '@angular/common';
 import {RatedAttrService} from '../../core/services/rated-attr.service';
 import {Rated} from '../../models/rated';
+import {CheckedAttrService} from '../../core/services/checked-attr.service';
+import {CheckedAttr} from '../../models/checkedAttr';
 
 declare var ol: any;
 @Component({
@@ -47,6 +49,9 @@ export class AttractionDetailComponent implements OnInit {
   isRate = false;
   myDate = this.datePipe.transform(this.currentDate, 'dd.MM.yyyy');
   rating: number;
+  checked: CheckedAttr;
+  isChecked = false;
+  currentChecked: CheckedAttr;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -56,7 +61,8 @@ export class AttractionDetailComponent implements OnInit {
               private favoriteService: FavoriteService,
               private datePipe: DatePipe,
               private toast: MatSnackBar,
-              private ratedService: RatedAttrService) {
+              private ratedService: RatedAttrService,
+              private checkedAttrService: CheckedAttrService) {
     // this.attraction = data;
   }
 
@@ -124,6 +130,7 @@ export class AttractionDetailComponent implements OnInit {
         this.loadFiles();
         this.loadFavorites();
         this.loadRates();
+        this.loadCheckedAttrs();
         this.loadMap();
       });
     // console.log('attraction', this.attraction.name);
@@ -243,6 +250,24 @@ export class AttractionDetailComponent implements OnInit {
           if (this.rate.attrRef === this.attraction.key) {
             i = val.length;
             this.isRate = true;
+            console.log(i);
+          }
+        }
+      });
+  }
+
+  private loadCheckedAttrs() {
+    this.checkedAttrService.getCheckedAttrByUser(this.user.key)
+      .subscribe(val => {
+        for (let i = 0; i < val.length; i++) {
+          this.checked = val[i];
+          console.log(this.checked);
+          console.log(this.attraction.key);
+          if (this.checked.attrRef === this.attraction.key) {
+            i = val.length;
+            this.isChecked = true;
+            this.currentChecked = this.checked;
+            console.log(this.currentChecked);
             console.log(i);
           }
         }

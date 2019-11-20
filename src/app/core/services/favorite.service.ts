@@ -31,7 +31,7 @@ export class FavoriteService {
       .pipe(map(item => this.assignKey(item)));
   }
 
-  addFavorite(item: Favorite) {
+  addFavorite(item) {
     return this.db.list<Favorite>(this.API_URL).push(item);
   }
 

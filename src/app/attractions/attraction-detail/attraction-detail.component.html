@@ -97,7 +97,8 @@
             </div>
 <!--            dla podroznika -->
             <div *ngIf="role==='Podróżnik'" class="col-md-6">
-              <button mat-raised-button class="btn-rating w-100" (click)="openQuizModal()">Zalicz Atrakcję</button>
+              <button *ngIf="!isChecked" mat-raised-button class="btn-rating w-100" (click)="openQuizModal()">Zalicz Atrakcję</button>
+              <span *ngIf="isChecked">Atrakcja już zaliczona na {{currentChecked?.points}} pkt</span>
             </div>
 <!--            dla przewodnika -->
             <div *ngIf="role==='Przewodnik'" class="col-md-6 margin-responsive">

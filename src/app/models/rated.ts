@@ -4,4 +4,5 @@ export interface Rated {
   attrRef: string;
   rate: number;
   userRef: string;
+  key: string;
 }

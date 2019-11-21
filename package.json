@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node --max_old_space_size=4096 server.js",
-    "build": "ng build --max_old_space_size=4096",
+    "start": "node --max_old_space_size=8192 server.js",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod --aot"
+    "postinstall": "ng build --prod --aot",
+    "build-prod": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod"
   },
   "engines": {
     "node": "10.16.3",

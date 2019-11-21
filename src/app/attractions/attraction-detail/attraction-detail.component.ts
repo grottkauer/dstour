@@ -4,7 +4,6 @@ import {map, tap} from 'rxjs/operators';
 import {AttractionsService} from '../../core/services/attractions.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Chart} from 'chart.js';
-import * as CanvasJS from 'canvasjs';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {AttractionNewQuestionComponent} from '../attraction-new-question/attraction-new-question.component';
 import {AttractionProposeQuestionComponent} from '../attraction-propose-question/attraction-propose-question.component';

@@ -10,6 +10,7 @@ import {UploadfileService} from '../services/uploadfile.service';
 export class DetailsUploadComponent implements OnInit {
 
   @Input() fileUpload: FileUpload;
+  @Input() attrCard: boolean;
 
   constructor(private uploadService: UploadfileService) { }
 

@@ -12,6 +12,7 @@ import {map} from 'rxjs/operators';
 export class AttractionCardComponent implements OnInit {
   @Input() attraction: Attraction;
   fileUploads: any[];
+  attrCard = true;
 
   constructor(private router: Router,
               private uploadService: UploadfileService) {

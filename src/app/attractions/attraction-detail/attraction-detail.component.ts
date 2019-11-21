@@ -33,6 +33,7 @@ export class AttractionDetailComponent implements OnInit {
 
   latitude = 51.0304;
   longitude = 15.3033;
+  attrCard = false;
 
   layer: any;
   map: any;
@@ -233,68 +234,76 @@ export class AttractionDetailComponent implements OnInit {
   }
 
   private loadFavorites() {
-    this.favoriteService.getFavoritesByUser(this.user.key)
-      .subscribe(val => {
-        for (let i = 0; i < val.length; i++) {
-          this.fav = val[i];
-          console.log(this.fav);
-          console.log(this.attraction.key);
-          if (this.fav.attrRef === this.attraction.key) {
-            i = val.length;
-            this.isFavorite = true;
-            console.log(i);
+    if (this.user != null) {
+      this.favoriteService.getFavoritesByUser(this.user.key)
+        .subscribe(val => {
+          for (let i = 0; i < val.length; i++) {
+            this.fav = val[i];
+            console.log(this.fav);
+            console.log(this.attraction.key);
+            if (this.fav.attrRef === this.attraction.key) {
+              i = val.length;
+              this.isFavorite = true;
+              console.log(i);
+            }
           }
-        }
-      });
+        });
+    }
   }
 
   private loadRates() {
-    this.ratedService.getRatedByUser(this.user.key)
-      .subscribe(val => {
-        for (let i = 0; i < val.length; i++) {
-          this.rate = val[i];
-          console.log(this.rate);
-          console.log(this.attraction.key);
-          if (this.rate.attrRef === this.attraction.key) {
-            i = val.length;
-            this.isRate = true;
-            console.log(i);
+    if (this.user != null) {
+      this.ratedService.getRatedByUser(this.user.key)
+        .subscribe(val => {
+          for (let i = 0; i < val.length; i++) {
+            this.rate = val[i];
+            console.log(this.rate);
+            console.log(this.attraction.key);
+            if (this.rate.attrRef === this.attraction.key) {
+              i = val.length;
+              this.isRate = true;
+              console.log(i);
+            }
           }
-        }
-      });
+        });
+    }
   }
 
   private loadCheckedAttrs() {
-    this.checkedAttrService.getCheckedAttrByUser(this.user.key)
-      .subscribe(val => {
-        for (let i = 0; i < val.length; i++) {
-          this.checked = val[i];
-          console.log(this.checked);
-          console.log(this.attraction.key);
-          if (this.checked.attrRef === this.attraction.key) {
-            i = val.length;
-            this.isChecked = true;
-            this.currentChecked = this.checked;
-            console.log(this.currentChecked);
-            console.log(i);
+    if (this.user != null) {
+      this.checkedAttrService.getCheckedAttrByUser(this.user.key)
+        .subscribe(val => {
+          for (let i = 0; i < val.length; i++) {
+            this.checked = val[i];
+            console.log(this.checked);
+            console.log(this.attraction.key);
+            if (this.checked.attrRef === this.attraction.key) {
+              i = val.length;
+              this.isChecked = true;
+              this.currentChecked = this.checked;
+              console.log(this.currentChecked);
+              console.log(i);
+            }
           }
-        }
-      });
+        });
+    }
   }
 
   private loadCheckedGroups() {
-    let checkedAttraction: CheckedAttr;
-    let index: number;
-    this.checkedAttrService.getCheckedAttrByAttr(this.attraction.key)
-      .subscribe(val => {
-        for (let i = 0; i < val.length; i++) {
-          checkedAttraction = val[i];
-          index = this.getGroupByValue(checkedAttraction.points);
-          console.log('index: ', index);
-          this.checkedGroups[index]++;
-          console.log('checkedGroups: ', this.checkedGroups);
-        }
-      });
+    if (this.user != null) {
+      let checkedAttraction: CheckedAttr;
+      let index: number;
+      this.checkedAttrService.getCheckedAttrByAttr(this.attraction.key)
+        .subscribe(val => {
+          for (let i = 0; i < val.length; i++) {
+            checkedAttraction = val[i];
+            index = this.getGroupByValue(checkedAttraction.points);
+            console.log('index: ', index);
+            this.checkedGroups[index]++;
+            console.log('checkedGroups: ', this.checkedGroups);
+          }
+        });
+    }
   }
 
   private getGroupByValue(value: number) {
@@ -312,19 +321,21 @@ export class AttractionDetailComponent implements OnInit {
   }
 
   private getAverageRating() {
-    let ratedAttraction: Rated;
-    let sumRates = 0;
-    this.ratedService.getRatedByAttraction(this.attraction.key)
-      .subscribe( val => {
-        for (let i = 0; i < val.length; i++) {
-          ratedAttraction = val[i];
-          sumRates += +ratedAttraction.rate;
-        }
-        console.log(sumRates);
-        if (val.length > 0) {
-          this.averageRate = Math.round((sumRates / val.length) * 100) / 100;
-        }
-      });
+    if (this.user != null) {
+      let ratedAttraction: Rated;
+      let sumRates = 0;
+      this.ratedService.getRatedByAttraction(this.attraction.key)
+        .subscribe(val => {
+          for (let i = 0; i < val.length; i++) {
+            ratedAttraction = val[i];
+            sumRates += +ratedAttraction.rate;
+          }
+          console.log(sumRates);
+          if (val.length > 0) {
+            this.averageRate = Math.round((sumRates / val.length) * 100) / 100;
+          }
+        });
+    }
   }
 
   addToFavorites() {

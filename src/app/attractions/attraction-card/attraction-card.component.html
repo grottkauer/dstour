@@ -23,7 +23,7 @@
       <a class="portfolio-box" (click)="goToDetail()">
           <div *ngFor="let file of fileUploads" class="item">
 <!--            <div class="panel-body">-->
-              <app-details-upload [fileUpload]='file'></app-details-upload>
+              <app-details-upload [attrCard]="attrCard" [fileUpload]='file'></app-details-upload>
 <!--            </div>-->
           </div>
 <!--          <img class="img-fluid" src="../../../assets/images/bg-panel.jpg" alt="">-->

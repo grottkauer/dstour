@@ -24,8 +24,13 @@ export class UserAnswerService {
       .pipe(map(item => this.assignKey(item)));
   }
 
-  getUserAnswersByAttr(taskRef): Observable<UserAnswer[]> {
+  getUserAnswersByTask(taskRef): Observable<UserAnswer[]> {
     return this.db.list<UserAnswer>(this.API_URL, ref => ref.orderByChild('taskRef').equalTo(taskRef)).snapshotChanges()
+      .pipe(map(response => response.map(item => this.assignKey(item))));
+  }
+
+  getUserAnswersByUser(userRef): Observable<UserAnswer[]> {
+    return this.db.list<UserAnswer>(this.API_URL, ref => ref.orderByChild('userRef').equalTo(userRef)).snapshotChanges()
       .pipe(map(response => response.map(item => this.assignKey(item))));
   }
 

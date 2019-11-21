@@ -3,4 +3,5 @@ export interface UserAnswer {
   taskRef: string;
   userRef: string;
   key: string;
+  correctAnswer: string;
 }

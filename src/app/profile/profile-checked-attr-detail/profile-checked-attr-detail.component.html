@@ -7,23 +7,21 @@
       <th>Treść pytania</th>
       <th>Odp. użytkownika</th>
       <th>Odp. poprawna</th>
-      <th>Punkty</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let hero of heroes | filter:searchText">
-      <td>{{hero.name}}</td>
-      <td matTooltip="Info about the action">{{hero.country}}</td>
-      <td [ngClass]="{'text-success': hero.id<=15,
-                      'text-danger': hero.id>15}">{{hero.id}}</td>
-      <td>{{hero.id}}</td>
-      <td>1</td>
+    <tr *ngFor="let tr of answersTest | filter:searchText;index as index">
+      <td>{{index+1}}</td>
+      <td [matTooltip]="tr.question">{{tr.question.substring(0, 30)}}</td>
+      <td [matTooltip]="tr.answerUserText" [ngClass]="{'text-success': tr.answer==tr.correctAnswer,
+                      'text-danger':tr.answer!=tr.correctAnswer}">{{tr.answerUserText}}</td>
+      <td [matTooltip]="tr.correctText">{{tr.correctText}}</td>
     </tr>
     </tbody>
     <tfoot>
     <tr>
       <th>Suma</th>
-      <th>20 pkt</th>
+      <th>{{checked.points}}</th>
     </tr>
     </tfoot>
   </table>

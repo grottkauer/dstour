@@ -24,7 +24,8 @@ export class ProfileCheckedAttrComponent implements OnInit {
     this.checked = this.checkedAttrService.getCheckedAttrByUser(this.user.key);
   }
 
-  openEditTripModal() {
+  openEditTripModal(checked: CheckedAttr) {
+    sessionStorage.setItem('currentChecked', JSON.stringify(checked));
     this.dialog.open(ProfileCheckedAttrDetailComponent);
   }
 

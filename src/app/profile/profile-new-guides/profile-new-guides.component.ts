@@ -6,6 +6,8 @@ import {ProposedGuide} from '../../models/proposed-guide';
 import {Observable} from 'rxjs';
 import {Favorite} from '../../models/favorite';
 import {User} from '../../models/user';
+import {PropositionService} from '../../core/services/proposition.service';
+import {Proposition} from '../../models/proposition';
 
 @Component({
   selector: 'app-profile-new-guides',
@@ -15,14 +17,18 @@ import {User} from '../../models/user';
 export class ProfileNewGuidesComponent implements OnInit {
 
   searchText;
+  searchText2;
   user = JSON.parse(sessionStorage.getItem('currentUser'));
   props: Observable<ProposedGuide[]>;
+  propositions: Observable<Proposition[]>;
   constructor(private proposedGuides: ProposedGuideService,
               private toast: MatSnackBar,
-              private userService: UserService) { }
+              private userService: UserService,
+              private propositionService: PropositionService) { }
 
   ngOnInit() {
     this.props = this.proposedGuides.getProposedGuides();
+    this.propositions = this.propositionService.getPropositions();
   }
 
   setPropGuide(prop: ProposedGuide) {
@@ -38,6 +44,11 @@ export class ProfileNewGuidesComponent implements OnInit {
 
   removePropGuide(prop: ProposedGuide) {
     this.proposedGuides.removeProposedGuide(prop.key)
+      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));
+  }
+
+  removeProposition(prop: Proposition) {
+    this.propositionService.removeProposition(prop.key)
       .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));
   }
 

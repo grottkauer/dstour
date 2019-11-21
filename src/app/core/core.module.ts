@@ -16,6 +16,7 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ListuploadComponent } from './listupload/listupload.component';
 import { DetailsUploadComponent } from './details-upload/details-upload.component';
 import { Er404Component } from './er404/er404.component';
+import {BotDetectCaptchaModule} from 'angular-captcha';
 
 
 
@@ -25,7 +26,8 @@ import { Er404Component } from './er404/er404.component';
     CommonModule,
     MaterialModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    BotDetectCaptchaModule
   ],
   exports: [DashboardComponent, LoginComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent, FormUploadComponent, ListuploadComponent, DetailsUploadComponent]
 })

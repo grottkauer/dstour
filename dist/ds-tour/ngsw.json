@@ -1,0 +1,108 @@
+{
+  "configVersion": 1,
+  "timestamp": 1574374932277,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.49aac227f3577f985f47.js",
+        "/main-es5.49aac227f3577f985f47.js",
+        "/polyfills-es2015.0fe6949bc5ff4b784062.js",
+        "/polyfills-es5.a83ac866abc867bfd530.js",
+        "/runtime-es2015.85f895af57b038f1e5b4.js",
+        "/runtime-es5.85f895af57b038f1e5b4.js",
+        "/scripts.6ee986b7cd7aefa6baef.js",
+        "/styles.5c0a7abc0bce1fcf5bec.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/bg-main.jpg",
+        "/assets/images/bg-panel.jpg",
+        "/assets/images/emoji.png",
+        "/assets/images/hourglass.png",
+        "/assets/images/logo.png",
+        "/assets/images/main-banner.jpg",
+        "/assets/images/main-portfolio-1.jpg",
+        "/assets/images/main-portfolio-2.jpg",
+        "/assets/images/main-portfolio-3.jpg",
+        "/assets/images/main-portfolio-4.jpg",
+        "/assets/images/main-portfolio-5.jpg",
+        "/assets/images/main-portfolio-6.jpg",
+        "/assets/images/things.jpg",
+        "/main-banner.80ce8eacfad1895b1f18.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/images/bg-main.jpg": "c2da00b2ced3fcd1c5fe71b36bfa285bead09938",
+    "/assets/images/bg-panel.jpg": "925b8f59c4cfd5523d70f980887245b9c47202b5",
+    "/assets/images/emoji.png": "eeff5b4bfce1894c05854b316c5794d32007c512",
+    "/assets/images/hourglass.png": "cf4e96111652d0661dd3f7b2a2103a4b59499d59",
+    "/assets/images/logo.png": "f91e1a8b5f2541b03a68597c1358e0bd7f5744fa",
+    "/assets/images/main-banner.jpg": "778ab45173ef896990a5c071912e0ab9caf4732d",
+    "/assets/images/main-portfolio-1.jpg": "56996304531b49d6b3c86c845b83a1221ce68444",
+    "/assets/images/main-portfolio-2.jpg": "7c7a2e6d931e5e893b7df9e79295c88766d2a123",
+    "/assets/images/main-portfolio-3.jpg": "b283b912a8b98298360b75ddf4290728ec57933b",
+    "/assets/images/main-portfolio-4.jpg": "d23a89757ebb1805f1d6f55821c7a42e4fa10dcc",
+    "/assets/images/main-portfolio-5.jpg": "7ee7c88e5c18434a69b55f6d999b345f09bcd595",
+    "/assets/images/main-portfolio-6.jpg": "2f74240c448cc780e268296eacc1cd6bccd1c493",
+    "/assets/images/things.jpg": "dffb9b6e91c78534644079dad256a7e39799858e",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "a2643055c5467e40b1c8749fd5abd418193e2b6a",
+    "/main-banner.80ce8eacfad1895b1f18.jpg": "778ab45173ef896990a5c071912e0ab9caf4732d",
+    "/main-es2015.49aac227f3577f985f47.js": "7d23aaf7bd11230a377dcf8653ac4690e4a7fbf3",
+    "/main-es5.49aac227f3577f985f47.js": "170259c99d899b0f951c8650e518ad45b3ddc46f",
+    "/polyfills-es2015.0fe6949bc5ff4b784062.js": "e2f28c3743afd2899e140ad831df9675c233c02b",
+    "/polyfills-es5.a83ac866abc867bfd530.js": "db091f7ef692a1d3add240459a2ea20c81cd6f19",
+    "/runtime-es2015.85f895af57b038f1e5b4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.85f895af57b038f1e5b4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/scripts.6ee986b7cd7aefa6baef.js": "0578b197cb8bb2fe419140e8905b9d6e242b0598",
+    "/styles.5c0a7abc0bce1fcf5bec.css": "536c9a8ad7f89b00ee7e41a97e0951111989b998"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

@@ -2,6 +2,8 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {AuthService} from '../services/auth.service';
+import {UserService} from '../services/user.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +24,8 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private toast: MatSnackBar,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   login() {
@@ -38,9 +41,29 @@ export class LoginComponent {
   }
 
   register() {
-    this.authService.register(this.credentials)
-      .then(user => this.toast.open('Konto założone, proszę zaloguj się!', '', {panelClass: 'toast-success'}))
-      .catch(error => this.toast.open(error.message, '', {panelClass: 'toast-error'}));
+    const user$ = {
+      email: '',
+      login: this.credentials.login,
+      password: this.credentials.password,
+      firstName: '',
+      lastName: '',
+      role: 'Podróżnik'
+    };
+    let userByLogin: User[];
+    this.userService.getUserByLogin(this.credentials.login)
+      .subscribe(val => {
+        userByLogin = val;
+        if (val.length > 0) {
+          console.log(userByLogin);
+          this.toast.open('Użytkownik o podanym loginie już istnieje!', '', {panelClass: 'toast-error'});
+        } else {
+          console.log(val.length);
+          this.userService.addUser(user$).then(this.onToastSuccess.bind(this));
+        }
+      });
   }
 
+  private onToastSuccess() {
+    this.toast.open('Konto założone, proszę zaloguj się!', '', {panelClass: 'toast-success'});
+  }
 }

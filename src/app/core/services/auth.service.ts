@@ -41,18 +41,6 @@ export class AuthService {
     });
   }
 
-  register(credentials) {
-    const user$ = {
-      email: '',
-      login: credentials.login,
-      password: credentials.password,
-      firstName: '',
-      lastName: '',
-      role: 'Podróżnik'
-    };
-    return this.userService.addUser(user$);
-  }
-
   subscribe(login: string) {
     const user$ = this.userService.getUserByLogin(login);
     user$.subscribe(val => this.user = val[0]);

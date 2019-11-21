@@ -4,6 +4,7 @@ import {ProposedGuideService} from '../../core/services/proposed-guide.service';
 import {Trip} from '../../models/trip';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {ProposedGuide} from '../../models/proposed-guide';
 
 @Component({
   selector: 'app-profile-become-guide',
@@ -13,6 +14,8 @@ import {Router} from '@angular/router';
 export class ProfileBecomeGuideComponent implements OnInit {
   myForm: FormGroup;
   user = JSON.parse(sessionStorage.getItem('currentUser'));
+  userProp: ProposedGuide[];
+  isProp = false;
 
   constructor(private formBuilder: FormBuilder,
               private proponedGuideService: ProposedGuideService,
@@ -28,6 +31,7 @@ export class ProfileBecomeGuideComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadGuidePropositions();
   }
 
   createProposedGuide() {
@@ -35,6 +39,16 @@ export class ProfileBecomeGuideComponent implements OnInit {
     this.proponedGuideService.addProposedGuide(this.myForm.value)
       .then(this.onAddProposedGuideSuccess.bind(this), this.onFailure.bind(this));
     this.myForm.reset();
+  }
+
+  loadGuidePropositions() {
+    this.proponedGuideService.getProposedGuideByUser(this.user.key)
+      .subscribe(val => {
+        this.userProp = val;
+        if (val.length > 0) {
+          this.isProp = true;
+        }
+      });
   }
 
   private onAddProposedGuideSuccess() {

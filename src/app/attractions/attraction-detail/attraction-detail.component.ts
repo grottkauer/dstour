@@ -322,7 +322,9 @@ export class AttractionDetailComponent implements OnInit {
           sumRates += +ratedAttraction.rate;
         }
         console.log(sumRates);
-        this.averageRate = Math.round((sumRates / val.length) * 100) / 100;
+        if (val.length > 0) {
+          this.averageRate = Math.round((sumRates / val.length) * 100) / 100;
+        }
       });
   }
 

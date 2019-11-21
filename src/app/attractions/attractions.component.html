@@ -18,8 +18,8 @@
 <!--              <div class="search-hero w-100">-->
 <!--                <input class="form-control w-100" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Wyszukaj atrakcję po nazwie">-->
 <!--              </div>-->
-              <div class="row p-3">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
               </div>
@@ -33,15 +33,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Wydarzenia</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 
@@ -53,15 +48,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Miejsca historyczne</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 
@@ -73,15 +63,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Budynki sakralne</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 
@@ -93,15 +78,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Przyrodnicze</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 
@@ -113,15 +93,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Obiekty techniki</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 
@@ -133,15 +108,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Dwory i dworki</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 
@@ -153,15 +123,10 @@
               <div class="category-header shadow mb-5">
                 <h3 class="pl-3">Pozostałe</h3>
               </div>
-              <div class="row">
-                <div class="col-sm-4" *ngFor="let attraction of attrs$ | async">
+              <div class="row p-3 justify-content-center">
+                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>
                 </div>
-              </div>
-              <div class="text-right">
-                <span class="show-more mr-3">
-                  Poznaj więcej...
-                </span>
               </div>
             </div>
 

@@ -1,19 +1,19 @@
 <form [formGroup]="form" class="attractions-container">
   <div class="row w-100">
     <div class="col-sm-8">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="name" placeholder="Nazwa">
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="coordinateX" placeholder="Współrzędna X">
       </mat-form-field>
     </div>
     <div class="col-sm-6">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="coordinateY" placeholder="Współrzedna Y">
       </mat-form-field>
     </div>
@@ -26,42 +26,40 @@
   </mat-form-field>
   <div class="row">
     <div class="col-sm-6">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="email" placeholder="Email">
       </mat-form-field>
     </div>
     <div class="col-sm-6">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="webpage" placeholder="Strona WWW">
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="owner" placeholder="Właściciel">
       </mat-form-field>
     </div>
     <div class="col-sm-6">
-      <mat-form-field>
-        <input matInput formControlName="additionalInformation" placeholder="Dodatkowe info">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="city" placeholder="Miejscowość">
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <input matInput formControlName="phone" placeholder="Numer telefonu">
       </mat-form-field>
     </div>
-  </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <mat-form-field>
-          <mat-select formControlName="type" placeholder="Rodzaj atrakcji">
-            <mat-option *ngFor="let name of types" [value]="name.value">{{ name.label }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+    <div class="col-sm-6">
+      <mat-form-field class="w-100">
+        <mat-select formControlName="type" placeholder="Rodzaj atrakcji">
+          <mat-option *ngFor="let name of types" [value]="name.value">{{ name.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+  </div>
 </form>

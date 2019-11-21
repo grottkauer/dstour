@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Type} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Attraction} from '../../models/attraction';
 
 @Component({
@@ -63,18 +63,18 @@ export class AttractionFormComponent implements OnInit {
   private buildForm() {
     this.form = this.formBuilder.group({
       additionalInformation: '',
-      name: '',
+      name: ['', Validators.required],
       key: '',
-      shortInformation: '',
-      longInformation: '',
-      owner: '',
-      coordinateX: null,
-      coordinateY: null,
-      city: '',
-      email: '',
-      phone: '',
-      webpage: '',
-      type: ''
+      shortInformation: ['', Validators.required],
+      longInformation: ['', Validators.required],
+      owner: ['', Validators.required],
+      coordinateX: [null, Validators.required],
+      coordinateY: [null, Validators.required],
+      city: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      webpage: ['', Validators.required],
+      type: ['', Validators.required]
     });
   }
 

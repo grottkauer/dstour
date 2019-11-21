@@ -4,12 +4,12 @@
   <div class="col-sm-4 shadow login-content">
     <h3>Zaloguj się lub zarejestruj</h3>
     <mat-form-field class="d-block">
-      <input matInput placeholder="Login" [(ngModel)]="credentials.login" required>
+      <input (keyup)="enterLogin($event)" matInput placeholder="Login" [(ngModel)]="credentials.login" required>
       <mat-error>Login jest wymagany</mat-error>
     </mat-form-field>
     <mat-form-field class="d-block">
 <!--      <input matInput placeholder="Hasło" [(ngModel)]="credentials.password" required>-->
-      <input matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password" required>
+      <input (keyup)="enterLogin($event)" matInput placeholder="Hasło" [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>

@@ -30,6 +30,13 @@ export class LoginComponent {
     this.wrongPassword = sessionStorage.getItem('wrongPassword');
   }
 
+  enterLogin(event) {
+    if (event.key === 'Enter') {
+      console.log(event);
+      this.login();
+    }
+  }
+
   register() {
     this.authService.register(this.credentials)
       .then(user => this.toast.open('Konto założone, proszę zaloguj się!', '', {panelClass: 'toast-success'}))

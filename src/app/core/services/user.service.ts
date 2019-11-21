@@ -5,6 +5,7 @@ import {Attraction} from '../../models/attraction';
 import {map} from 'rxjs/operators';
 import {User} from '../../models/user';
 import {Rated} from '../../models/rated';
+import {Task} from '../../models/task';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ export class UserService {
 
   editUser(key: string, item: User) {
     return this.db.object<User>(`${this.API_URL}/${key}`).update(item);
+  }
+
+  addUser(item) {
+    return this.db.list<User>(this.API_URL).push(item);
   }
 
   private assignKey(user) {

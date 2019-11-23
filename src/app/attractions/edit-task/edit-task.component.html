@@ -1,0 +1,12 @@
+<h2 class="mt-5" mat-dialog-title>Kreator edycji zaproponowanego zadania</h2>
+<mat-dialog-content>
+  <app-attraction-question-form #questionForm></app-attraction-question-form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button mat-dialog-close>Zamknij</button>
+      <button mat-raised-button color="primary" [disabled]="questionForm.form.invalid" (click)="editTask()">Popraw</button>
+    </div>
+  </div>
+</mat-dialog-actions>

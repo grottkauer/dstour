@@ -51,6 +51,13 @@
 
 }
 
+@media screen and (max-width: 575px) {
+  #go-home-btn {
+    left: 0;
+    top: 14%;
+  }
+}
+
 .mat-fab:hover {
   background-color: #0c5460;
 }

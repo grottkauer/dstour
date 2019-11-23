@@ -21,6 +21,7 @@ export class AttractionQuestionFormComponent implements OnInit {
   ];
   currentDate = new Date();
   myDate = this.datePipe.transform(this.currentDate, 'dd.MM.yyyy');
+  proposedTask = JSON.parse(sessionStorage.getItem('taskToEdit'));
   constructor(private formBuilder: FormBuilder,
               private datePipe: DatePipe) { }
 
@@ -29,16 +30,29 @@ export class AttractionQuestionFormComponent implements OnInit {
   }
 
   private buildForm() {
-    this.form = this.formBuilder.group({
-      question: '',
-      answer1: '',
-      answer2: '',
-      answer3: '',
-      answer4: '',
-      answerCorrect: '',
-      attrRef: '',
-      addDate: this.myDate
-    });
+    if (this.proposedTask != null) {
+      this.form = this.formBuilder.group({
+        question: [this.proposedTask.question || ''],
+        answer1: [this.proposedTask.answer1 || ''],
+        answer2: [this.proposedTask.answer2 || ''],
+        answer3: [this.proposedTask.answer3 || ''],
+        answer4: [this.proposedTask.answer4 || ''],
+        answerCorrect: [this.proposedTask.answerCorrect || ''],
+        attrRef: this.proposedTask.attrRef,
+        addDate: this.myDate
+      });
+    } else {
+      this.form = this.formBuilder.group({
+        question: '',
+        answer1: '',
+        answer2: '',
+        answer3: '',
+        answer4: '',
+        answerCorrect: '',
+        attrRef: '',
+        addDate: this.myDate
+      });
+    }
   }
 
 }

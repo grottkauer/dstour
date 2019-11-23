@@ -15,6 +15,7 @@ import { AttractionProposeQuestionComponent } from './attraction-propose-questio
 import { AttractionQuizComponent } from './attraction-quiz/attraction-quiz.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 
 
@@ -28,7 +29,8 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     AttractionNewQuestionComponent,
     AttractionQuestionFormComponent,
     AttractionProposeQuestionComponent,
-    AttractionQuizComponent
+    AttractionQuizComponent,
+    EditTaskComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     NewAttractionComponent,
     AttractionNewQuestionComponent,
     AttractionProposeQuestionComponent,
-    AttractionQuizComponent
+    AttractionQuizComponent,
+    EditTaskComponent
   ],
   exports: [AttractionsComponent]
 })

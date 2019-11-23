@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AttractionQuestionFormComponent} from '../attraction-question-form/attraction-question-form.component';
-import {MatDialogRef, MatSnackBar} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSnackBar} from '@angular/material';
 import {ProposedTaskService} from '../../core/services/proposed-task.service';
 import {ProposedTask} from '../../models/proposed-task';
 import {TaskService} from '../../core/services/task.service';
+import {NewAttractionComponent} from '../new-attraction/new-attraction.component';
+import {EditTaskComponent} from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-attraction-new-question',
@@ -18,7 +20,8 @@ export class AttractionNewQuestionComponent implements OnInit {
   propositions: ProposedTask[];
   constructor(private toast: MatSnackBar,
               private proposedTaskService: ProposedTaskService,
-              private taskService: TaskService) { }
+              private taskService: TaskService,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     this.loadPropositions();
@@ -42,6 +45,11 @@ export class AttractionNewQuestionComponent implements OnInit {
   removeProposition(prop: ProposedTask) {
     this.proposedTaskService.removeProposedTask(prop.key)
       .then(this.onRemoveTaskSuccess.bind(this), this.onFailure.bind(this));
+  }
+
+  editTask(prop: ProposedTask) {
+    sessionStorage.setItem('taskToEdit', JSON.stringify(prop));
+    this.dialog.open(EditTaskComponent);
   }
 
   private onAddTaskSuccess() {

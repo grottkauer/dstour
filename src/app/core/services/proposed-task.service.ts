@@ -33,6 +33,10 @@ export class ProposedTaskService {
     return this.db.list<ProposedTask>(this.API_URL).push(item);
   }
 
+  editProposedTask(key: string, item: ProposedTask) {
+    return this.db.object<ProposedTask>(`${this.API_URL}/${key}`).update(item);
+  }
+
   removeProposedTask(key: string) {
     return this.db.object(`${this.API_URL}/${key}`).remove();
   }

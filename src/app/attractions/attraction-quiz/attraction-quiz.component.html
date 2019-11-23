@@ -44,6 +44,18 @@
       </ul>
     </div>
   </div>
+  <div class="container" *ngIf="quizlength<=1">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="../../../assets/images/hourglass.png" alt="hourglass" class="img-fluid">
+      </div>
+      <div class="col-lg-6 align-self-center">
+        <h3 class="section-subheading text-dark bg-white bradius p-4">
+          Jeszcze nie powstały żadne zadania do quizów na temat tej atrakcji. Prosimy poczekać do czasu ich dodania.
+        </h3>
+      </div>
+    </div>
+  </div>
 </mat-dialog-content>
 <mat-dialog-content *ngIf="isCompleted==1">
   <div class="container">
@@ -82,7 +94,7 @@
       <button mat-raised-button mat-dialog-close>Zamknij</button>
     </div>
     <div class="col-3" *ngIf="isCompleted==0">
-      <button mat-raised-button color="accent" class="btn-info" [disabled]="i<quizlength-1" (click)="generatemark()">Zapisz</button>
+      <button mat-raised-button color="accent" class="btn-info" [disabled]="quizlength<=1 || i<quizlength-1" (click)="generatemark()">Zapisz</button>
     </div>
     <div class="col-3" *ngIf="isCompleted==0">
       <button mat-raised-button (click)="previous()" *ngIf="i>0" >Poprzedni</button>

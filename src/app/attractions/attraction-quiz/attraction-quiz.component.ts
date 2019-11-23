@@ -135,7 +135,7 @@ export class AttractionQuizComponent implements OnInit {
       attrName: this.attraction.name,
       attrRef: this.attraction.key,
       checkDate: this.myDate,
-      points: (correctAnswers / this.selectedAnswers.length) * 100,
+      points: Math.round(((correctAnswers / this.selectedAnswers.length) * 100) * 100) / 100,
       tasksCount: this.selectedAnswers.length,
       userRef: this.user.key
     };

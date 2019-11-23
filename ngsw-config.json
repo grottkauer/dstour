@@ -25,5 +25,19 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "budget-api",
+      "urls": [
+        "https://ds-tour.herokuapp.com"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 10000,
+        "maxAge": "6h",
+        "timeout": "5s"
+      }
+    }
   ]
 }

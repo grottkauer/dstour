@@ -36,7 +36,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ProfileModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [AppComponent]
 })

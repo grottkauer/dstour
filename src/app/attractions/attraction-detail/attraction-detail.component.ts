@@ -168,7 +168,8 @@ export class AttractionDetailComponent implements OnInit {
     });
     this.map.addOverlay(overlay);
 
-    content.innerHTML = '<b>' + this.attraction.name + '</b><br />' + this.longitude + ' N, ' + this.latitude + ' E';
+    content.innerHTML = '<b>' + this.attraction.name + '</b>';
+    // <br />' + this.longitude + ' N, ' + this.latitude + ' E';
     overlay.setPosition(ol.proj.fromLonLat([this.longitude, this.latitude]));
 
     closer.onclick = function() {

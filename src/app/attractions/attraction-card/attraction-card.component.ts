@@ -12,6 +12,7 @@ import {map} from 'rxjs/operators';
 export class AttractionCardComponent implements OnInit {
   @Input() attraction: Attraction;
   fileUploads: any[];
+  isImage = false;
   attrCard = true;
 
   constructor(private router: Router,
@@ -34,6 +35,8 @@ export class AttractionCardComponent implements OnInit {
       )
     ).subscribe(fileUploads => {
       this.fileUploads = fileUploads;
+      console.log('img: ', this.isImage);
+      this.isImage = true;
     });
   }
 }

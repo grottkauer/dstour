@@ -43,6 +43,7 @@
 <!--        </div>-->
         <div id="demo2" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
+<!--            <img *ngIf="fileUploads.length===0" class="img-fluid" src="../../../assets/images/bg-main.jpg" alt="">-->
             <div *ngFor="let file of fileUploads">
               <div class="carousel-item active">
                 <app-details-upload [attrCard]="attrCard" [fileUpload]='file'></app-details-upload>

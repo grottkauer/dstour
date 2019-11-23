@@ -24,7 +24,7 @@ export class AttractionsComponent implements OnInit {
     'Budynki sakralne',
     'Przyrodnicze',
     'Obiekty techniki',
-    'Dwory i dworki',
+    'Muzea',
     'Pozostałe'
   ];
   attrs$: Observable<Attraction[]>;

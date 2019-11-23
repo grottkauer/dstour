@@ -169,72 +169,28 @@
             <div class="table-responsive">
               <table class="table">
                 <tbody>
-                <tr>
+                <tr *ngFor="let userAttr of attrUsers; index as index">
                   <td>
-                    <h5>1.</h5>
+                    <h5>{{index+1}}</h5>
                   </td>
                   <td>
-                    <h5>Jan Kowalski</h5>
+                    <h5>{{userAttr.userName}}</h5>
                   </td>
                   <td>
-                    <h5>99%</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>2.</h5>
-                  </td>
-                  <td>
-                    <h5>Jan Kowalski</h5>
-                  </td>
-                  <td>
-                    <h5>99%</h5>
+                    <h5>{{userAttr.points}}</h5>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <h5>3.</h5>
-                  </td>
-                  <td>
-                    <h5>Jan Kowalski</h5>
-                  </td>
-                  <td>
-                    <h5>99%</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>4.</h5>
-                  </td>
-                  <td>
-                    <h5>Jan Kowalski</h5>
-                  </td>
-                  <td>
-                    <h5>99%</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>5.</h5>
-                  </td>
-                  <td>
-                    <h5>Jan Kowalski</h5>
-                  </td>
-                  <td>
-                    <h5>99%</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5 class="font-weight-bold">11.</h5>
-                  </td>
-                  <td>
-                    <h5 class="font-weight-bold">Jan Kowalski</h5>
-                  </td>
-                  <td>
-                    <h5 class="font-weight-bold">99%</h5>
-                  </td>
-                </tr>
+<!--                <tr>-->
+<!--                  <td>-->
+<!--                    <h5 class="font-weight-bold">11.</h5>-->
+<!--                  </td>-->
+<!--                  <td>-->
+<!--                    <h5 class="font-weight-bold">Jan Kowalski</h5>-->
+<!--                  </td>-->
+<!--                  <td>-->
+<!--                    <h5 class="font-weight-bold">99%</h5>-->
+<!--                  </td>-->
+<!--                </tr>-->
                 </tbody>
               </table>
             </div>

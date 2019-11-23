@@ -17,6 +17,8 @@ import {RatedAttrService} from '../../core/services/rated-attr.service';
 import {Rated} from '../../models/rated';
 import {CheckedAttrService} from '../../core/services/checked-attr.service';
 import {CheckedAttr} from '../../models/checkedAttr';
+import {UserService} from '../../core/services/user.service';
+import {User} from '../../models/user';
 
 declare var ol: any;
 @Component({
@@ -54,6 +56,8 @@ export class AttractionDetailComponent implements OnInit {
   currentChecked: CheckedAttr;
   averageRate = 0;
   checkedGroups: number[] = new Array(5).fill(0);
+  attrUsers: any[] = [];
+  users: User[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -64,7 +68,8 @@ export class AttractionDetailComponent implements OnInit {
               private datePipe: DatePipe,
               private toast: MatSnackBar,
               private ratedService: RatedAttrService,
-              private checkedAttrService: CheckedAttrService) {
+              private checkedAttrService: CheckedAttrService,
+              private userService: UserService) {
     // this.attraction = data;
   }
 
@@ -302,7 +307,16 @@ export class AttractionDetailComponent implements OnInit {
             console.log('index: ', index);
             this.checkedGroups[index]++;
             console.log('checkedGroups: ', this.checkedGroups);
+            if (this.attrUsers.length < 5) {
+              this.attrUsers.push({
+                userRef: checkedAttraction.userRef,
+                points: checkedAttraction.points,
+                userName: checkedAttraction.login
+              });
+            }
+            console.log('atrch: ', this.attrUsers);
           }
+          this.attrUsers.sort((a, b) => (a.points > b.points) ? -1 : 1);
         });
     }
   }

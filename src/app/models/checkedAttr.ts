@@ -6,4 +6,5 @@ export interface CheckedAttr {
   key: string;
   userRef: string;
   tasksCount: number;
+  login: string;
 }

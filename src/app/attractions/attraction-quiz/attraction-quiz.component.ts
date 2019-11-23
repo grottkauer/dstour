@@ -137,7 +137,8 @@ export class AttractionQuizComponent implements OnInit {
       checkDate: this.myDate,
       points: Math.round(((correctAnswers / this.selectedAnswers.length) * 100) * 100) / 100,
       tasksCount: this.selectedAnswers.length,
-      userRef: this.user.key
+      userRef: this.user.key,
+      login: this.user.login
     };
     this.checkedAttrService.addCheckedAttr(this.checkedAttr);
     console.log(this.checkedAttr);

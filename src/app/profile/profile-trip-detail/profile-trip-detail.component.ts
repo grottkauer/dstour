@@ -36,6 +36,7 @@ export class ProfileTripDetailComponent implements OnInit {
     this.tripService.getTrip(key)
       .subscribe(trip => {
         this.trip = trip;
+        console.log(this.trip.tripAttr);
         // sessionStorage.setItem('currentAttr', JSON.stringify(attraction));
       });
   }

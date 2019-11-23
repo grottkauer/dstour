@@ -3,7 +3,7 @@
 <!-- Sidebar -->
     <app-sidebar-attr (test)="getAttrType($event)"></app-sidebar-attr>
 <!---->
-    <div class="col-md-10 offset-md-2">
+    <div class="col-md-10 offset-md-2 offset-1">
       <div class="container shadow-lg pb-2">
 <!-- Categories -->
         <h2 class="text-center">Poznaj nasze atrakcje</h2>
@@ -18,21 +18,6 @@
 <!--              <div class="search-hero w-100">-->
 <!--                <input class="form-control w-100" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Wyszukaj atrakcję po nazwie">-->
 <!--              </div>-->
-              <div class="row p-3 justify-content-center">
-                <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
-                  <app-attraction-card [attraction]="attraction"></app-attraction-card>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div *ngIf="showAttrType==1" id="events" class="col-md-12">
-
-            <div class="attractions-container shadow">
-              <div class="category-header shadow mb-5">
-                <h3 class="pl-3">Wydarzenia</h3>
-              </div>
               <div class="row p-3 justify-content-center">
                 <div class="col-lg-4 col-sm-6 row justify-content-center p-2" *ngFor="let attraction of attrs$ | async | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
                   <app-attraction-card [attraction]="attraction"></app-attraction-card>

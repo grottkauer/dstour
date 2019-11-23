@@ -98,3 +98,19 @@ body {
 .nav-item {
   cursor: pointer;
 }
+
+.display-phone {
+  display: none;
+}
+
+@media screen and (max-width: 575px) {
+  .display-phone {
+    display: block;
+  }
+  .undertext {
+    font-size: 10px;
+  }
+  .sidebar .small-padding {
+    padding: .5rem 1rem;
+  }
+}

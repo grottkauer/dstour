@@ -1,52 +1,72 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<nav class="col-md-2 col-2 bg-light sidebar">
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==0}" (click)="showType(0)">
-          <span data-feather="home"></span>
-          Zamki i pałace <span class="sr-only">(current)</span>
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==0}" (click)="showType(0)">
+            <span data-feather="home"></span>
+            <mat-icon class="display-phone">landscape</mat-icon>
+            <div class="d-none d-md-block">
+              Zamki i pałace <span class="sr-only">(current)</span>
+            </div>
+            <div class="display-phone undertext">Zamki</div>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==1}" (click)="showType(1)">
-          <span data-feather="file"></span>
-          Wydarzenia
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==2}" (click)="showType(2)">
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==2}" (click)="showType(2)">
           <span data-feather="shopping-cart"></span>
-          Miejsca historyczne
+          <mat-icon class="display-phone">history</mat-icon>
+          <div class="d-none d-md-block">
+            Miejsca historyczne
+          </div>
+          <div class="display-phone undertext">Historyczne</div>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==3}" (click)="showType(3)">
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==3}" (click)="showType(3)">
           <span data-feather="users"></span>
-          Budynki sakralne
+          <mat-icon class="display-phone">add</mat-icon>
+          <div class="d-none d-md-block">
+            Budynki sakralne
+          </div>
+          <div class="display-phone undertext">Sakralne</div>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==4}" (click)="showType(4)">
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==4}" (click)="showType(4)">
           <span data-feather="bar-chart-2"></span>
-          Przyrodnicze
+          <mat-icon class="display-phone">nature</mat-icon>
+          <div class="d-none d-md-block">
+            Przyrodnicze
+          </div>
+          <div class="display-phone undertext">Natura</div>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==5}" (click)="showType(5)">
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==5}" (click)="showType(5)">
           <span data-feather="layers"></span>
-          Obiekty techniki
+          <mat-icon class="display-phone">gavel</mat-icon>
+          <div class="d-none d-md-block">
+            Obiekty techniki
+          </div>
+          <div class="display-phone undertext">Technika</div>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==6}" (click)="showType(6)">
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==6}" (click)="showType(6)">
           <span data-feather="layers"></span>
-          Muzea
+          <mat-icon class="display-phone">museum</mat-icon>
+          <div class="undertext">
+            Muzea
+          </div>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [ngClass]="{active: showAttrType==7}" (click)="showType(7)">
+        <a class="nav-link small-padding" [ngClass]="{active: showAttrType==7}" (click)="showType(7)">
           <span data-feather="layers"></span>
-          Pozostałe
+          <mat-icon class="display-phone">devices_other</mat-icon>
+          <div class="undertext">
+            Pozostałe
+          </div>
         </a>
       </li>
     </ul>

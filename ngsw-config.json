@@ -28,7 +28,7 @@
   ],
   "dataGroups": [
     {
-      "name": "budget-api",
+      "name": "ds-tour",
       "urls": [
         "https://ds-tour.herokuapp.com"
       ],

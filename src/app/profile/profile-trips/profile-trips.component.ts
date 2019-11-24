@@ -55,7 +55,7 @@ export class ProfileTripsComponent implements OnInit {
     this.attrService.getAttractions().subscribe(val => this.attrs$ = val);
     this.myForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      tripDate: [''],
+      tripDate: '',
       travelAgency: [''],
       groupType: [''],
       wage: [''],

@@ -64,15 +64,11 @@ export class AttractionQuizComponent implements OnInit {
     // get text of answers
     this.getTextOfAnswers();
     console.log(this.selectedAnswers);
-    // this.question = this.selectedlanques[this.i].question;
-    // this.option = this.selectedlanques[this.i].anslistobj;
   }
   previous() {
     --this.i;
     this.selectedAnswers.pop();
     console.log(this.selectedAnswers);
-    // this.question = this.selectedlanques[this.i].question;
-    // this.option = this.selectedlanques[this.i].anslistobj;
   }
 
   radioChangeHandler(event: any, task: Task) {

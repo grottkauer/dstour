@@ -301,7 +301,6 @@ export class AttractionDetailComponent implements OnInit {
       let index: number;
       this.checkedAttrService.getCheckedAttrByAttr(this.attraction.key)
         .subscribe(val => {
-          this.checkedGroups = new Array(5).fill(0);
           for (let i = 0; i < val.length; i++) {
             checkedAttraction = val[i];
             index = this.getGroupByValue(checkedAttraction.points);

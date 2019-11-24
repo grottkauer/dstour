@@ -60,14 +60,18 @@
         </mat-form-field>
       </div>
       <div class="col-md-6">
-        <mat-form-field class="w-100">
-          <input matInput placeholder="Godzina przybycia" formControlName="startHour" required>
-        </mat-form-field>
+        <label>Godzina przybycia</label>
+        <ngb-timepicker formControlName="startHour" required></ngb-timepicker>
+<!--        <mat-form-field class="w-100">-->
+<!--          <input matInput placeholder="Godzina przybycia" formControlName="startHour" required>-->
+<!--        </mat-form-field>-->
       </div>
       <div class="col-md-6">
-        <mat-form-field class="w-100">
-          <input matInput placeholder="Godzina zakończenia" formControlName="endHour" required>
-        </mat-form-field>
+        <label>Godzina zakończenia</label>
+        <ngb-timepicker formControlName="endHour" required></ngb-timepicker>
+<!--        <mat-form-field class="w-100">-->
+<!--          <input matInput placeholder="Godzina zakończenia" formControlName="endHour" required>-->
+<!--        </mat-form-field>-->
       </div>
     </div>
   </div>

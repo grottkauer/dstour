@@ -5,7 +5,7 @@
         Czas przybycia:
       </div>
       <div class="col-lg-5 text-right">
-        {{tripAttr?.startHour}}
+        {{tripAttr?.startHour.hour}} : {{tripAttr?.startHour.minute}}
       </div>
     </div>
     <div class="row">
@@ -13,7 +13,7 @@
         Czas zakończenia:
       </div>
       <div class="col-lg-5 text-right">
-        {{tripAttr?.endHour}}
+        {{tripAttr?.endHour.hour}} : {{tripAttr?.endHour.minute}}
       </div>
     </div>
   </div>

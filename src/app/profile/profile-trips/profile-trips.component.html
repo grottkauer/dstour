@@ -18,7 +18,8 @@
     <tbody>
     <tr *ngFor="let trip of trips | async | filter:searchText">
       <td>{{trip?.name}}</td>
-      <td>{{trip?.tripDate.substring(0,10)}}</td>
+      <td *ngIf="trip?.tripDate != null">{{trip?.tripDate.substring(0,10)}}</td>
+      <td *ngIf="trip?.tripDate == null">{{trip?.tripDate}}</td>
       <td>
         <button mat-button (click)="goToDetail(trip)">
           <mat-icon>details</mat-icon>
@@ -103,14 +104,18 @@
         </mat-form-field>
       </div>
       <div class="col-md-3">
-        <mat-form-field class="w-100">
-          <input matInput placeholder="Godzina przybycia" formControlName="startHour" required>
-        </mat-form-field>
+<!--        <mat-form-field class="w-100">-->
+        <label>Godzina przybycia</label>
+          <ngb-timepicker formControlName="startHour" required></ngb-timepicker>
+<!--          <input matInput placeholder="Godzina przybycia" formControlName="startHour" required>-->
+<!--        </mat-form-field>-->
       </div>
       <div class="col-md-3">
-        <mat-form-field class="w-100">
-          <input matInput placeholder="Godzina zakończenia" formControlName="endHour" required>
-        </mat-form-field>
+<!--        <mat-form-field class="w-100">-->
+        <label>Godzina zakończenia</label>
+          <ngb-timepicker formControlName="endHour" required></ngb-timepicker>
+<!--          <input matInput placeholder="Godzina zakończenia" formControlName="endHour" required>-->
+<!--        </mat-form-field>-->
       </div>
       <div class="col-md-3">
         <mat-form-field class="w-100">

@@ -301,6 +301,7 @@ export class AttractionDetailComponent implements OnInit {
       let index: number;
       this.checkedAttrService.getCheckedAttrByAttr(this.attraction.key)
         .subscribe(val => {
+          this.checkedGroups = new Array(5).fill(0);
           for (let i = 0; i < val.length; i++) {
             checkedAttraction = val[i];
             index = this.getGroupByValue(checkedAttraction.points);
@@ -337,13 +338,15 @@ export class AttractionDetailComponent implements OnInit {
 
   private getAverageRating() {
     if (this.user != null) {
+      this.averageRate = 0;
       let ratedAttraction: Rated;
-      let sumRates = 0;
       this.ratedService.getRatedByAttraction(this.attraction.key)
         .subscribe(val => {
+          let sumRates = 0;
           for (let i = 0; i < val.length; i++) {
             ratedAttraction = val[i];
             sumRates += +ratedAttraction.rate;
+            console.log('rated: ', ratedAttraction.rate);
           }
           console.log(sumRates);
           if (val.length > 0) {

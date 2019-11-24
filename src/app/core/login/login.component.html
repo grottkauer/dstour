@@ -15,10 +15,11 @@
       </button>
       <mat-error>Hasło jest wymagane</mat-error>
     </mat-form-field>
+    <mat-error *ngIf="credentials.password.length < 6 && credentials.password.length > 0">Hasło jest zbyt krótkie</mat-error>
     <mat-error *ngIf="wrongPassword==='true'">Niepoprawny login lub hasło</mat-error>
     <button mat-raised-button class="btn-login" (click)="login()">ZALOGUJ</button>
     <p>Nie masz konta?</p>
-    <button mat-raised-button class="btn-register" (click)="register()">ZAREJESTRUJ</button>
+    <button mat-raised-button class="btn-register" [disabled]="credentials.password.length < 6" (click)="register()">ZAREJESTRUJ</button>
   </div>
 </div>
 

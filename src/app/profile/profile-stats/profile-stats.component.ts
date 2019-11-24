@@ -70,6 +70,8 @@ export class ProfileStatsComponent implements OnInit {
           // get chart
           this.loadChart();
         }
+        this.sumPoints = Math.round(this.sumPoints * 100) / 100;
+        this.sumPointsByMonth = Math.round(this.sumPoints * 100) / 100;
       });
   }
 

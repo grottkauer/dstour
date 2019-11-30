@@ -11,11 +11,13 @@
             <label>Imię</label>
             <input *ngIf="isEditable==0" name="firstName" type="text" class="form-control" disabled [value]="user.firstName">
             <input *ngIf="isEditable==1" [value]="user.firstName" formControlName="firstName" name="firstName" type="text" class="form-control">
+            <mat-error *ngIf="myForm.get('email').hasError('pattern')">Imię ma zły format</mat-error>
           </div>
           <div class="col-sm-6 form-group text-left">
             <label>Nazwisko</label>
             <input *ngIf="isEditable==0" name="lastName" type="text" class="form-control" disabled [value]="user.lastName">
             <input *ngIf="isEditable==1" [value]="user.lastName" formControlName="lastName" name="lastName" type="text" class="form-control">
+            <mat-error *ngIf="myForm.get('email').hasError('pattern')">Nazwisko ma zły format</mat-error>
           </div>
         </div>
         <div class="row">
@@ -29,7 +31,7 @@
         <div class="row">
           <div class="col-sm-12 form-group text-left">
             <label>Rola</label>
-            <input id="demo" type="text" class="form-control" disabled value="Podróżnik">
+            <input id="demo" type="text" class="form-control" disabled [value]="user.role">
           </div>
         </div>
         <div class="row">

@@ -9,7 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SidebarAttrComponent } from './sidebar-attr/sidebar-attr.component';
 import { SidebarProfileComponent } from './sidebar-profile/sidebar-profile.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
@@ -27,7 +27,8 @@ import {BotDetectCaptchaModule} from 'angular-captcha';
     MaterialModule,
     RouterModule,
     FormsModule,
-    BotDetectCaptchaModule
+    BotDetectCaptchaModule,
+    ReactiveFormsModule
   ],
   exports: [DashboardComponent, LoginComponent, NavbarComponent, FooterComponent, SidebarAttrComponent, SidebarProfileComponent, FormUploadComponent, ListuploadComponent, DetailsUploadComponent]
 })

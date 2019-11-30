@@ -7,6 +7,7 @@ import {UserService} from '../../core/services/user.service';
 import {Observable} from 'rxjs';
 import {RatedAttrService} from '../../core/services/rated-attr.service';
 import {Favorite} from '../../models/favorite';
+import {ProfileRatedRemoveComponent} from '../profile-rated-remove/profile-rated-remove.component';
 
 @Component({
   selector: 'app-profile-rated-attr',
@@ -22,8 +23,7 @@ export class ProfileRatedAttrComponent implements OnInit {
   rating: Observable<Rated[]>;
 
   constructor(private dialog: MatDialog,
-              private ratedService: RatedAttrService,
-              private toast: MatSnackBar) { }
+              private ratedService: RatedAttrService) { }
 
   ngOnInit() {
     this.rated = this.user.ratedAttr;
@@ -35,17 +35,9 @@ export class ProfileRatedAttrComponent implements OnInit {
     this.dialog.open(ProfileRatedAttrEditComponent);
   }
 
-  removeRate(rat: Rated) {
-    this.ratedService.removeRate(rat.key)
-      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));
-  }
-
-  private onRemoveSuccess() {
-    this.toast.open('Usunięto ocenę atrakcji pomyślnie', '', {panelClass: 'toast-success'});
-  }
-
-  private onFailure(error) {
-    this.toast.open(error.message, '', {panelClass: 'toast-error'});
+  openRemoveRateModal(rate: Rated) {
+    sessionStorage.setItem('attrRate', JSON.stringify(rate));
+    this.dialog.open(ProfileRatedRemoveComponent);
   }
 
 }

@@ -16,7 +16,6 @@ export class ProfileRatedAttrEditComponent implements OnInit {
   rate = JSON.parse(sessionStorage.getItem('attrRate'));
 
   constructor(private ratedService: RatedAttrService,
-              private router: Router,
               private toast: MatSnackBar,
               private dialogRef: MatDialogRef<ProfileRatedAttrEditComponent>) { }
 
@@ -35,11 +34,6 @@ export class ProfileRatedAttrEditComponent implements OnInit {
   private onEditSuccess() {
     this.dialogRef.close();
     this.toast.open('Edytowano ocenę pomyślnie', '', {panelClass: 'toast-success'});
-  }
-
-  private onRemoveSuccess() {
-    this.router.navigate(['/dashboard']);
-    this.toast.open('Flight has been successfully removed', '', {panelClass: 'toast-success'});
   }
 
   private onFailure(error) {

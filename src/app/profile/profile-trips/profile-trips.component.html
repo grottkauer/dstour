@@ -29,7 +29,7 @@
           <mat-icon>edit</mat-icon>
           Edytuj
         </button>
-        <button mat-button (click)="removeTrip(trip)">
+        <button mat-button (click)="openRemoveTripModal(trip)">
           <mat-icon>delete</mat-icon>
           Usuń
         </button>
@@ -79,12 +79,12 @@
     </div>
     <div class="col-md-3">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Zarobek" formControlName="wage" type="money">
+        <input matInput placeholder="Zarobek" formControlName="wage" type="number">
       </mat-form-field>
     </div>
     <div class="col-md-3">
       <mat-form-field class="w-100">
-        <input matInput placeholder="Liczba uczestników" formControlName="groupCount">
+        <input matInput placeholder="Liczba uczestników" formControlName="groupCount" type="number">
       </mat-form-field>
     </div>
   </div>

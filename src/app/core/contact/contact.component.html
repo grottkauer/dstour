@@ -10,39 +10,43 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+        <form [formGroup]="myForm" id="contactForm">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <input [(ngModel)]="name" name="name" class="form-control" id="name" type="text" placeholder="Twoje imię *"
+                <input [(ngModel)]="name" formControlName="name" name="name" class="form-control" id="name" type="text" placeholder="Twoje imię *"
                        required="required" data-validation-required-message="Proszę podać swoje imię.">
                 <p class="help-block text-danger"></p>
+<!--                <mat-error *ngIf="myForm.get('name').hasError('required')">Brak podanego imienia</mat-error>-->
               </div>
               <div class="form-group">
-                <input [(ngModel)]="email" name="email" class="form-control" id="email" type="email" placeholder="Twój e-mail *"
+                <input [(ngModel)]="email" formControlName="email" name="email" class="form-control" id="email" type="email" placeholder="Twój e-mail *"
                        required="required"
                        data-validation-required-message="Proszę podać swój adres e-mail.">
                 <p class="help-block text-danger"></p>
+<!--                <mat-error *ngIf="myForm.get('email').hasError('required')">Brak podanego adresu email</mat-error>-->
               </div>
               <div class="form-group">
-                <input [(ngModel)]="phone" name="phone" class="form-control" id="phone" type="tel" placeholder="Twój numer telefonu *"
+                <input [(ngModel)]="phone" formControlName="phone" name="phone" class="form-control" id="phone" type="tel" placeholder="Twój numer telefonu *"
                        required="required"
                        data-validation-required-message="Proszę podać swój numer telefonu.">
                 <p class="help-block text-danger"></p>
+<!--                <mat-error *ngIf="myForm.get('phone').hasError('required')">Brak podanego numeru telefonu</mat-error>-->
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                                <textarea [(ngModel)]="message" name="message" class="form-control" id="message" placeholder="Twoja wiadomość *"
+                                <textarea [(ngModel)]="message" formControlName="message" name="message" class="form-control" id="message" placeholder="Twoja wiadomość *"
                                           required="required"
                                           data-validation-required-message="Proszę podać swoją wiadomość."></textarea>
                 <p class="help-block text-danger"></p>
+<!--                <mat-error *ngIf="myForm.get('message').hasError('required')">Brak podanej wiadomości</mat-error>-->
               </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
               <div id="success"></div>
-              <button (click)="sendMessage()" id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
+              <button [disabled]="myForm.invalid" (click)="sendMessage()" id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
                 Wyślij
               </button>
             </div>

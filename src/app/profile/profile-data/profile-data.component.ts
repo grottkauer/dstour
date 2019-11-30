@@ -28,8 +28,8 @@ export class ProfileDataComponent implements OnInit {
 
   private buildForm() {
     this.myForm = this.formBuilder.group({
-      firstName: this.user.firstName,
-      lastName: this.user.lastName,
+      firstName: [this.user.firstName, Validators.pattern('^([^0-9]*)$')],
+      lastName: [this.user.lastName, Validators.pattern('^([^0-9]*)$')],
       email: [this.user.email, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]
     });
   }

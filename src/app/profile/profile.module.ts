@@ -26,6 +26,9 @@ import { ProfileRatedAttrEditComponent } from './profile-rated-attr-edit/profile
 import { ProfileNewGuidesComponent } from './profile-new-guides/profile-new-guides.component';
 import {NgbDatepickerModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import { ProfileTripRemoveComponent } from './profile-trip-remove/profile-trip-remove.component';
+import { ProfileRatedRemoveComponent } from './profile-rated-remove/profile-rated-remove.component';
+import { ProfileFavoritesRemoveComponent } from './profile-favorites-remove/profile-favorites-remove.component';
 
 
 
@@ -49,7 +52,10 @@ import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
     ProfileTripEditComponent,
     ProfileRatedAttrFormComponent,
     ProfileRatedAttrEditComponent,
-    ProfileNewGuidesComponent
+    ProfileNewGuidesComponent,
+    ProfileTripRemoveComponent,
+    ProfileRatedRemoveComponent,
+    ProfileFavoritesRemoveComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +73,10 @@ import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
   entryComponents: [
     ProfileTripEditComponent,
     ProfileRatedAttrEditComponent,
-    ProfileCheckedAttrDetailComponent
+    ProfileCheckedAttrDetailComponent,
+    ProfileTripRemoveComponent,
+    ProfileFavoritesRemoveComponent,
+    ProfileRatedRemoveComponent
   ],
   exports: [ProfileComponent],
   providers: [

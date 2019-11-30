@@ -4,7 +4,10 @@ import {Attraction} from '../../models/attraction';
 import {AttractionsService} from '../../core/services/attractions.service';
 import {FavoriteService} from '../../core/services/favorite.service';
 import {Observable} from 'rxjs';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
+import {Rated} from '../../models/rated';
+import {ProfileRatedRemoveComponent} from '../profile-rated-remove/profile-rated-remove.component';
+import {ProfileFavoritesRemoveComponent} from '../profile-favorites-remove/profile-favorites-remove.component';
 
 @Component({
   selector: 'app-profile-favorites',
@@ -22,7 +25,8 @@ export class ProfileFavoritesComponent implements OnInit {
 
   constructor(private attractionsService: AttractionsService,
               private favoriteService: FavoriteService,
-              private toast: MatSnackBar) { }
+              private toast: MatSnackBar,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     console.log(this.user.favorites);
@@ -48,17 +52,9 @@ export class ProfileFavoritesComponent implements OnInit {
       });*/
   }
 
-  removeFavorite(favorite: Favorite) {
-    this.favoriteService.removeFavorite(favorite.key)
-      .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this));
-  }
-
-  private onRemoveSuccess() {
-    this.toast.open('Usunięto z ulubionych pomyślnie', '', {panelClass: 'toast-success'});
-  }
-
-  private onFailure(error) {
-    this.toast.open(error.message, '', {panelClass: 'toast-error'});
+  openRemoveFavoriteModal(fav: Favorite) {
+    sessionStorage.setItem('currentFav', JSON.stringify(fav));
+    this.dialog.open(ProfileFavoritesRemoveComponent);
   }
 
 }

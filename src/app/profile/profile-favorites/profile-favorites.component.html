@@ -15,13 +15,13 @@
         <th>Akcja</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="favs !== null">
       <tr *ngFor="let fav of favs | async | filter:searchText">
         <td>{{fav?.attrName}}</td>
         <td>{{fav?.attrCity}}</td>
         <td>{{fav?.addDate}}</td>
         <td>
-          <button mat-button (click)="removeFavorite(fav)">
+          <button mat-button (click)="openRemoveFavoriteModal(fav)">
             <mat-icon>delete</mat-icon>
             Usuń z ulubionych
           </button>

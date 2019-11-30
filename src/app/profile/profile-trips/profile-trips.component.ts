@@ -14,6 +14,7 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
+import {ProfileTripRemoveComponent} from '../profile-trip-remove/profile-trip-remove.component';
 
 @Component({
   selector: 'app-profile-trips',
@@ -100,16 +101,18 @@ export class ProfileTripsComponent implements OnInit {
     this.dialog.open(ProfileTripEditComponent);
   }
 
+  openRemoveTripModal(trip: Trip) {
+    sessionStorage.setItem('currentTrip', JSON.stringify(trip));
+    this.dialog.open(ProfileTripRemoveComponent);
+  }
+
   createTrip() {
     console.log(this.myForm.value);
     this.tripService.addTrip(this.myForm.value)
       .then(this.onAddTripSuccess.bind(this), this.onFailure.bind(this));
   }
 
-  removeTrip(trip: Trip) {
-    this.tripService.removeTrip(trip.key)
-      .then(this.onRemoveTripSuccess.bind(this), this.onFailure.bind(this));
-  }
+
 
   private onAddTripSuccess() {
     this.toast.open('Dodano wycieczkę pomyślnie', '', {panelClass: 'toast-success'});

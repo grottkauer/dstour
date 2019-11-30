@@ -307,16 +307,17 @@ export class AttractionDetailComponent implements OnInit {
             console.log('index: ', index);
             this.checkedGroups[index]++;
             console.log('checkedGroups: ', this.checkedGroups);
-            if (this.attrUsers.length < 5) {
+            // if (this.attrUsers.length < 5) {
               this.attrUsers.push({
                 userRef: checkedAttraction.userRef,
                 points: checkedAttraction.points,
                 userName: checkedAttraction.login
               });
-            }
+            // }
             console.log('atrch: ', this.attrUsers);
           }
           this.attrUsers.sort((a, b) => (a.points > b.points) ? -1 : 1);
+          this.attrUsers = this.attrUsers.slice(0, 5);
         });
     }
   }

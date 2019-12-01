@@ -55,19 +55,32 @@ export class AttractionQuizComponent implements OnInit {
     ++this.i;
     console.log(this.task);
     this.selectedAnswer = +this.selectedAnswer;
+    console.log(this.selectedAnswer);
+    let taskKey = '';
+    let answerCorrect = -2;
+    if (!this.task) {
+      taskKey = 'Brak pytania';
+      answerCorrect = -2;
+      this.selectedAnswer = -1;
+    } else {
+      taskKey = this.task.key;
+      answerCorrect = this.task.answerCorrect;
+    }
     this.selectedAnswers.push({
       answer: this.selectedAnswer,
       userRef: this.user.key,
-      taskRef: this.task.key,
-      correctAnswer: this.task.answerCorrect
+      taskRef: taskKey,
+      correctAnswer: answerCorrect
     });
     // get text of answers
-    this.getTextOfAnswers();
+    this.getTextOfAnswers(answerCorrect);
     console.log(this.selectedAnswers);
+    this.selectedAnswer = -1;
   }
   previous() {
     --this.i;
     this.selectedAnswers.pop();
+    this.testResult.pop();
     console.log(this.selectedAnswers);
   }
 
@@ -77,17 +90,21 @@ export class AttractionQuizComponent implements OnInit {
     this.selectedAnswer = event.target.value;
   }
 
-  private getTextOfAnswers() {
+  private getTextOfAnswers(answerCorrect: number) {
     let correctAnswerText: string;
     let answerText: string;
-    if (this.task.answerCorrect === 1) {
+    let quest = '';
+    if (answerCorrect === 1) {
       correctAnswerText = this.task.answer1;
-    } else if (this.task.answerCorrect === 2) {
+    } else if (answerCorrect === 2) {
       correctAnswerText = this.task.answer2;
-    } else if (this.task.answerCorrect === 3) {
+    } else if (answerCorrect === 3) {
       correctAnswerText = this.task.answer3;
-    } else {
+    } else if (answerCorrect === 4) {
       correctAnswerText = this.task.answer4;
+    } else {
+      correctAnswerText = 'Brak odpowiedzi';
+      quest = 'Brak pytania';
     }
 
     if (this.selectedAnswer === 1) {
@@ -96,16 +113,28 @@ export class AttractionQuizComponent implements OnInit {
       answerText = this.task.answer2;
     } else if (this.selectedAnswer === 3) {
       answerText = this.task.answer3;
-    } else {
+    } else if (this.selectedAnswer === 4) {
       answerText = this.task.answer4;
+    } else {
+      answerText = 'Brak odpowiedzi';
     }
-    this.testResult.push({
-      answer: this.selectedAnswer,
-      correctAnswer: this.task.answerCorrect,
-      question: this.task.question,
-      correctText: correctAnswerText,
-      answerUserText: answerText
-    });
+    if (quest !== '') {
+      this.testResult.push({
+        answer: this.selectedAnswer,
+        correctAnswer: answerCorrect,
+        question: quest,
+        correctText: correctAnswerText,
+        answerUserText: answerText
+      });
+    } else {
+      this.testResult.push({
+        answer: this.selectedAnswer,
+        correctAnswer: answerCorrect,
+        question: this.task.question,
+        correctText: correctAnswerText,
+        answerUserText: answerText
+      });
+    }
   }
 
   generatemark() {
@@ -118,7 +147,7 @@ export class AttractionQuizComponent implements OnInit {
     });
     console.log(this.selectedAnswers);
     // get text of answers
-    this.getTextOfAnswers();
+    this.getTextOfAnswers(this.task.answerCorrect);
 
     let correctAnswers = 0;
     for (let i = 0; i < this.selectedAnswers.length; i++) {

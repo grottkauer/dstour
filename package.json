@@ -35,7 +35,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.2",
     "@syncfusion/ej2-angular-charts": "^17.3.20",
     "angular-captcha": "^3.7.4",
-    "chart.js": "^2.9.0",
+    "chart.js": "^2.9.4",
     "express": "^4.17.1",
     "firebase": "^6.6.2",
     "hammerjs": "^2.0.8",
